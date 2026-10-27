@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "riceflow"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["pydantic==2.12.3", "PyYAML==6.0.3", "pysam==0.23.3", "pyarrow==22.0.0", "Jinja2==3.1.6", "plotly==6.3.1"]
+[project.scripts]
+riceflow = "riceflow.cli:main"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+[tool.ruff]
+line-length = 110

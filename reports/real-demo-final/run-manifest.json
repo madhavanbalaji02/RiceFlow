@@ -1,0 +1,119 @@
+{
+  "attempts": [],
+  "code": {
+    "conf/aws.config": "109edb4b9c9910d7f7bebc94eef84de0dc0a98569493b44bd681e3517de7224f",
+    "modules/cohort.nf": "4030bed22749242941369b77ca4e171e3932052e56fe8f540906997b5d7f8b91",
+    "modules/vcf.nf": "3db4a8672531c4bf4e8142953bbcbe094814eca82c8818ac0d0c7c6930f8cece",
+    "nextflow.config": "3a18950e62d92b0ae908e555bbf44b1386090f23b5285e59905c436b8651a146",
+    "src/riceflow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/riceflow/cli.py": "8ae4535a343bcb07f83927b643f87c251000e8e277cd12dc408fa81db50eed9e",
+    "src/riceflow/cohort.py": "932f9a5bff944029f810e77200979181b8ede6365c1df518ed4504b7f73f304f",
+    "src/riceflow/common.py": "13c89328c9f1cd3e69c0cae5520a8dfa9735c7d09ada59b21a5f7c14e82013f5",
+    "src/riceflow/network.py": "15b9402c1c3ace8583eb1b70c421c903183acfc918eb8ab011b29c4a3083c22b",
+    "src/riceflow/preflight.py": "0bae33f376de6f1f9ac795e1cd52724749be4c87c6edc02ffdb4b741b5d1a33e",
+    "src/riceflow/report.py": "10cb788c0cf9a131c4058c2f032dd65ac4eafa8d14fa6c9aebc11b8a91570d58",
+    "src/riceflow/vcf.py": "df144d80c0df156e9694c2b04536f21c183a68ef5eafae3b65921950784e1eaa",
+    "workflows/main.nf": "417813bee9167380158bfc72e547b0113a856a536b371304b846291892ef583f"
+  },
+  "config": {
+    "chrom": 1,
+    "cohort": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core",
+    "end": 1000000,
+    "expected_sample": "B001",
+    "policy": {
+      "min_dp": 5,
+      "min_gq": null,
+      "min_maf": 0.0,
+      "missing_quality": "not_assessed",
+      "sample_call_rate": 0.8,
+      "site_call_rate": 0.9
+    },
+    "reference": null,
+    "sample_count": 24,
+    "source_manifest": "data/real/source-manifest.json",
+    "start": 1,
+    "track_label": "REAL_COHORT_VCF_BLOCKED",
+    "vcf": null
+  },
+  "elapsed_seconds": 4.216280124965124,
+  "ended": "2026-10-27T18:10:52.064480+00:00",
+  "error": null,
+  "fingerprint": "005d805f11991058ab50474c0f9ca925d73c1a7ab5f2e528bd964c0ffcfd1420",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "status": "not a Git repository"
+  },
+  "image": "NATIVE_NO_IMAGE",
+  "inputs": {
+    "cohort.bed": "5539f718639f2579a0f6cbe88f624ff754f24d13a78cc118124207739fdc7fc0",
+    "cohort.bim": "c487fe53c9ad9445611a1f0fa601136ad389eafc28360eed694cec65adcaeec8",
+    "cohort.fam": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a"
+  },
+  "label": "REAL_COHORT_VCF_BLOCKED",
+  "metric_definitions": "docs/DATA_DICTIONARY.md",
+  "returncode": 0,
+  "run_id": "20261027T181047Z-d5feb1b3",
+  "source_manifest": "data/real/source-manifest.json",
+  "started": "2026-10-27T18:10:47.847481+00:00",
+  "status": "INCOMPLETE",
+  "tasks": [
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "39ms",
+      "exit": "0",
+      "hash": "77/2db9e0",
+      "name": "VCF_BLOCKED",
+      "native_id": "71514",
+      "peak_rss": "-",
+      "realtime": "0ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:10:49.374",
+      "task_id": "1"
+    },
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "1.5s",
+      "exit": "0",
+      "hash": "13/2e816d",
+      "name": "COHORT_QC",
+      "native_id": "71516",
+      "peak_rss": "-",
+      "realtime": "1s",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:10:49.380",
+      "task_id": "2"
+    },
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "41ms",
+      "exit": "0",
+      "hash": "4d/edb014",
+      "name": "COLLECT",
+      "native_id": "71660",
+      "peak_rss": "-",
+      "realtime": "0ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:10:50.882",
+      "task_id": "3"
+    }
+  ],
+  "tools": {
+    "Jinja2": "3.1.6",
+    "PyYAML": "6.0.3",
+    "bcftools": "bcftools 1.21 (pysam bundled dispatcher; native development adapter)",
+    "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment Homebrew (build 17.0.20+0)\nOpenJDK 64-Bit Server VM Homebrew (build 17.0.20+0, mixed mode, sharing)",
+    "nextflow": "N E X T F L O W\n      version 25.10.2 build 10555\n      created 28-11-2025 19:24 UTC (14:24 EDT)\n      cite doi:10.1038/nbt.3820\n      http://nextflow.io",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "plink2": "PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)",
+    "plotly": "6.3.1",
+    "pyarrow": "22.0.0",
+    "pydantic": "2.12.3",
+    "pysam": "0.23.3",
+    "python": "3.11.14 (main, Dec  5 2025, 21:28:33) [Clang 21.1.4 ]",
+    "samtools": "samtools 1.21 (pysam bundled dispatcher)"
+  }
+}

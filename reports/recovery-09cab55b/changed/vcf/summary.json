@@ -1,0 +1,338 @@
+{
+  "after_sample_sites": [
+    {
+      "allele1_count": 1,
+      "allele1_frequency": 0.5,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:2:A:G",
+      "maf": 0.5,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:3:A:C",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:4:A:G",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:5:A:C",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:6:A:T",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": 0.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:8:A:G",
+      "maf": 0.0,
+      "samples": 1
+    },
+    {
+      "allele1_count": 2,
+      "allele1_frequency": 1.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:9:A:G",
+      "maf": 0.0,
+      "samples": 1
+    }
+  ],
+  "baseline_samples": [
+    {
+      "call_rate": 0.42857142857142855,
+      "complete": 3,
+      "heterozygosity": 0.3333333333333333,
+      "missing": 3,
+      "partial": 1,
+      "sample": "S1",
+      "sites": 7
+    }
+  ],
+  "baseline_sites": [
+    {
+      "allele1_count": 1,
+      "allele1_frequency": 0.5,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:2:A:G",
+      "maf": 0.5,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:3:A:C",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:4:A:G",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:5:A:C",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:6:A:T",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": 0.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:8:A:G",
+      "maf": 0.0,
+      "samples": 1
+    },
+    {
+      "allele1_count": 2,
+      "allele1_frequency": 1.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:9:A:G",
+      "maf": 0.0,
+      "samples": 1
+    }
+  ],
+  "excluded_samples": [],
+  "excluded_sites": [
+    {
+      "locus": "chr01:3:A:C",
+      "reason": "site_call_rate_or_maf_or_no_alleles"
+    },
+    {
+      "locus": "chr01:4:A:G",
+      "reason": "site_call_rate_or_maf_or_no_alleles"
+    },
+    {
+      "locus": "chr01:5:A:C",
+      "reason": "site_call_rate_or_maf_or_no_alleles"
+    },
+    {
+      "locus": "chr01:6:A:T",
+      "reason": "site_call_rate_or_maf_or_no_alleles"
+    }
+  ],
+  "final_samples": [
+    {
+      "call_rate": 1.0,
+      "complete": 3,
+      "heterozygosity": 0.3333333333333333,
+      "missing": 0,
+      "partial": 0,
+      "sample": "S1",
+      "sites": 3
+    }
+  ],
+  "final_sites": [
+    {
+      "allele1_count": 1,
+      "allele1_frequency": 0.5,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:2:A:G",
+      "maf": 0.5,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": 0.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:8:A:G",
+      "maf": 0.0,
+      "samples": 1
+    },
+    {
+      "allele1_count": 2,
+      "allele1_frequency": 1.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:9:A:G",
+      "maf": 0.0,
+      "samples": 1
+    }
+  ],
+  "interpretation": "Observed regional SNP records only; absent positions are unknown, never 0/0.",
+  "observed_biallelic_snp_sites": 7,
+  "observed_records": 9,
+  "original_samples": [
+    {
+      "call_rate": 0.7142857142857143,
+      "complete": 5,
+      "heterozygosity": 0.2,
+      "missing": 1,
+      "partial": 1,
+      "sample": "S1",
+      "sites": 7
+    }
+  ],
+  "original_sites": [
+    {
+      "allele1_count": 1,
+      "allele1_frequency": 0.5,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:2:A:G",
+      "maf": 0.5,
+      "samples": 1
+    },
+    {
+      "allele1_count": 2,
+      "allele1_frequency": 1.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:3:A:C",
+      "maf": 0.0,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": 0.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:4:A:G",
+      "maf": 0.0,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:5:A:C",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": null,
+      "allele_number": 0,
+      "call_rate": 0.0,
+      "complete": 0,
+      "locus": "chr01:6:A:T",
+      "maf": null,
+      "samples": 1
+    },
+    {
+      "allele1_count": 0,
+      "allele1_frequency": 0.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:8:A:G",
+      "maf": 0.0,
+      "samples": 1
+    },
+    {
+      "allele1_count": 2,
+      "allele1_frequency": 1.0,
+      "allele_number": 2,
+      "call_rate": 1.0,
+      "complete": 1,
+      "locus": "chr01:9:A:G",
+      "maf": 0.0,
+      "samples": 1
+    }
+  ],
+  "quality_counts": {
+    "failed": 1,
+    "not_assessed": 1,
+    "passed": 5,
+    "scope_exclusion": 2
+  },
+  "retained_sample_indices": [
+    0
+  ],
+  "retained_site_indices": [
+    0,
+    5,
+    6
+  ],
+  "scope_exclusions": 2,
+  "sensitivity": [
+    {
+      "min_dp": 0,
+      "retained_samples": 1,
+      "retained_sites": 4
+    },
+    {
+      "min_dp": 5,
+      "retained_samples": 1,
+      "retained_sites": 3
+    },
+    {
+      "min_dp": 10,
+      "retained_samples": 1,
+      "retained_sites": 3
+    }
+  ],
+  "status": "PASS"
+}

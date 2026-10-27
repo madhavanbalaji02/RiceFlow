@@ -1,0 +1,53 @@
+name: offline-fixtures
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17.0.20'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.5'
+      - run: make setup
+      - run: make test workflow-test recovery
+      - run: .venv/bin/ruff check src tests scripts
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.13.4'
+      - run: make cloud-validate
+      - run: terraform -chdir=infra/terraform fmt -check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-evidence
+          path: |
+            reports/
+            .nf-test/tests/*/meta/
+  container:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17.0.20'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.5'
+      - run: make setup container
+      - run: |
+          docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'
+          PATH="$PWD/.venv/bin:$PWD/.tools:$PATH" NXF_HOME="$PWD/.tools/nxf-home" riceflow run --profile docker
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: container-evidence
+          path: reports/
+# Tests use synthetic local inputs. Setup fetches pinned tools/dependencies only.
+# No real datasets, credentials, AWS provisioning, or hidden passing skip substitutes.

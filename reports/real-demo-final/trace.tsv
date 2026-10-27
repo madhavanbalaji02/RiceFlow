@@ -1,0 +1,4 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	attempt
+1	77/2db9e0	71514	VCF_BLOCKED	COMPLETED	0	2026-10-27 14:10:49.374	39ms	0ms	-	-	1
+2	13/2e816d	71516	COHORT_QC	COMPLETED	0	2026-10-27 14:10:49.380	1.5s	1s	-	-	1
+3	4d/edb014	71660	COLLECT	COMPLETED	0	2026-10-27 14:10:50.882	41ms	0ms	-	-	1

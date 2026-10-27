@@ -1,0 +1,181 @@
+{
+  "reference": {
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>",
+    "status": "BLOCKED",
+    "url": "https://rapdb.dna.affrc.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz"
+  },
+  "requests": [
+    {
+      "bytes": 16782,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 13:54:59 GMT",
+      "range": null,
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.fam.gz"
+    },
+    {
+      "bytes": 3171530,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 13:54:59 GMT",
+      "range": null,
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bim.gz"
+    },
+    {
+      "bytes": 117476185,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 13:54:59 GMT",
+      "range": null,
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bed.gz"
+    },
+    {
+      "bytes": 266,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 13:55:00 GMT",
+      "range": null,
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/readme_core_v0.7.txt"
+    },
+    {
+      "bytes": 1108,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 14:04:42 GMT",
+      "range": null,
+      "url": "https://3kricegenome.s3.amazonaws.com/README-rice-reference-genomes-used.txt"
+    },
+    {
+      "bytes": 339302,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 13:58:13 GMT",
+      "range": null,
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi"
+    },
+    {
+      "bytes": 262144,
+      "content_range": "bytes 0-262143/2187654873",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "range": "bytes=0-262143",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    },
+    {
+      "bytes": 153386,
+      "content_range": "bytes 0-153385/2187654873",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "range": "bytes=0-153385",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    }
+  ],
+  "source_processing": "CoreSNP already filtered and LD-pruned; downstream QC only",
+  "sources": [
+    {
+      "bytes": 16782,
+      "decompressed_sha256": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a",
+      "sha256": "ded6261e398e73e311ad8613dffbea8acc1b1a68f3066a9e072150577687ec00",
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.fam.gz"
+    },
+    {
+      "bytes": 3171530,
+      "decompressed_sha256": "c487fe53c9ad9445611a1f0fa601136ad389eafc28360eed694cec65adcaeec8",
+      "sha256": "ccdcc75790bcaba1bdb4b13c9b133bfa28a2966bbcde159ee62ff187e3526ee9",
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bim.gz"
+    },
+    {
+      "bytes": 117476185,
+      "decompressed_sha256": "5539f718639f2579a0f6cbe88f624ff754f24d13a78cc118124207739fdc7fc0",
+      "sha256": "bc0d092504d2b349c1714710501531b3434fb5c602f30ebf2f0c16c1f3754382",
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bed.gz"
+    },
+    {
+      "path": "cohort-readme.txt",
+      "sha256": "7d9f3b6ca9480f271bf07b59cee3c0007250a662a3d4509dc7b2f885a6f8c3c2"
+    },
+    {
+      "path": "reference-readme.txt",
+      "sha256": "f6f32b6571037c9ce8634f58e5bb69b3683947b0b2fea76f7e1b2633e13020b0"
+    }
+  ],
+  "status": "PARTIAL_BLOCKED",
+  "subset": {
+    "cohort": "lexicographically first 24 FID/IID; chr1:1-1000000",
+    "vcf": "B001 chr01:10000-11000, one-based inclusive"
+  },
+  "terms": {
+    "statement": "Toronto Statement; cite 3kRG and source publications; not a blanket software license",
+    "url": "https://registry.opendata.aws/3kricegenome/"
+  },
+  "tracks": {
+    "cohort": {
+      "bed_bytes": 305717331,
+      "chromosomes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "duplicate_variant_ids": 0,
+      "sample_ids_sha256": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a",
+      "samples": 3024,
+      "status": "VERIFIED",
+      "variants": 404388
+    },
+    "vcf": {
+      "chunks": 1,
+      "contigs": {
+        "chr01": 43270923,
+        "chr02": 35937250,
+        "chr03": 36413819,
+        "chr04": 35502694,
+        "chr05": 29958434,
+        "chr06": 31248787,
+        "chr07": 29697621,
+        "chr08": 28443022,
+        "chr09": 23012720,
+        "chr10": 23207287,
+        "chr11": 29021106,
+        "chr12": 27531856
+      },
+      "declared_formats": [
+        "AD",
+        "DP",
+        "GQ",
+        "GT",
+        "PL"
+      ],
+      "genotype_ploidies": [
+        2
+      ],
+      "index_sha256": "2cf5cb79192c9e6c6b66554d54c8b3cd7334e411818096db36032a683041fbb2",
+      "index_uncompressed_bytes": 729892,
+      "observed_formats": [
+        "GT:DP"
+      ],
+      "records": 1001,
+      "reference_records": 1001,
+      "samples": [
+        "B001"
+      ],
+      "sha256": "2dca0a108d96ad351e8befb0c061d6fc6ce16d19454bb86306699d0e7cdd0db7",
+      "snp_records": 0,
+      "source_full_sha256": null,
+      "source_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz",
+      "status": "REGION_RETRIEVED_REFERENCE_PENDING"
+    }
+  },
+  "transfer": {
+    "limits": {
+      "full": 524288000,
+      "regional": 16777216
+    },
+    "request_limit": 100,
+    "requests": 11,
+    "used_bytes": {
+      "full": 121005173,
+      "regional": 415530
+    }
+  }
+}

@@ -1,0 +1,13 @@
+python: 3.11.14
+java: 17.0.20
+nextflow: 25.10.2
+nf_test: 0.9.3
+plink2: 2.0.0-a.6.16-20250609
+bcftools: 1.21
+samtools: 1.21
+htslib: 1.21
+terraform: 1.13.4
+aws_provider: 6.19.0
+release_status: development; no ECR release published
+platform: linux/amd64
+native_development: macOS arm64 with compiled pysam BCFtools/SAMtools adapters

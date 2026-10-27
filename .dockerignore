@@ -1,0 +1,9 @@
+.venv
+.tools
+.git
+data
+reports
+work
+.nextflow*
+.nf-test
+infra

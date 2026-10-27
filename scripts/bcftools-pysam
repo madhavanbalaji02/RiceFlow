@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""Expose pysam's compiled BCFtools 1.21 on PATH for native fixture tests."""
+import sys
+from pathlib import Path
+import pysam.bcftools
+args = sys.argv[2:]
+if sys.argv[1:] == ['--version']:
+    print('bcftools 1.21 (pysam bundled dispatcher; native development adapter)')
+else:
+    output = None
+    if '-o' in args:
+        i = args.index('-o')
+        output = args[i + 1]
+        del args[i:i + 2]
+    result = getattr(pysam.bcftools, sys.argv[1])(*args)
+    if output:
+        Path(output).write_bytes(result if isinstance(result, bytes) else result.encode())
+    elif result:
+        print(result, end='')

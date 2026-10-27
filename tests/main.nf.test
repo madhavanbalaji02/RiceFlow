@@ -1,0 +1,18 @@
+nextflow_pipeline {
+    name 'RiceFlow two separate tracks'
+    script 'workflows/main.nf'
+    test('Synthetic end-to-end') {
+        when {
+            params {
+                config_json = "${projectDir}/.tools/nf-config.json"
+                policy = "${projectDir}/.tools/policy.json"
+                outdir = "${outputDir}/results"
+                inject_failure = false
+            }
+        }
+        then {
+            assert workflow.success
+            assert workflow.trace.tasks().size() == 3
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "chunks": 1,
+  "index_sha256": "2cf5cb79192c9e6c6b66554d54c8b3cd7334e411818096db36032a683041fbb2",
+  "index_uncompressed_bytes": 729892,
+  "nonreference_records": 1,
+  "observed_formats": [
+    "GT:AD:DP:GQ:PL",
+    "GT:DP"
+  ],
+  "reason": "Bounded additional interval to check reference and variant record semantics; not substituted into QC",
+  "records": 1001,
+  "reference_records": 1000,
+  "requests": [
+    {
+      "bytes": 339302,
+      "content_range": null,
+      "last_modified": "Tue, 10 Apr 2018 13:58:13 GMT",
+      "range": null,
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi"
+    },
+    {
+      "bytes": 262144,
+      "content_range": "bytes 0-262143/2187654873",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "range": "bytes=0-262143",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    },
+    {
+      "bytes": 161329,
+      "content_range": "bytes 5999473-6160801/2187654873",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "range": "bytes=5999473-6160801",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    }
+  ],
+  "sha256": "a2266610bc97198e79319ca35e052298c9c249abc98b62abb417edb6ba702b1c",
+  "used_bytes": {
+    "full": 339302,
+    "regional": 423473
+  }
+}

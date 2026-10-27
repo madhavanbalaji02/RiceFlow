@@ -1,0 +1,16 @@
+{
+  "deliverable-real-cohort": {
+    "checksums_verified": 48,
+    "embedded_charts": true,
+    "external_script_or_css": [],
+    "success_marker": false,
+    "visual_browser_check": "BLOCKED: no browser available"
+  },
+  "deliverable-synthetic": {
+    "checksums_verified": 75,
+    "embedded_charts": true,
+    "external_script_or_css": [],
+    "success_marker": true,
+    "visual_browser_check": "BLOCKED: no browser available"
+  }
+}

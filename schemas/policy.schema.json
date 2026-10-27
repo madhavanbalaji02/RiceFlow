@@ -1,0 +1,60 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "min_dp": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": 5,
+      "title": "Min Dp"
+    },
+    "min_gq": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Min Gq"
+    },
+    "min_maf": {
+      "default": 0,
+      "maximum": 0.5,
+      "minimum": 0,
+      "title": "Min Maf",
+      "type": "number"
+    },
+    "missing_quality": {
+      "default": "not_assessed",
+      "pattern": "^(not_assessed|fail|error)$",
+      "title": "Missing Quality",
+      "type": "string"
+    },
+    "sample_call_rate": {
+      "default": 0.8,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Sample Call Rate",
+      "type": "number"
+    },
+    "site_call_rate": {
+      "default": 0.9,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Site Call Rate",
+      "type": "number"
+    }
+  },
+  "title": "Policy",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+chrom: 1
+cohort: tests/fixtures/tiny
+end: 100
+expected_sample: S1
+policy:
+  min_dp: 6
+  min_gq: null
+  min_maf: 0
+  missing_quality: not_assessed
+  sample_call_rate: 0.4
+  site_call_rate: 0.9
+reference: tests/fixtures/reference.fa
+sample_count: 4
+start: 1
+track_label: SYNTHETIC
+vcf: tests/fixtures/tiny.vcf.gz

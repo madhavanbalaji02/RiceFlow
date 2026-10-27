@@ -1,0 +1,25 @@
+{
+  "chrom": 1,
+  "cohort": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core",
+  "end": 1000000,
+  "expected_sample": "B001",
+  "input_sha256": {
+    "cohort.bed": "5539f718639f2579a0f6cbe88f624ff754f24d13a78cc118124207739fdc7fc0",
+    "cohort.bim": "c487fe53c9ad9445611a1f0fa601136ad389eafc28360eed694cec65adcaeec8",
+    "cohort.fam": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a"
+  },
+  "policy": {
+    "min_dp": 5,
+    "min_gq": null,
+    "min_maf": 0.0,
+    "missing_quality": "not_assessed",
+    "sample_call_rate": 0.8,
+    "site_call_rate": 0.9
+  },
+  "reference": null,
+  "sample_count": 24,
+  "source_manifest": "data/real/source-manifest.json",
+  "start": 1,
+  "track_label": "REAL_COHORT_VCF_BLOCKED",
+  "vcf": null
+}

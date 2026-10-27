@@ -1,0 +1,167 @@
+{
+  "$defs": {
+    "Policy": {
+      "additionalProperties": false,
+      "properties": {
+        "min_dp": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 5,
+          "title": "Min Dp"
+        },
+        "min_gq": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min Gq"
+        },
+        "min_maf": {
+          "default": 0,
+          "maximum": 0.5,
+          "minimum": 0,
+          "title": "Min Maf",
+          "type": "number"
+        },
+        "missing_quality": {
+          "default": "not_assessed",
+          "pattern": "^(not_assessed|fail|error)$",
+          "title": "Missing Quality",
+          "type": "string"
+        },
+        "sample_call_rate": {
+          "default": 0.8,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Sample Call Rate",
+          "type": "number"
+        },
+        "site_call_rate": {
+          "default": 0.9,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Site Call Rate",
+          "type": "number"
+        }
+      },
+      "title": "Policy",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "chrom": {
+      "maximum": 12,
+      "minimum": 1,
+      "title": "Chrom",
+      "type": "integer"
+    },
+    "cohort": {
+      "title": "Cohort",
+      "type": "string"
+    },
+    "end": {
+      "minimum": 1,
+      "title": "End",
+      "type": "integer"
+    },
+    "expected_sample": {
+      "title": "Expected Sample",
+      "type": "string"
+    },
+    "input_sha256": {
+      "anyOf": [
+        {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Input Sha256"
+    },
+    "policy": {
+      "$ref": "#/$defs/Policy"
+    },
+    "reference": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference"
+    },
+    "sample_count": {
+      "maximum": 10000,
+      "minimum": 1,
+      "title": "Sample Count",
+      "type": "integer"
+    },
+    "source_manifest": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Manifest"
+    },
+    "start": {
+      "minimum": 1,
+      "title": "Start",
+      "type": "integer"
+    },
+    "track_label": {
+      "title": "Track Label",
+      "type": "string"
+    },
+    "vcf": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Vcf"
+    }
+  },
+  "required": [
+    "track_label",
+    "cohort",
+    "expected_sample",
+    "chrom",
+    "start",
+    "end",
+    "sample_count",
+    "policy"
+  ],
+  "title": "RunConfig",
+  "type": "object"
+}

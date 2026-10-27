@@ -1,0 +1,29 @@
+bash scripts/setup.sh
+Checked 16 packages in 22ms
+Resolved 1 package in 10ms
+   Building riceflow @ file:///Users/madhavanbalaji/Documents/project/RiceFlow
+      Built riceflow @ file:///Users/madhavanbalaji/Documents/project/RiceFlow
+Prepared 1 package in 163ms
+Uninstalled 1 package in 1ms
+Installed 1 package in 2ms
+ ~ riceflow==0.1.0 (from file:///Users/madhavanbalaji/Documents/project/RiceFlow)
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 42 36.8M   42 15.7M    0     0  27.9M      0  0:00:01 --:--:--  0:00:01 27.9M100 36.8M  100 36.8M    0     0  36.8M      0  0:00:01  0:00:01 --:--:-- 48.4M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 1821k  100 1821k    0     0  5068k      0 --:--:-- --:--:-- --:--:-- 5074k
+Archive:  .tools/plink.zip
+  inflating: .tools/plink2           
+  inflating: .tools/vcf_subset       
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 24.4M  100 24.4M    0     0  28.7M      0 --:--:-- --:--:-- --:--:-- 28.7M
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 27.5M  100 27.5M    0     0  33.3M      0 --:--:-- --:--:-- --:--:-- 33.3M
+Archive:  .tools/terraform.zip
+  inflating: .tools/LICENSE.txt      
+  inflating: .tools/terraform        

@@ -1,0 +1,33 @@
+{
+  "cloud_runs": 0,
+  "container_tests": 28,
+  "date": "2026-10-27",
+  "image": "sha256:fc6710d5b013cbec0e54454aa5855e1a72a0993af1d75facbacaa616ffeaabd9",
+  "image_source_matches_workspace": true,
+  "nf_test": 1,
+  "python_tests": 28,
+  "real_cohort": {
+    "path": "reports/deliverable-real-cohort",
+    "retained_loci": 824,
+    "samples": 24,
+    "seconds": 7.440785083046649,
+    "selected_loci": 969,
+    "status": "INCOMPLETE"
+  },
+  "real_vcf": "BLOCKED_AUTHORITATIVE_REFERENCE_TLS",
+  "recovery": {
+    "cached_tasks": 2,
+    "changed": "reports/recovery-09cab55b/changed",
+    "failed": "reports/recovery-09cab55b/failed",
+    "policy_change_cached_tasks": 0,
+    "resumed": "reports/recovery-09cab55b/resumed"
+  },
+  "ruff": "PASS",
+  "synthetic": {
+    "path": "reports/deliverable-synthetic",
+    "seconds": 5.595537832996342,
+    "status": "SUCCESS"
+  },
+  "terraform": "VALIDATE_PASS_NOT_DEPLOYED",
+  "visual_qa": "BLOCKED_NO_BROWSER"
+}

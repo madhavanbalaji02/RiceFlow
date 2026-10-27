@@ -1,0 +1,133 @@
+{
+  "attempts": [],
+  "code": {
+    "conf/aws.config": "fd2c0ac77801a8422e79fd98146a42d11e11e6d8b8622e6fc20dbb42e19b4bc0",
+    "modules/cohort.nf": "bdcc63fef22356dbda59e933f1a58ab6f13f930ded06ad25c67366d5b5c31984",
+    "modules/vcf.nf": "76f92214b3dcd962ed33d3acdb1ea0902bc91e7300515fce314a1a9ee1cd6320",
+    "nextflow.config": "3a18950e62d92b0ae908e555bbf44b1386090f23b5285e59905c436b8651a146",
+    "src/riceflow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/riceflow/cli.py": "2fae8697c25e6e57c375334226c31ed78da28598a660bd18c675eed1058b0fc7",
+    "src/riceflow/cloud.py": "415b0d5e46ed7524d0c97b3fc0282e2a20b970fa3c54b75b182e3f91634cfb0b",
+    "src/riceflow/cohort.py": "932f9a5bff944029f810e77200979181b8ede6365c1df518ed4504b7f73f304f",
+    "src/riceflow/common.py": "cef044e0a5f8be3c276b225cc52b26457c41286402d80218099055c6abeab42e",
+    "src/riceflow/network.py": "e35aead00d8c1ed87311d194eb6f4f2fe547a62910354adf5ea99bd5cb35f13c",
+    "src/riceflow/preflight.py": "bc9751660d1d8049c5f17b4e4b374854c49f65232706446eca5f43e49b53cad2",
+    "src/riceflow/report.py": "277b275d007a24a0bce00fe44ea70901030625bf944b7f3dbc6d6a84bcb9014b",
+    "src/riceflow/vcf.py": "aacc71e570ec0aef061cd87ec71c1ccf2fa84499891ac095d4275c4339137608",
+    "workflows/main.nf": "9e9ad716dcffa2b5a3252bd350df15e18b57ba467c2179e32c71ef710741b89b"
+  },
+  "config": {
+    "chrom": 1,
+    "cohort": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/tiny",
+    "end": 100,
+    "expected_sample": "S1",
+    "input_sha256": {
+      "cohort.bed": "50c01203f5ce6546634cec222b7e4523fc84f7fb4a532efed05f4405254d4a43",
+      "cohort.bim": "b739a85249cbeef9c554b251e197908514d5f5a9c59834b831fac8759b15e186",
+      "cohort.fam": "1d96ec34a4c468bc626211f2e9551d445f931106d8e4ccdbcc1494ef9782abe8",
+      "reference": "32edaa64590149e9ecd989241e42068a4c156ae5c18e0e0c369728db1ef573be",
+      "vcf": "f1ed4e6a5481e69799d340044f24dd0e393994fe4e12e0b282c264efa4572c8c"
+    },
+    "policy": {
+      "min_dp": 5,
+      "min_gq": null,
+      "min_maf": 0.0,
+      "missing_quality": "not_assessed",
+      "sample_call_rate": 0.4,
+      "site_call_rate": 0.9
+    },
+    "reference": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/reference.fa",
+    "sample_count": 4,
+    "source_manifest": null,
+    "start": 1,
+    "track_label": "SYNTHETIC",
+    "vcf": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/tiny.vcf.gz"
+  },
+  "elapsed_seconds": 5.595537832996342,
+  "ended": "2026-10-27T18:19:44.157376+00:00",
+  "error": null,
+  "fingerprint": "0f994216ccc68284bb8302fc43665d18e14acc5db848721681c1ae3871a8baa3",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "status": "not a Git repository"
+  },
+  "image": "sha256:fc6710d5b013cbec0e54454aa5855e1a72a0993af1d75facbacaa616ffeaabd9",
+  "inputs": {
+    "cohort.bed": "50c01203f5ce6546634cec222b7e4523fc84f7fb4a532efed05f4405254d4a43",
+    "cohort.bim": "b739a85249cbeef9c554b251e197908514d5f5a9c59834b831fac8759b15e186",
+    "cohort.fam": "1d96ec34a4c468bc626211f2e9551d445f931106d8e4ccdbcc1494ef9782abe8",
+    "reference": "32edaa64590149e9ecd989241e42068a4c156ae5c18e0e0c369728db1ef573be",
+    "vcf": "f1ed4e6a5481e69799d340044f24dd0e393994fe4e12e0b282c264efa4572c8c"
+  },
+  "label": "SYNTHETIC",
+  "metric_definitions": "docs/DATA_DICTIONARY.md",
+  "returncode": 0,
+  "run_id": "20261027T181938Z-8f1a4293",
+  "source_manifest": null,
+  "started": "2026-10-27T18:19:38.561248+00:00",
+  "status": "SUCCESS",
+  "task_tools": {
+    "cohort": "PLINK v2.0.0-a.6.16LM 64-bit Intel (9 Jun 2025)\n",
+    "vcf": "bcftools 1.21\nUsing htslib 1.21\nCopyright (C) 2024 Genome Research Ltd.\nLicense Expat: The MIT/Expat license\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\nsamtools 1.21\nUsing htslib 1.21\nCopyright (C) 2024 Genome Research Ltd.\n\nSamtools compilation details:\n    Features:       build=configure curses=no \n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2\n    LDFLAGS:        \n    HTSDIR:         htslib-1.21\n    LIBS:           \n    CURSES_LIB:     \n\nHTSlib compilation details:\n    Features:       build=configure libcurl=yes S3=yes GCS=yes libdeflate=no lzma=yes bzip2=yes plugins=no htscodecs=1.6.1\n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2 -fvisibility=hidden\n    LDFLAGS:        -fvisibility=hidden \n\nHTSlib URL scheme handlers present:\n    built-in:\t file, preload, data\n    S3 Multipart Upload:\t s3w+https, s3w+http, s3w\n    Amazon S3:\t s3+https, s3, s3+http\n    Google Cloud Storage:\t gs+http, gs+https, gs\n    libcurl:\t gophers, rtmpe, rtmpte, smtp, rtmpt, ldaps, smb, rtsp, tftp, pop3, smbs, imaps, pop3s, ftps, https, http, ftp, gopher, imap, sftp, ldap, smtps, rtmps, rtmpts, dict, scp, mqtt, telnet, rtmp\n    crypt4gh-needed:\t crypt4gh\n    mem:\t mem\n"
+  },
+  "tasks": [
+    {
+      "%cpu": "99.2%",
+      "attempt": "1",
+      "duration": "1.5s",
+      "exit": "0",
+      "hash": "21/b08edf",
+      "name": "COHORT_QC",
+      "native_id": "78679",
+      "peak_rss": "4.7 MB",
+      "realtime": "805ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:19:40.265",
+      "task_id": "1"
+    },
+    {
+      "%cpu": "97.9%",
+      "attempt": "1",
+      "duration": "1.5s",
+      "exit": "0",
+      "hash": "71/3eb205",
+      "name": "VCF_QC",
+      "native_id": "78685",
+      "peak_rss": "5.1 MB",
+      "realtime": "879ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:19:40.272",
+      "task_id": "2"
+    },
+    {
+      "%cpu": "133.2%",
+      "attempt": "1",
+      "duration": "1.1s",
+      "exit": "0",
+      "hash": "16/ab6362",
+      "name": "COLLECT",
+      "native_id": "78807",
+      "peak_rss": "0",
+      "realtime": "55ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:19:41.825",
+      "task_id": "3"
+    }
+  ],
+  "tools": {
+    "Jinja2": "3.1.6",
+    "PyYAML": "6.0.3",
+    "bcftools": "bcftools 1.21 (pysam bundled dispatcher; native development adapter)",
+    "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment Homebrew (build 17.0.20+0)\nOpenJDK 64-Bit Server VM Homebrew (build 17.0.20+0, mixed mode, sharing)",
+    "nextflow": "N E X T F L O W\n      version 25.10.2 build 10555\n      created 28-11-2025 19:24 UTC (14:24 EDT)\n      cite doi:10.1038/nbt.3820\n      http://nextflow.io",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "plink2": "PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)",
+    "plotly": "6.3.1",
+    "pyarrow": "22.0.0",
+    "pydantic": "2.12.3",
+    "pysam": "0.23.3",
+    "python": "3.11.14 (main, Dec  5 2025, 21:28:33) [Clang 21.1.4 ]",
+    "samtools": "samtools 1.21 (pysam bundled dispatcher)"
+  }
+}

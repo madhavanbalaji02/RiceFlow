@@ -1,0 +1,16 @@
+##fileformat=VCFv4.2
+##contig=<ID=chr01,length=100>
+##FILTER=<ID=LowQual,Description="Original source filter">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Depth">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Quality">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	S1
+chr01	1	.	A	.	.	PASS	.	GT:DP	0/0:20
+chr01	2	.	A	G	.	PASS	.	GT:DP:GQ	0/1:10:30
+chr01	3	.	A	C	.	LowQual	.	GT:DP	1/1:2
+chr01	4	.	A	G	.	PASS	.	GT	0/0
+chr01	5	.	A	C	.	PASS	.	GT:DP	./.:10
+chr01	6	.	A	T	.	PASS	.	GT:DP	0/.:10
+chr01	7	.	A	AT	.	PASS	.	GT:DP	0/1:10
+chr01	8	.	A	G	.	PASS	.	GT:DP	0/0:10
+chr01	9	.	A	G	.	PASS	.	GT:DP	1/1:10

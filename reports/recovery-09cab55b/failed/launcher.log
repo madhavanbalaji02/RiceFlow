@@ -1,0 +1,40 @@
+Nextflow 26.10.4 is available - Please consider updating your version to it
+N E X T F L O W  ~  version 25.10.2
+Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [irreverent_escher] DSL2 - revision: 9b13cd963f
+WARN: Task runtime metrics are not reported when using macOS without a container engine
+[ff/badce5] Submitted process > COHORT_QC
+[61/7fa922] Submitted process > VCF_QC
+[f8/5cd365] Submitted process > COLLECT
+ERROR ~ Error executing process > 'COLLECT'
+
+Caused by:
+  Process `COLLECT` terminated with an error exit status (42)
+
+
+Command executed:
+
+  if [ 'true' = 'true' ]; then
+    echo 'Intentional failure after both scientific tasks completed' >&2
+    exit 42
+  fi
+  test -s cohort/summary.json
+  test -s vcf/summary.json
+
+Command exit status:
+  42
+
+Command output:
+  (empty)
+
+Command error:
+  Intentional failure after both scientific tasks completed
+
+Work dir:
+  /Users/madhavanbalaji/Documents/project/RiceFlow/work/f8/5cd365b585b3978faef2732be2370d
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '/Users/madhavanbalaji/Documents/project/RiceFlow/reports/recovery-09cab55b/failed/nextflow.log' file for details
+WARN: Failed to render execution report -- see the log file for details
+WARN: Got an interrupted exception while taking agent result | java.lang.InterruptedException
+WARN: Failed to render execution timeline -- see the log file for details

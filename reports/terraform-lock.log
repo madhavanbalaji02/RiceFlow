@@ -1,0 +1,12 @@
+- Fetching hashicorp/aws 6.19.0 for linux_amd64...
+- Retrieved hashicorp/aws 6.19.0 for linux_amd64 (signed by HashiCorp)
+- Fetching hashicorp/aws 6.19.0 for darwin_arm64...
+- Retrieved hashicorp/aws 6.19.0 for darwin_arm64 (signed by HashiCorp)
+- Obtained hashicorp/aws checksums for linux_amd64; Additional checksums for this platform are now tracked in the lock file
+- Obtained hashicorp/aws checksums for darwin_arm64; All checksums for this platform were already tracked in the lock file
+
+[1m[32mSuccess![0m [1mTerraform has updated the lock file.[0m[0m
+
+Review the changes in .terraform.lock.hcl and then commit to your
+version control system to retain the new checksums.
+

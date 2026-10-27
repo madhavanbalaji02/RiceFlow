@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>RiceFlow QC report</title>
+<style>body{font:16px system-ui;max-width:1100px;margin:40px auto;padding:20px}pre{white-space:pre-wrap;
+background:#f4f6f8;padding:20px}h1,h2{color:#164e36}</style>
+<h1>RiceFlow — SYNTHETIC</h1><h2>Execution and provenance</h2><pre>{
+  "config": {
+    "chrom": 1,
+    "cohort": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/tiny",
+    "end": 100,
+    "expected_sample": "S1",
+    "input_sha256": {
+      "cohort.bed": "50c01203f5ce6546634cec222b7e4523fc84f7fb4a532efed05f4405254d4a43",
+      "cohort.bim": "b739a85249cbeef9c554b251e197908514d5f5a9c59834b831fac8759b15e186",
+      "cohort.fam": "1d96ec34a4c468bc626211f2e9551d445f931106d8e4ccdbcc1494ef9782abe8",
+      "reference": "32edaa64590149e9ecd989241e42068a4c156ae5c18e0e0c369728db1ef573be",
+      "vcf": "f1ed4e6a5481e69799d340044f24dd0e393994fe4e12e0b282c264efa4572c8c"
+    },
+    "policy": {
+      "min_dp": 5,
+      "min_gq": null,
+      "min_maf": 0.0,
+      "missing_quality": "not_assessed",
+      "sample_call_rate": 0.4,
+      "site_call_rate": 0.9
+    },
+    "reference": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/reference.fa",
+    "sample_count": 4,
+    "source_manifest": null,
+    "start": 1,
+    "track_label": "SYNTHETIC",
+    "vcf": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/tiny.vcf.gz"
+  },
+  "elapsed_seconds": 3.170145916985348,
+  "ended": "2026-10-27T18:20:37.477312+00:00",
+  "fingerprint": "1db0aac67f5bb55398a3dab3e002de00205088dd2699ebfc239e04a911f4533d",
+  "git": {
+    "commit": null,
+    "dirty": null,
+    "status": "not a Git repository"
+  },
+  "image": "NATIVE_NO_IMAGE",
+  "label": "SYNTHETIC",
+  "resource_limitations": "Native macOS lacks per-task CPU/RSS telemetry; elapsed is measured wall time.",
+  "returncode": 1,
+  "run_id": "20261027T182033Z-0afefd22",
+  "started": "2026-10-27T18:20:34.306663+00:00",
+  "task_tools": {},
+  "tasks": [
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "238ms",
+      "exit": "0",
+      "hash": "ff/badce5",
+      "name": "COHORT_QC",
+      "native_id": "79662",
+      "peak_rss": "-",
+      "realtime": "0ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:20:35.746",
+      "task_id": "1"
+    },
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "410ms",
+      "exit": "0",
+      "hash": "61/7fa922",
+      "name": "VCF_QC",
+      "native_id": "79663",
+      "peak_rss": "-",
+      "realtime": "1s",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 14:20:35.752",
+      "task_id": "2"
+    },
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "40ms",
+      "exit": "42",
+      "hash": "f8/5cd365",
+      "name": "COLLECT",
+      "native_id": "79746",
+      "peak_rss": "-",
+      "realtime": "13ms",
+      "status": "FAILED",
+      "submit": "2026-10-27 14:20:36.176",
+      "task_id": "3"
+    }
+  ],
+  "tools": {
+    "Jinja2": "3.1.6",
+    "PyYAML": "6.0.3",
+    "bcftools": "bcftools 1.21 (pysam bundled dispatcher; native development adapter)",
+    "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment Homebrew (build 17.0.20+0)\nOpenJDK 64-Bit Server VM Homebrew (build 17.0.20+0, mixed mode, sharing)",
+    "nextflow": "N E X T F L O W\n      version 25.10.2 build 10555\n      created 28-11-2025 19:24 UTC (14:24 EDT)\n      cite doi:10.1038/nbt.3820\n      http://nextflow.io",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "plink2": "PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)",
+    "plotly": "6.3.1",
+    "pyarrow": "22.0.0",
+    "pydantic": "2.12.3",
+    "pysam": "0.23.3",
+    "python": "3.11.14 (main, Dec  5 2025, 21:28:33) [Clang 21.1.4 ]",
+    "samtools": "samtools 1.21 (pysam bundled dispatcher)"
+  }
+}</pre><p>Downstream QC and workflow engineering. Tracks are separate;
+these data do not constitute a jointly called cohort. Success requires the launcher's SUCCESS.json.</p>
+<p>Complete diploid genotypes alone contribute alleles. Partial calls count as uncalled. Call rate denominator:
+observed selected SNP sites per sample, retained samples per site. Empty denominators are null.
+Cohort allele1 frequency describes BIM A1, not verified ALT. Heterozygosity is descriptive;
+no HWE filter or default frequency filter is applied.</p>
+
+<h2>cohort: BLOCKED</h2>
+<pre>{
+  "status": "BLOCKED"
+}</pre><h2>vcf: BLOCKED</h2>
+<pre>{
+  "status": "BLOCKED"
+}</pre>
+<h2>Source validation</h2><pre>{
+  "context": "Hand-constructed fixtures; not real-data scientific validation",
+  "status": "SYNTHETIC"
+}</pre><h2>Limitations</h2><p>Thresholds are configurable choices, not validated biological cutoffs.
+Single-accession regional VCF observations are not whole-genome measurements. Reference calls and unsupported
+variants are counted outside the SNP metric denominator. Not-assessed qualities are masked conservatively and
+reported separately from failures. Source FILTER flags are preserved, not reinterpreted.
+Already pruned CoreSNP data cannot reproduce raw discovery, LD structure, or original DP/GQ filtering.
+No imputation, pangenome analysis, or population discovery is claimed.</p></html>

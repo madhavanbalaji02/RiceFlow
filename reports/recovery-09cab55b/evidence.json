@@ -1,0 +1,7 @@
+{
+  "failed": "reports/recovery-09cab55b/failed",
+  "resumed": "reports/recovery-09cab55b/resumed",
+  "changed": "reports/recovery-09cab55b/changed",
+  "cached_tasks": 2,
+  "policy_change_cached_tasks": 0
+}

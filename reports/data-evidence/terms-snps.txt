@@ -1,0 +1,5 @@
+README 3K Rice Genomes  Permissive license
+
+This SNP , indel, and large SV dataset is released using the permissive license stated in The Toronto Statement from  the Toronto International Data Release Workshop Authors (Nature 461, 168-170(10 September 2009), doi:10.1038/461168a
+
+By downloading and using this dataset in part or in its entirety, you agree to abide to the spirit of the Toronto Statement.

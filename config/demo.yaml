@@ -1,0 +1,16 @@
+track_label: SYNTHETIC
+cohort: tests/fixtures/tiny
+vcf: tests/fixtures/tiny.vcf.gz
+reference: tests/fixtures/reference.fa
+expected_sample: S1
+chrom: 1
+start: 1
+end: 100
+sample_count: 4
+policy:
+  sample_call_rate: 0.4
+  site_call_rate: 0.9
+  min_dp: 5
+  min_gq: null
+  missing_quality: not_assessed
+  min_maf: 0

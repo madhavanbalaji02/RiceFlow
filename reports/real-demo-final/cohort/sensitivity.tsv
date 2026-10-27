@@ -1,0 +1,4 @@
+sample_call_rate	site_call_rate	retained_samples	retained_sites
+0.7	0.8	24	934
+0.8	0.9	24	824
+0.95	0.98	15	727
