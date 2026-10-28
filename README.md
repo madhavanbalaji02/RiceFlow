@@ -4,6 +4,88 @@ CPU-only Nextflow DSL2 rice QC with Python, PLINK 2, BCFtools/HTSlib, SAMtools a
 architecture keeps the already filtered/pruned CoreSNP cohort separate from individual-accession VCF
 quality processing. The summaries share a report; the inputs never become an invented joint-called cohort.
 
+**[Open the public RiceFlow dashboard](https://d35x4x7bn6ghj.cloudfront.net/)** ·
+[Scientific assumptions](docs/SCIENTIFIC_ASSUMPTIONS.md) ·
+[Validation evidence](docs/VALIDATION_RESULTS.md) ·
+[AWS dashboard deployment](infra/dashboard/README.md)
+
+## Architecture
+
+RiceFlow has two execution boundaries: a CPU-only scientific workflow produces recorded evidence,
+and a static website publishes a sanitized snapshot of that evidence. Opening the dashboard reads
+static files; it does not submit jobs, query AWS APIs or recalculate scientific results.
+
+### Scientific workflow
+
+```mermaid
+flowchart TD
+  SOURCES["Official public rice datasets"] --> PREFLIGHT["Budgeted preflight and SHA256 source manifest"]
+  PREFLIGHT --> LAUNCHER
+  PREFLIGHT --> COHORT_INPUT["CoreSNP cohort: BED / BIM / FAM"]
+  PREFLIGHT --> VCF_INPUT["Single-accession VCF region and matching IRGSP-1.0 reference"]
+  LAUNCHER["Python launcher<br/>Run identity, policy, source fingerprint and deadline"] --> NF["Nextflow DSL2<br/>Scheduling and task caching"]
+  NF --> COHORT["COHORT_QC<br/>Python and PLINK 2"]
+  NF --> VCF["VCF_QC<br/>Python, BCFtools and SAMtools"]
+  COHORT_INPUT --> COHORT
+  VCF_INPUT --> VCF
+  COHORT --> COHORT_OUT["Sample QC and recomputed site QC<br/>PLINK statistics"]
+  VCF --> VCF_OUT["REF validation and SNP scope<br/>Genotype masking and recomputed metrics"]
+  COHORT_OUT --> COLLECT["COLLECT: separate track outputs"]
+  VCF_OUT --> COLLECT
+  NF --> TRACE["Execution trace, timeline and task outcomes"]
+  COLLECT --> FINALIZE["Launcher finalizer<br/>Report, output validation and checksums"]
+  TRACE --> FINALIZE
+  FINALIZE --> RECORDS["Recorded artifacts<br/>SUCCESS / INCOMPLETE / FAILED status"]
+```
+
+The cohort and VCF tasks operate independently; collection brings their outputs into one report.
+The launcher checks source identity, artifact hashes and output consistency before atomically publishing
+`SUCCESS.json`. A missing mandatory track or failed task retains its recorded incomplete or failed status.
+Nextflow owns scheduling and resume caching. Input identities, policy values and source fingerprints
+participate in task inputs so a changed policy or implementation cannot silently reuse stale results.
+
+Local execution uses the native or Docker profile. The separate AWS execution configuration uses a
+Nextflow controller, CPU-only AWS Batch EC2 workers, ECR images and a private science-data S3 bucket.
+That path is used only for explicitly authorized pipeline runs; it is independent of dashboard hosting.
+See the [detailed architecture](docs/ARCHITECTURE.md) and [pipeline AWS runbook](docs/AWS_RUNBOOK.md).
+
+### Public dashboard hosting
+
+```mermaid
+flowchart TD
+  RECORDS["Recorded run artifacts<br/>Historical AWS summary"] --> EXPORT["Exporter<br/>Artifact certification and public-field selection"]
+  EXPORT --> BUILD["Static publisher<br/>Privacy checks, allowlist and content hashes"]
+  BUILD --> FILES["Six static files<br/>HTML, CSS, JS, logic module, SVG and JSON snapshot"]
+  FILES -->|"Authenticated publishing command"| S3["Private dashboard S3 bucket<br/>Block Public Access enabled"]
+  VISITOR["Recruiter or visitor browser"] -->|"Public HTTPS, no sign-in"| CF["CloudFront<br/>Default HTTPS domain; GET / HEAD only"]
+  CF -->|"Origin Access Control: signed SigV4 reads"| S3
+  WAF["Required AWS WAF web ACL"] -.->|"Associated with distribution"| CF
+  PLAN["CloudFront FREE<br/>Explicit flat-rate subscription"] -.-> CF
+  PLAN -.-> WAF
+```
+
+The browser handles run selection, sample search, variant filters, policy comparisons, downloads and
+local snapshot import. Imported data stays in browser memory. Provenance links open the original
+evidence in this public GitHub repository. There is no application server, database or dashboard backend.
+
+The CloudFormation stack declares the Free subscription explicitly. The publisher verifies an active
+`FREE` plan before uploads and enables the distribution only after enrollment is verified. The S3
+bucket policy permits origin reads from this distribution alone. Only the six dashboard files are
+published; raw genomic inputs, credentials, tests, logs and deployment receipts stay out of the origin.
+
+| Component | Repository location | Responsibility |
+| --- | --- | --- |
+| Scientific launcher and QC | [`src/riceflow/`](src/riceflow/) | Preflight, policy semantics, metrics, report generation and final status |
+| Workflow and task modules | [`workflows/`](workflows/), [`modules/`](modules/), [`nextflow.config`](nextflow.config) | Scheduling, tool execution, resource limits and caching |
+| Recorded evidence | [`reports/`](reports/), [`reports/validation-summary.json`](reports/validation-summary.json) | Historical manifests, checksums, metrics and validation results |
+| Read-only dashboard | [`dashboard/`](dashboard/) | Browser UI, filters, comparisons and local import/export |
+| Snapshot exporter and static build | [`scripts/export_dashboard.py`](scripts/export_dashboard.py), [`scripts/publish_dashboard.py`](scripts/publish_dashboard.py) | Certified evidence export, privacy checks and six-file build |
+| Dashboard infrastructure | [`infra/dashboard/`](infra/dashboard/), [`scripts/dashboard_aws.py`](scripts/dashboard_aws.py) | Private S3, OAC, CloudFront, WAF, Free-plan verification, updates and scoped teardown |
+| Optional pipeline infrastructure | [`infra/terraform/`](infra/terraform/) | Separately authorized AWS Batch workflow execution |
+| CI | [Pipeline checks](.github/workflows/ci.yml), [dashboard checks](.github/workflows/dashboard.yml) | Scientific fixtures and static dashboard validation; dashboard updates do not launch the pipeline |
+
+## Run locally
+
 The 2026-10-27 follow-up audit resolved reference access through RAP-DB's current official NARO HTTPS
 hostname, verified the publisher checksum and all observed REF bases, and completed the real VCF track.
 The [dataset evidence](DATASET_VALIDATION.md) explains the TLS diagnosis and exact assembly identity.
@@ -32,6 +114,8 @@ It discovers remote sizes, enforces 500 MiB full/16 MiB regional payload default
 that ignore Range. No full multi-gigabyte VCF is downloaded. Preflight outputs and run paths must be new.
 A repeated preflight reused the full cohort and reference under a 1 MiB full-transfer budget.
 
+## Recorded scientific results and limitations
+
 The verified cohort has 3,024 samples and 404,388 loci. Its deterministic demo selects B001–B021,
 B023, B024 and B025, chr1:1–1,000,000 inclusive: 969 loci selected, 824 retained, all 24 samples retained
 at sample/site call-rate choices 0.8/0.9. B022 is absent; earlier prose describing B001–B024 was wrong.
@@ -48,6 +132,8 @@ native PLINK subsets, TSV/Parquet/JSON metrics, scope/exclusion accounting, one-
 self-contained HTML and Nextflow execution/trace/timeline reports. The launcher independently checks
 artifacts and source identity before atomic SUCCESS.json publication. Track status and overall status
 are separate. Failed or incomplete runs cannot inherit an old success marker. Empty denominators stay null.
+
+## Execution and validation evidence
 
 Docker builds remain linux/amd64 CPU-only; Apple Silicon uses emulation or native development adapters.
 Run `make container`, then `riceflow run --profile docker` with the PATH/NXF_HOME above. The launcher
@@ -78,7 +164,7 @@ No imputation, haplotype expansion or pangenome construction is included.
 
 ## Dashboard
 
-**[Open the public RiceFlow dashboard](https://d35x4x7bn6ghj.cloudfront.net/)** — no sign-in required.
+The [public dashboard](https://d35x4x7bn6ghj.cloudfront.net/) opens without signing in.
 
 The read-only dashboard explores recorded QC runs, samples, variant decisions, policy comparisons, provenance and historical cloud evidence. SUCCESS, INCOMPLETE and FAILED records remain visible; the cohort and single-accession VCF tracks remain independent. It does not launch jobs or monitor AWS live.
 
