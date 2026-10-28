@@ -1,5 +1,30 @@
 name: offline-fixtures
-on: [push, pull_request]
+# Static-site updates do not execute the genomics pipeline.
+# Configuration-only edits can be checked explicitly with workflow_dispatch.
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - 'dashboard/**'
+      - 'infra/dashboard/**'
+      - 'scripts/export_dashboard.py'
+      - 'scripts/publish_dashboard.py'
+      - 'scripts/dashboard_aws.py'
+      - '.github/workflows/**'
+      - '**/*.md'
+      - 'README.md'
+      - '.gitignore'
+  pull_request:
+    paths-ignore:
+      - 'dashboard/**'
+      - 'infra/dashboard/**'
+      - 'scripts/export_dashboard.py'
+      - 'scripts/publish_dashboard.py'
+      - 'scripts/dashboard_aws.py'
+      - '.github/workflows/**'
+      - '**/*.md'
+      - 'README.md'
+      - '.gitignore'
 permissions:
   contents: read
 jobs:

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="RiceFlow genomics QC dashboard. Explore recorded cohort and VCF workflows, compare policies, and inspect reproducible evidence.">
+  <meta name="theme-color" content="#142d29"><title>RiceFlow · Genomics workspace</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview" aria-label="RiceFlow home"><svg width="34" height="38" viewBox="0 0 34 38" fill="none"><path d="M17 33V8M17 15C9 15 6 10 7 5c7 0 10 4 10 10ZM17 23C25 23 28 18 27 13c-7 0-10 4-10 10Z" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/><path d="M17 30c-6 0-9-4-9-8 6 0 9 3 9 8Z" fill="currentColor"/></svg><span>RiceFlow<span class="brand-sub">GENOMICS WORKSPACE</span></span></a>
+    <div class="workspace"><span class="workspace-icon">RF</span><div>Research workspace<small>Madhavan Balaji</small></div><span class="workspace-lock" aria-label="Recorded evidence">◈</span></div>
+    <span class="nav-label">WORKSPACE</span><nav id="navigation" aria-label="Main navigation"></nav>
+    <div class="sidebar-bottom"><div class="plant-graphic" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="nav-label">BUILT FOR REPRODUCIBILITY</span><p>From genomic data<br>to traceable decisions.</p><a href="https://github.com/madhavanbalaji02/RiceFlow" target="_blank" rel="noopener">View source code <span>↗</span></a><div class="profile"><span class="avatar">MB</span><div>Madhavan Balaji<small>Project owner</small></div><span class="online-dot"></span></div></div>
+  </aside>
+  <div class="shell"><header class="topbar"><button id="menu-toggle" class="icon-button mobile-menu" aria-label="Toggle navigation">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Overview</strong></div><div class="top-actions"><span class="snapshot-indicator"><span></span> Recorded snapshot</span><button class="icon-button" id="help-button" aria-label="About this dashboard">?</button><span class="avatar small">MB</span></div></header>
+    <main id="main" tabindex="-1"><div class="loading-state"><span class="loader"></span><h1>Opening your workspace</h1><p>Reading recorded QC results…</p></div></main>
+    <footer class="footer"><span>RiceFlow <span class="muted">/</span> Reproducible crop genomics</span><span id="snapshot-date">Loading evidence</span></footer>
+  </div>
+  <input type="file" id="import-input" accept="application/json,.json" hidden>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="detail-dialog"><div class="dialog-top"><h2 id="dialog-title">Details</h2><button class="icon-button" id="close-dialog" aria-label="Close details">✕</button></div><div id="dialog-content"></div></dialog>
+  <script type="module" src="app.js"></script>
+</body></html>

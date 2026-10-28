@@ -75,3 +75,13 @@ approved up to $5 additional; the $15/month project target remains a planning ta
 The Project cost tag is active and $5/$10/$15 alerts are configured. Subsequent runs still require
 fresh cost/hour evidence and specific authorization. Retained EBS, S3, ECR and logs remain billable.
 No imputation, haplotype expansion or pangenome construction is included.
+
+## Dashboard
+
+**[Open the public RiceFlow dashboard](https://d35x4x7bn6ghj.cloudfront.net/)** — no sign-in required.
+
+The read-only dashboard explores recorded QC runs, samples, variant decisions, policy comparisons, provenance and historical cloud evidence. SUCCESS, INCOMPLETE and FAILED records remain visible; the cohort and single-accession VCF tracks remain independent. It does not launch jobs or monitor AWS live.
+
+For a local preview, run `make -f dashboard/Makefile dashboard` and open http://localhost:8000. For the exact deployable six-file build, run `make -f dashboard/Makefile dashboard-publish`, then `python3 -m http.server 8765 --directory dist/dashboard`. Run `make -f dashboard/Makefile dashboard-test` for dashboard-specific checks.
+
+See [dashboard features and scientific context](dashboard/README.md) and [AWS deployment, updates, costs and scoped teardown](infra/dashboard/README.md). Hosting uses private S3, signed CloudFront OAC, default-domain HTTPS and an explicitly verified **Free flat-rate subscription**. The subscription costs $0/month; small S3 request charges remain. This is separate from the general AWS Free Tier and does not make the entire account bill zero.

@@ -1,0 +1,25 @@
+{
+  "url": "https://d35x4x7bn6ghj.cloudfront.net/",
+  "status": "DEPLOYED_AND_VERIFIED",
+  "verified_utc": "2026-10-28T02:49:05.370519+00:00",
+  "region": "us-east-1",
+  "stack_name": "riceflow-static-dashboard",
+  "distribution_id": "E1L0N05HRO0PTL",
+  "bucket_name": "riceflow-static-dashboard-dashboardbucket-4ntrgduttpbz",
+  "origin_access_control_id": "E126NM0KFOEQIS",
+  "web_acl_name": "riceflow-static-dashboard-acl",
+  "web_acl_id": "6ddd9fbf-122b-4636-8631-5e0b50036107",
+  "subscription_id": "sub_3LIxMHODgoP6wmoPQefx8TLdX05",
+  "pricing_plan": "CloudFront FREE",
+  "subscription_status": "ACTIVE",
+  "public_assets_verified": 6,
+  "anonymous_s3_status": 403,
+  "snapshot_source_commit": "f123cae0453730bf52fa320d8c2aeefbd73ac1b5",
+  "dashboard_bytes": 2424786,
+  "tests": {
+    "python": 10,
+    "javascript": 8,
+    "public_browser_checks": 16
+  },
+  "note": "Recorded scientific results; no live pipeline or AWS monitoring. Full private ARNs remain in the ignored local receipt."
+}

@@ -1,0 +1,27 @@
+name: dashboard
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  static-dashboard:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: make -f dashboard/Makefile dashboard-test dashboard-publish
+      - run: npm ci --prefix dashboard/tests
+      - run: npm exec --prefix dashboard/tests -- playwright install --with-deps chromium
+      - name: Verify desktop and mobile interactions
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory dist/dashboard > /tmp/riceflow-dashboard-http.log 2>&1 &
+          server=$!
+          trap 'kill "$server"' EXIT
+          for attempt in {1..20}; do curl -fsS http://127.0.0.1:8765/ > /dev/null && break; sleep 1; done
+          node dashboard/tests/browser.test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dashboard-browser-evidence
+          path: .tools/dashboard-qa/*.png

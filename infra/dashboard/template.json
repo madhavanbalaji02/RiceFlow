@@ -1,0 +1,277 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "RiceFlow static dashboard. FREE subscription only; traffic disabled until independently verified.",
+  "Parameters": {
+    "SiteEnabled": {
+      "Type": "String",
+      "AllowedValues": [
+        "false",
+        "true"
+      ],
+      "Default": "false"
+    }
+  },
+  "Conditions": {
+    "ServeDashboard": {
+      "Fn::Equals": [
+        {
+          "Ref": "SiteEnabled"
+        },
+        "true"
+      ]
+    }
+  },
+  "Resources": {
+    "DashboardBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "OwnershipControls": {
+          "Rules": [
+            {
+              "ObjectOwnership": "BucketOwnerEnforced"
+            }
+          ]
+        },
+        "PublicAccessBlockConfiguration": {
+          "BlockPublicAcls": true,
+          "IgnorePublicAcls": true,
+          "BlockPublicPolicy": true,
+          "RestrictPublicBuckets": true
+        },
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "RiceFlow"
+          },
+          {
+            "Key": "Component",
+            "Value": "StaticDashboard"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "RiceFlowDashboardPublisher"
+          }
+        ]
+      }
+    },
+    "DashboardOriginAccessControl": {
+      "Type": "AWS::CloudFront::OriginAccessControl",
+      "Properties": {
+        "OriginAccessControlConfig": {
+          "Name": {
+            "Fn::Sub": "${AWS::StackName}-oac"
+          },
+          "Description": "Only the RiceFlow dashboard distribution reads its private static origin",
+          "OriginAccessControlOriginType": "s3",
+          "SigningBehavior": "always",
+          "SigningProtocol": "sigv4"
+        }
+      }
+    },
+    "DashboardWebACL": {
+      "Type": "AWS::WAFv2::WebACL",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "${AWS::StackName}-acl"
+        },
+        "Scope": "CLOUDFRONT",
+        "DefaultAction": {
+          "Allow": {}
+        },
+        "VisibilityConfig": {
+          "SampledRequestsEnabled": false,
+          "CloudWatchMetricsEnabled": false,
+          "MetricName": "RiceFlowDashboard"
+        },
+        "Rules": [],
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "RiceFlow"
+          },
+          {
+            "Key": "Component",
+            "Value": "StaticDashboard"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "RiceFlowDashboardPublisher"
+          }
+        ]
+      }
+    },
+    "DashboardDistribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "Comment": "RiceFlow recorded dashboard \u2014 FREE flat-rate plan only",
+          "Enabled": {
+            "Fn::If": [
+              "ServeDashboard",
+              true,
+              false
+            ]
+          },
+          "DefaultRootObject": "index.html",
+          "Origins": [
+            {
+              "Id": "private-dashboard",
+              "DomainName": {
+                "Fn::GetAtt": [
+                  "DashboardBucket",
+                  "RegionalDomainName"
+                ]
+              },
+              "S3OriginConfig": {
+                "OriginAccessIdentity": ""
+              },
+              "OriginAccessControlId": {
+                "Ref": "DashboardOriginAccessControl"
+              }
+            }
+          ],
+          "DefaultCacheBehavior": {
+            "TargetOriginId": "private-dashboard",
+            "ViewerProtocolPolicy": "redirect-to-https",
+            "AllowedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "CachedMethods": [
+              "GET",
+              "HEAD"
+            ],
+            "Compress": true,
+            "CachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6"
+          },
+          "ViewerCertificate": {
+            "CloudFrontDefaultCertificate": true
+          },
+          "HttpVersion": "http2and3",
+          "IPV6Enabled": true,
+          "WebACLId": {
+            "Fn::GetAtt": [
+              "DashboardWebACL",
+              "Arn"
+            ]
+          }
+        },
+        "Tags": [
+          {
+            "Key": "Project",
+            "Value": "RiceFlow"
+          },
+          {
+            "Key": "Component",
+            "Value": "StaticDashboard"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "RiceFlowDashboardPublisher"
+          }
+        ]
+      }
+    },
+    "DashboardBucketPolicy": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "DashboardBucket"
+        },
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "ReadOnlyFromThisDistribution",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+              },
+              "Action": "s3:GetObject",
+              "Resource": {
+                "Fn::Sub": "${DashboardBucket.Arn}/*"
+              },
+              "Condition": {
+                "StringEquals": {
+                  "AWS:SourceArn": {
+                    "Fn::Sub": "arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${DashboardDistribution}"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "DashboardFreeSubscription": {
+      "Type": "AWS::PricingPlanManager::Subscription",
+      "Properties": {
+        "PlanFamily": "CloudFront",
+        "PlanTier": "FREE",
+        "ResourceArns": [
+          {
+            "Fn::Sub": "arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${DashboardDistribution}"
+          },
+          {
+            "Fn::GetAtt": [
+              "DashboardWebACL",
+              "Arn"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "BucketName": {
+      "Value": {
+        "Ref": "DashboardBucket"
+      }
+    },
+    "DistributionId": {
+      "Value": {
+        "Ref": "DashboardDistribution"
+      }
+    },
+    "DistributionArn": {
+      "Value": {
+        "Fn::Sub": "arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${DashboardDistribution}"
+      }
+    },
+    "DomainName": {
+      "Value": {
+        "Fn::GetAtt": [
+          "DashboardDistribution",
+          "DomainName"
+        ]
+      }
+    },
+    "OriginAccessControlId": {
+      "Value": {
+        "Ref": "DashboardOriginAccessControl"
+      }
+    },
+    "WebACLArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "DashboardWebACL",
+          "Arn"
+        ]
+      }
+    },
+    "SubscriptionArn": {
+      "Value": {
+        "Ref": "DashboardFreeSubscription"
+      }
+    }
+  }
+}
