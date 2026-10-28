@@ -188,3 +188,26 @@ established independently by validated artifacts, three zero-exit Batch jobs, th
 receipt and stopped/zero resource observations. Do not substitute SSM transport status for those
 checks. Billing still shows an estimated zero for the project tag; posting/allocation delays mean
 that is not a final invoice or proof of zero cost.
+
+
+## Linux Docker publication correction
+
+Hosted CI for f8a3d83 passed the native job and all 47 container Python tests, then exposed a Linux
+publication failure after all Nextflow tasks exited zero. Atomic JSON files had tempfile's mode 600
+and belonged to container root, so the runner could not copy summary JSON files into reports. The
+launcher correctly withheld SUCCESS and marked the mandatory tracks incomplete; passing task exits
+were insufficient. This was not a scientific calculation failure.
+
+Atomic report JSON now becomes mode 644 before rename, preserving atomicity while allowing host
+publication. A regression checks report readability; a direct Linux test writes as root and reads
+as UID 65534. Both native/container suites now pass 48 tests, nf-test passes once, and new real and
+synthetic Docker workflows pass artifact validation. All 31 biological comparisons between corrected
+real outputs and the earlier cloud run are equivalent. New real command wall time was 11.890 seconds
+and host process-tree high-water RSS 370,245,632 bytes; synthetic command wall time was 6.431 seconds.
+
+Evidence is preserved under `reports/audit-20261027/linux-publication-follow-up/`, including the
+original hosted failure log. The cloud source/image snapshot remains unchanged: it completed before
+this permission correction, and cloud S3 transfers do not preserve those POSIX file modes. Credentials
+and deployment state remain excluded from Git. Release metadata now acknowledges the published ECR
+audit images; scientific version pins did not change. Later hosted CI is verified after pushing this
+correction; this report is the frozen evidence captured before that push.

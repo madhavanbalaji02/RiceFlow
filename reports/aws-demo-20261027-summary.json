@@ -215,5 +215,17 @@
     "checked_utc": "2026-10-27T23:58:38.654904+00:00",
     "exit_code": 0,
     "no_changes": true
+  },
+  "subsequent_publication_fix": {
+    "evidence": "reports/audit-20261027/linux-publication-follow-up",
+    "reason": "Linux host could not publish root-owned mode-600 atomic JSON from Docker",
+    "correction": "Atomic report JSON is mode 644 before rename; credentials remain outside report serialization",
+    "native_tests": 48,
+    "container_tests": 48,
+    "nf_tests": 1,
+    "other_uid_read": "PASS uid 65534",
+    "biological_comparisons_vs_cloud": 31,
+    "equivalent": true,
+    "cloud_rerun": "Not repeated: cloud transfer does not preserve POSIX modes; original cloud source hashes retained."
   }
 }

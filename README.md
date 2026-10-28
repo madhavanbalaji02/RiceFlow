@@ -65,8 +65,10 @@ Local scheduling stays within 4 CPUs/8 GB, concurrency two and one thread per to
 authorized Ohio AWS demonstration passed both real tracks in 262.5 seconds including queue/startup;
 all 80 artifact hashes validated and 31 biological comparisons matched the same-source local run.
 The [cloud summary](reports/aws-demo-20261027-summary.json) records current shutdown status and the
-two earlier failures before job submission. Current-source checks passed 47 native tests, 47 container
-tests and one nf-test integration test; the earlier 44-test audit remains preserved.
+two earlier failures before job submission. Current-source checks passed 48 native tests, 48 container
+tests, a direct cross-UID Linux publication check and one nf-test integration test. Earlier 44/47-test
+snapshots remain preserved. The later publication fix changes JSON file modes; 31 biological comparisons
+with the original successful cloud run remain equivalent.
 
 See the [AWS runbook](docs/AWS_RUNBOOK.md) and [itemized estimate](docs/COST_ESTIMATE.md). The user
 approved up to $5 additional; the $15/month project target remains a planning target, not a hard cap.

@@ -28,3 +28,5 @@ Current-source local evidence (47 native/47 container tests, one nf-test, source
 run and comparisons) is under `audit-20261027/cloud-follow-up-local/`. Full cloud reports/resource
 responses remain local and ignored under `aws-demo-20261027/`; the public summary omits credentials
 and account-wide billing. Earlier audit snapshots retain their original source identities.
+
+The subsequent Linux JSON publication fix and current 48-test evidence are in `audit-20261027/linux-publication-follow-up/`; the original cloud snapshot and prior CI failure remain separate.

@@ -12,7 +12,7 @@ flowchart TD
   CS --> O[Separate track outputs and summaries]
   VS --> O
   O --> H[HTML report, TSV, Parquet, JSON]
-  L[Python launcher and deadline] --> N[Nextflow DSL2 local or prepared Batch profile]
+  L[Python launcher and deadline] --> N[Nextflow DSL2 local or authorized Batch execution]
   N --> C
   N --> V
   N --> T[Trace, timeline, execution report]
@@ -31,7 +31,8 @@ invalidating resume unexpectedly.
 
 Default local resource envelope: at most 4 CPUs, 8 GB scheduler RAM, two tasks simultaneously,
 one thread per scientific tool and 2 GB per task. These are limits/requests, not measured peaks.
-Nextflow 25.10.2 uses Java 17.0.20 on the controller. Docker jobs are linux/amd64 CPU-only.
+Nextflow 25.10.2 uses Java 17.0.20 locally; the audited AL2023 cloud controller used 17.0.21.
+Docker jobs are linux/amd64 CPU-only.
 Apple Silicon supports native development (ARM PLINK plus pysam's compiled BCFtools/SAMtools
 adapters) or Docker amd64 emulation. Emulation speed cannot be extrapolated to AWS workers.
 

@@ -1,4 +1,5 @@
 import json
+import stat
 from pathlib import Path
 
 import pyarrow as pa
@@ -9,6 +10,14 @@ from riceflow.cli import finalize
 from riceflow.common import Policy, dump, sha
 from riceflow.validation import validate_track, verify_real_inputs
 from riceflow.vcf import assess_quality, run
+
+
+def test_atomic_report_json_can_be_published_by_another_uid(tmp_path):
+    path = tmp_path / 'summary.json'
+    dump(path, {'status': 'PASS'})
+    assert json.loads(path.read_text()) == {'status': 'PASS'}
+    assert path.stat().st_mode & stat.S_IROTH
+    assert not list(tmp_path.glob('.summary.json*'))
 
 
 def test_git_metadata_optional_for_source_archives(tmp_path, monkeypatch):

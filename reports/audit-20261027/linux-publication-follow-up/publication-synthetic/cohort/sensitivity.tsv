@@ -1,0 +1,7 @@
+changed_parameter	sample_call_rate	site_call_rate	min_maf	observed_sites	retained_samples	retained_sites
+baseline	0.4	0.9	0.0	3	3	3
+sample_call_rate	0.7	0.9	0.0	3	3	3
+sample_call_rate	0.8	0.9	0.0	3	3	3
+sample_call_rate	0.95	0.9	0.0	3	3	3
+site_call_rate	0.4	0.8	0.0	3	3	3
+site_call_rate	0.4	0.98	0.0	3	3	3

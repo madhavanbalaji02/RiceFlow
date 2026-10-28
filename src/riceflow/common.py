@@ -37,6 +37,8 @@ def dump(path, obj):
         try:
             f.write(payload)
             f.flush()
+            # Report artifacts must be readable by a Linux host publishing root-owned Docker outputs.
+            os.fchmod(f.fileno(), 0o644)
             os.fsync(f.fileno())
             os.replace(temporary, path)
         finally:

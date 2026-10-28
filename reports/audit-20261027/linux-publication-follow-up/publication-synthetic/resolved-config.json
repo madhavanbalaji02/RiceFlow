@@ -1,0 +1,29 @@
+{
+  "chrom": 1,
+  "cohort": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/tiny",
+  "end": 100,
+  "execution_code_fingerprint": "762931b87dde740e8edbfbd250696e2b71e97261295b54e6b63463f04e846324",
+  "expected_sample": "S1",
+  "input_sha256": {
+    "cohort.bed": "50c01203f5ce6546634cec222b7e4523fc84f7fb4a532efed05f4405254d4a43",
+    "cohort.bim": "b739a85249cbeef9c554b251e197908514d5f5a9c59834b831fac8759b15e186",
+    "cohort.fam": "1d96ec34a4c468bc626211f2e9551d445f931106d8e4ccdbcc1494ef9782abe8",
+    "reference": "32edaa64590149e9ecd989241e42068a4c156ae5c18e0e0c369728db1ef573be",
+    "vcf": "f1ed4e6a5481e69799d340044f24dd0e393994fe4e12e0b282c264efa4572c8c"
+  },
+  "policy": {
+    "min_dp": 5,
+    "min_gq": null,
+    "min_maf": 0.0,
+    "missing_quality": "not_assessed",
+    "sample_call_rate": 0.4,
+    "site_call_rate": 0.9
+  },
+  "reference": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/reference.fa",
+  "sample_count": 4,
+  "source_manifest": null,
+  "start": 1,
+  "track_label": "SYNTHETIC",
+  "vcf": "/Users/madhavanbalaji/Documents/project/RiceFlow/tests/fixtures/tiny.vcf.gz",
+  "vcf_region": null
+}

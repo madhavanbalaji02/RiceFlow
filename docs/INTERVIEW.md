@@ -18,10 +18,12 @@ and a success marker, not an attractive HTML report.
 “I verified the complete public CoreSNP files and ran a deterministic local subset. I retrieved small
 B001 regions without downloading its multi-gigabyte VCF. The legacy reference hostname failed TLS verification, so the original report was correctly blocked.
 In the follow-up audit I resolved the current official NARO hostname with normal verification,
-checked its publisher checksum and all observed REF bases, and ran both real-data tracks. I prepared AWS infrastructure without provisioning it, and kept
-cost authorization and untested cloud behavior explicit.”
+checked its publisher checksum and all observed REF bases, and ran both real-data tracks. After
+explicit cost authorization, I ran the same two tracks on AWS Batch, verified their equivalence
+and confirmed controller shutdown and zero workers. I kept delayed billing and untested cloud
+restore/resume behavior explicit.”
 
 Tradeoffs to discuss: stable locus IDs versus source IDs; complete-call allele counting versus
 partial-call conventions; native CPU adapters versus standalone container binaries; conservative
 policy cache dependencies; deterministic selection versus representative sampling; retained work/cache
-versus storage cost; alerts versus enforcement; local evidence versus unexecuted cloud preparation.
+versus storage cost; alerts versus enforcement; local evidence versus independently verified cloud execution.

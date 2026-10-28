@@ -1,0 +1,24 @@
+{
+  "reports/aws-demo-20261027/publication-real": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "reports/aws-demo-20261027/publication-synthetic": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 79
+  }
+}

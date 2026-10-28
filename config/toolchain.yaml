@@ -8,6 +8,6 @@ samtools: 1.21
 htslib: 1.21
 terraform: 1.13.4
 aws_provider: 6.19.0
-release_status: development; no ECR release published
+release_status: development; authorized Ohio ECR audit release recorded in reports/aws-demo-20261027-summary.json
 platform: linux/amd64
 native_development: macOS arm64 with compiled pysam BCFtools/SAMtools adapters

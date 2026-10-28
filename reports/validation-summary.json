@@ -83,9 +83,19 @@
       "headSha": "a1560f80f4e5d1c62cfab7879ad99dd4c02c014c",
       "status": "completed",
       "url": "https://github.com/madhavanbalaji02/RiceFlow/actions/runs/40560762699"
+    },
+    {
+      "conclusion": "failure",
+      "headSha": "f8a3d837abe19c59d2316ba6d4c4e3053e8c92be",
+      "databaseId": 40606115549,
+      "status": "completed",
+      "url": "https://github.com/madhavanbalaji02/RiceFlow/actions/runs/40606115549",
+      "native": "PASS",
+      "container_pytest": "47 PASS",
+      "container_workflow": "INCOMPLETE: root-owned atomic JSON mode 600 prevented host publication"
     }
   ],
-  "github_actions_scope": "Historical CI is recorded below; current follow-up checks passed locally, hosted CI pending push.",
+  "github_actions_scope": "Frozen evidence index: source commit f8a3d83 passed native CI and 47 container tests but failed Linux Docker publication. The corrected source passes 48 local native/container tests and a cross-UID publication check; subsequent hosted CI is checked after push.",
   "image": {
     "digest": "sha256:fdb81334112582ac83ea2151d3a414d9762d96d098ee979a3bfb5b1df2a0bb3c",
     "local_image_id": "sha256:fdb81334112582ac83ea2151d3a414d9762d96d098ee979a3bfb5b1df2a0bb3c",
@@ -193,13 +203,13 @@
     "vcf": "bcftools 1.21\nUsing htslib 1.21\nCopyright (C) 2024 Genome Research Ltd.\nLicense Expat: The MIT/Expat license\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\nsamtools 1.21\nUsing htslib 1.21\nCopyright (C) 2024 Genome Research Ltd.\n\nSamtools compilation details:\n    Features:       build=configure curses=no \n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2\n    LDFLAGS:        \n    HTSDIR:         htslib-1.21\n    LIBS:           \n    CURSES_LIB:     \n\nHTSlib compilation details:\n    Features:       build=configure libcurl=yes S3=yes GCS=yes libdeflate=no lzma=yes bzip2=yes plugins=no htscodecs=1.6.1\n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2 -fvisibility=hidden\n    LDFLAGS:        -fvisibility=hidden \n\nHTSlib URL scheme handlers present:\n    built-in:\t file, preload, data\n    S3 Multipart Upload:\t s3w+https, s3w+http, s3w\n    Amazon S3:\t s3+https, s3, s3+http\n    Google Cloud Storage:\t gs+http, gs+https, gs\n    libcurl:\t gophers, rtmpe, rtmpte, smtp, rtmpt, ldaps, smb, rtsp, tftp, pop3, smbs, imaps, pop3s, ftps, https, http, ftp, gopher, imap, sftp, ldap, smtps, rtmps, rtmpts, dict, scp, mqtt, telnet, rtmp\n    crypt4gh-needed:\t crypt4gh\n    mem:\t mem\n"
   },
   "tests": {
-    "native": 47,
-    "container": 47,
+    "native": 48,
+    "container": 48,
     "nf_test": 1,
     "skipped": 0,
     "ruff": "PASS",
     "terraform": "DEPLOYED_AND_POST_RUN_PLAN_NO_CHANGES",
-    "evidence": "reports/audit-20261027/cloud-follow-up-local"
+    "evidence": "reports/audit-20261027/linux-publication-follow-up"
   },
   "transfer": {
     "cache_reuse": {
@@ -297,9 +307,12 @@
     "source_matched_workspace": true
   },
   "current_source_validation": {
-    "run": "reports/aws-demo-20261027/local-v2-real",
-    "artifact_audit": "reports/audit-20261027/cloud-follow-up-local/local-v2-artifact-audit.json",
-    "semantic": "reports/audit-20261027/cloud-follow-up-local/local-v2-semantic.json",
-    "aws_summary": "reports/aws-demo-20261027-summary.json"
+    "run": "reports/audit-20261027/linux-publication-follow-up/publication-real",
+    "synthetic": "reports/audit-20261027/linux-publication-follow-up/publication-synthetic",
+    "artifact_audit": "reports/audit-20261027/linux-publication-follow-up/publication-artifact-audit.json",
+    "semantic_vs_cloud": "reports/audit-20261027/linux-publication-follow-up/publication-vs-cloud.json",
+    "other_uid": "reports/audit-20261027/linux-publication-follow-up/publication-other-uid.json",
+    "aws_summary": "reports/aws-demo-20261027-summary.json",
+    "cloud_source_note": "Cloud execution predates the JSON-permission correction; its exact source hashes are preserved, and 31 biological comparisons with corrected source match."
   }
 }

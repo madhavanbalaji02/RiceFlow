@@ -20,5 +20,8 @@ older stable tool versions and tests the chosen command lines, rather than claim
 - Terraform Batch schema: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/batch_compute_environment
 - IAM execution roles: https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html
 
-Provider 6.19.0 schemas were actually validated by Terraform 1.13.4 locally. AWS networking/IAM and
-actual cost behavior remain unexecuted, not established by reading these documents.
+Provider 6.19.0 schemas were validated by Terraform 1.13.4 locally. The subsequently authorized Ohio
+deployment executed both real tracks, verified artifacts and stopped compute. Observed IAM fixes,
+runtime, cleanup and source identities are recorded in reports/aws-demo-20261027-summary.json.
+Final invoice reconciliation and cloud restore/resume remain unverified; documentation alone does
+not establish them. The cloud controller used distribution Java 17.0.21, recorded separately.

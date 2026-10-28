@@ -1,0 +1,12 @@
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	﻿2026-10-28T00:04:08.5102364Z ##[group]Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5102800Z ^[[36;1mdocker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'^[[0m
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5103156Z ^[[36;1mPATH="$PWD/.venv/bin:$PWD/.tools:$PATH" NXF_HOME="$PWD/.tools/nxf-home" riceflow run --profile docker^[[0m
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5119499Z shell: /usr/bin/bash -e {0}
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5119644Z env:
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5119816Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-101/x64
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5120082Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-101/x64
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5120312Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:08.5120483Z ##[endgroup]
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:10.3221946Z ...............................................                          [100%]
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:10.3229343Z 47 passed in 1.54s
+container	Run docker run --rm --platform linux/amd64 riceflow:0.1.0 bash -c 'cd /opt/riceflow && pytest -q'	2026-10-28T00:04:17.1676755Z ##[error]Process completed with exit code 1.
