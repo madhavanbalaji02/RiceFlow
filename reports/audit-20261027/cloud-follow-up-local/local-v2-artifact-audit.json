@@ -1,0 +1,13 @@
+{
+  "reports/aws-demo-20261027/local-v2-real": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  }
+}

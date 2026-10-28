@@ -1,0 +1,19 @@
+{
+  "base_image": "python@sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d",
+  "image_id": "sha256:6c41015bad0b818a8c27ed6acd6299de220352204efde571660d45a9c350a322",
+  "platform": "linux/amd64",
+  "repository_digest": null,
+  "status": "Locally tested image; never pushed to ECR",
+  "tested_python_source": {
+    "src/riceflow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/riceflow/cli.py": "47b8d1191dd4fd00da46f09ad1dd12c23433d141fb1bca64f0cbb4e79259eefa",
+    "src/riceflow/cloud.py": "415b0d5e46ed7524d0c97b3fc0282e2a20b970fa3c54b75b182e3f91634cfb0b",
+    "src/riceflow/cohort.py": "f411c8bb68d9bd2ba8bd932528f0ae9301ed9d54e4b62ef9f67258758bf6ee6d",
+    "src/riceflow/common.py": "d00bdbb15993a35ed4717fa2fe898d5887ddb4b1fac5cd8866ff0d3628cc6bb0",
+    "src/riceflow/network.py": "0740f248a91bad16e99f31dfa5114d4862ae4e6e74c0c99b666c22653fe2685c",
+    "src/riceflow/preflight.py": "8582ab30302999eaaa911c8da10ef45bd70bb02a5e1ff63968b26da64a6fbbd8",
+    "src/riceflow/report.py": "7dae59bfe4a7506cf8ea836762ab6cea5b20b825f1833266ce5badd2093113fa",
+    "src/riceflow/validation.py": "e608a59ef99dfbb8583a59d5861f18e12921639ae3f60d57bb39d2576f9d3f8f",
+    "src/riceflow/vcf.py": "a1963240019349fca3ee582435093b1ee54715d14eb8d63a7574661a58d76854"
+  }
+}

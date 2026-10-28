@@ -45,3 +45,37 @@ PLINK 2 BED imports, but that is a file convention rather than biological refere
 Missingness uses complete calls. BCFtools query preserves partial GTs, whereas RiceFlow intentionally
 excludes both alleles from its complete-diploid AC/AN. BCFtools `stats` record/SNP scope counts are
 compared independently; no claim is made that all tool summary denominators are interchangeable.
+
+## Audited additions
+
+- `scope_counts`: reference / unsupported / snp counts, summing to observed_records.
+- `quality_availability`: actual non-null DP/GQ counts by record kind; separate from declared FORMAT fields.
+- `stage_counts`: observed records, eligible SNPs, original and post-mask complete calls, sample exclusions,
+  sites assessed after sample removal, site exclusions and retained sites. Sample exclusion precedes
+  site recomputation. Quality and scope categories are mutually exclusive record decisions.
+- `audit.retained` and `audit.site_decision`: final disposition of each observed record. Site reasons are
+  explicit (`site_call_rate`, `no_complete_alleles`, `minor_allele_frequency`, `no_retained_samples`),
+  with multiple contributing reasons separated by semicolons. Unavailable sample call rate uses
+  `no_observed_sites`, rather than silently converting null to zero.
+- `region`: configured one-based inclusive VCF region, attested by preflight and checked against every
+  actual record. It is independent of the cohort interval.
+- `track_statuses` in run manifests: independent cohort and VCF PASS/BLOCKED/EMPTY or FAILED_VALIDATION.
+  Overall SUCCESS requires both mandatory tracks to pass and all artifact/trace validations to pass.
+- `attempts`: actual process/status/exit/attempt records derived from the Nextflow trace, not an empty
+  placeholder. `nextflow_command` records the exact controller arguments.
+
+Reference and unsupported VCF outputs retain their original calls and source FILTER/INFO. Masked and
+filtered outputs contain supported SNPs only. All output indexes are opened by validation, not merely
+checked for existence. Parquet rows and TSV schemas/counts must agree with JSON summaries; native BED
+and VCF genotypes are independently recalculated against the reported baseline/final metrics.
+
+Cohort sensitivity changes either sample_call_rate or site_call_rate with the other fixed. VCF
+sensitivity changes only min_dp, including the actual baseline (which may be disabled), and uses the
+same missing-field policy as the main result. `changed_parameter` makes the distinction explicit.
+Charts expose complete/observed-sites denominators on hover and label selection rather than accuracy.
+
+execution_code_fingerprint is runtime metadata calculated from source hashes and passed as a task
+input, including for native execution. It is distinct from the biological policy and input SHA256
+mapping. A source-comment probe demonstrated recalculation without changing biological results.
+Empty Parquet schemas require the documented zero-row boolean sentinel; TSV values, not just headers
+and row counts, must match JSON. Audit-table scope/quality totals are also reconciled before success.

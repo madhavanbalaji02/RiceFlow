@@ -1,0 +1,4 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	attempt
+1	56/97a37a	99140	VCF_QC	COMPLETED	0	2026-10-27 14:54:48.147	1.5s	1s	-	-	1
+2	13/8e03af	99139	COHORT_QC	COMPLETED	0	2026-10-27 14:54:48.141	1.8s	1s	-	-	1
+3	6c/d47c37	99291	COLLECT	COMPLETED	0	2026-10-27 14:54:49.907	38ms	0ms	-	-	1

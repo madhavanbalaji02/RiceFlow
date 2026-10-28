@@ -1,5 +1,7 @@
 """Budgeted HTTPS access; byte budgets include retry payloads, never trust ETag as SHA256."""
+import re
 import time
+from datetime import datetime, timezone
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -12,6 +14,21 @@ class BudgetClient:
         self.requests = 0
         self.request_limit = request_limit
         self.evidence = []
+
+    def head(self, url):
+        """Discover payload size before a full download; HEAD payload is never consumed."""
+        self.requests += 1
+        if self.requests > self.request_limit:
+            raise RuntimeError('Request budget exhausted')
+        with urllib.request.urlopen(urllib.request.Request(url, method='HEAD'), timeout=30) as r:
+            size = int(r.headers.get('Content-Length', '-1'))
+            if size < 0:
+                raise ValueError('Source has no discoverable Content-Length')
+            item = dict(url=url, final_url=r.url, method='HEAD', bytes=0, source_bytes=size,
+                        retrieved_utc=datetime.now(timezone.utc).isoformat(),
+                        last_modified=r.headers.get('Last-Modified'), server_date=r.headers.get('Date'))
+            self.evidence.append(item)
+            return item
 
     def fetch(self, url, start=None, end=None, dest=None):
         kind = 'full' if start is None else 'regional'
@@ -28,10 +45,11 @@ class BudgetClient:
                 with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
                     size = int(r.headers.get('Content-Length', '-1'))
                     if start is not None:
-                        expected = f'bytes {start}-'
-                        if r.status != 206 or not r.headers.get('Content-Range', '').startswith(expected):
+                        match = re.fullmatch(r'bytes (\d+)-(\d+)/(\d+)', r.headers.get('Content-Range', ''))
+                        if r.status != 206 or not match or int(match[1]) != start:
                             raise ValueError('Server ignored or misserved Range; prohibited full download refused')
-                        if size < 0 or size > end - start + 1:
+                        if (int(match[2]) != min(end, int(match[3]) - 1)
+                                or size != int(match[2]) - start + 1):
                             raise ValueError('Invalid ranged payload size')
                     if size < 0 or size > self.limits[kind] - self.used[kind]:
                         raise ValueError(f'{kind} transfer budget exceeded or unknown Content-Length')
@@ -46,7 +64,8 @@ class BudgetClient:
                         data.extend(block)
                     if len(data) != size:
                         raise OSError('Truncated HTTP response')
-                    self.evidence.append(dict(url=url, bytes=len(data), range=headers.get('Range'),
+                    self.evidence.append(dict(url=url, final_url=r.url, method='GET', bytes=len(data),
+                                              retrieved_utc=datetime.now(timezone.utc).isoformat(), range=headers.get('Range'),
                                               content_range=r.headers.get('Content-Range'),
                                               last_modified=r.headers.get('Last-Modified')))
                     if dest:

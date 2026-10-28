@@ -136,6 +136,7 @@
       "type": "integer"
     },
     "track_label": {
+      "pattern": "^(SYNTHETIC|REAL(?:_[A-Z0-9_]+)?)$",
       "title": "Track Label",
       "type": "string"
     },
@@ -150,6 +151,18 @@
       ],
       "default": null,
       "title": "Vcf"
+    },
+    "vcf_region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Vcf Region"
     }
   },
   "required": [

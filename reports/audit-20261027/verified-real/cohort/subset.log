@@ -1,0 +1,31 @@
+$ plink2 --chr-set 12 no-x no-y no-xy no-mt --threads 1 --memory 1024 --bfile input --keep cohort/selected.samples --chr 1 --from-bp 1 --to-bp 1000000 --make-bed --out cohort/unfiltered
+PLINK v2.0.0-a.6.16LM 64-bit Intel (9 Jun 2025)    cog-genomics.org/plink/2.0/
+(C) 2005-2025 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to cohort/unfiltered.log.
+Options in effect:
+  --bfile input
+  --chr 1
+  --chr-set 12 no-x no-y no-xy no-mt
+  --from-bp 1
+  --keep cohort/selected.samples
+  --make-bed
+  --memory 1024
+  --out cohort/unfiltered
+  --threads 1
+  --to-bp 1000000
+
+Start time: Tue Oct 27 19:18:54 2026
+7837 MiB RAM detected, ~4621 available; reserving 1024 MiB for main workspace.
+Using 1 compute thread.
+3024 samples (0 females, 0 males, 3024 ambiguous; 3024 founders) loaded from
+input.fam.
+42466 out of 404388 variants loaded from input.bim.
+Note: No phenotype data present.
+--keep: 24 samples remaining.
+24 samples (0 females, 0 males, 24 ambiguous; 24 founders) remaining after main
+filters.
+969 variants remaining after main filters.
+Writing cohort/unfiltered.fam ... done.
+Writing cohort/unfiltered.bim ... done.
+Writing cohort/unfiltered.bed ... 0%done.
+End time: Tue Oct 27 19:18:54 2026

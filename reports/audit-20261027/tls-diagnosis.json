@@ -1,0 +1,33 @@
+{
+  "direct_tls": {
+    "diagnostic": "Connecting to 150.26.178.164\ndepth=1 C=US, ST=California, L=Sunnyvale, O=Fortinet, OU=Certificate Authority, CN=<appliance identifier redacted>, emailAddress=support@fortinet.com\nverify error:num=19:self-signed certificate in certificate chain\n80E15BF001000000:error:0A000086:SSL routines:tls_post_process_server_certificate:certificate verify failed:ssl/statem/statem_clnt.c:2126:\n80E15BF001000000:error:0A000197:SSL routines:SSL_shutdown:shutdown while in init:ssl/ssl_lib.c:2804:\n",
+    "exit_code": 1
+  },
+  "hosts": [
+    {
+      "elapsed_seconds": 0.46541690826416016,
+      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)>",
+      "host": "rapdb.dna.affrc.go.jp",
+      "verified": false
+    },
+    {
+      "date": "Tue, 27 Oct 2026 18:42:17 GMT",
+      "elapsed_seconds": 0.6159119606018066,
+      "host": "rapdb.dna.naro.go.jp",
+      "status": 200,
+      "verified": true
+    }
+  ],
+  "openssl": "OpenSSL 3.5.4 30 Sep 2025",
+  "system_trust_changed": false,
+  "tls_verification_disabled": false,
+  "trust_store": {
+    "cafile": "/private/etc/ssl/cert.pem",
+    "capath": "/private/etc/ssl/certs",
+    "openssl_cafile": "/private/etc/ssl/cert.pem",
+    "openssl_cafile_env": "SSL_CERT_FILE",
+    "openssl_capath": "/private/etc/ssl/certs",
+    "openssl_capath_env": "SSL_CERT_DIR"
+  },
+  "utc": "2026-10-27T18:42:18Z"
+}

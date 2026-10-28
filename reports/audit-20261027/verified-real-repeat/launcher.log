@@ -1,0 +1,6 @@
+Nextflow 26.10.4 is available - Please consider updating your version to it
+N E X T F L O W  ~  version 25.10.2
+Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [nostalgic_wozniak] DSL2 - revision: 61148d63b6
+[99/4f6b60] Submitted process > COHORT_QC
+[6a/46bd1f] Submitted process > VCF_QC
+[af/906512] Submitted process > COLLECT

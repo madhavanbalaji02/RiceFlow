@@ -1,0 +1,1 @@
+PLINK v2.0.0-a.6.16LM 64-bit Intel (9 Jun 2025)

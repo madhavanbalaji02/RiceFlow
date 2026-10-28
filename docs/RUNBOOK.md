@@ -68,3 +68,48 @@ also includes the execution profile, resolved image digest, pinned toolchain def
 lock. A local image digest is recorded in `containers/local-image-id.txt`; rebuilding can change image
 bytes as OS package metadata changes. Use the tested content digest for execution rather than assuming
 a fresh rebuild is byte-identical. No ECR RepoDigest is claimed for an image that was never pushed.
+
+## Current real-data reproduction and audit
+
+The reference blocker is resolved using the current official NARO hostname. `make preflight` now uses
+a new timestamped output directory, reuses available attested caches, and writes run-config.yaml on
+success. For a fresh checkout choose `make preflight PREFLIGHT_OUT=data/my-preflight` and then
+`riceflow run --config data/my-preflight/run-config.yaml` with the project PATH/NXF_HOME. Existing
+cache manifests must match all compressed/decompressed cohort and reference hashes; mismatches fail.
+The default full/regional payload budgets remain 500/16 MiB. Cache-reuse validation succeeded with a
+1 MiB full budget, demonstrating that the large input files were not fetched again.
+
+This workspace's config/real.yaml selects the verified audit data. config/real-cohort-only.yaml preserves
+the historical cohort-only/BLOCKED configuration; config/real-gq40.yaml is a separate named GQ policy.
+Run paths must be new. Existing historical reports and success markers remain immutable; an attempted
+same-path launch is rejected. Internal finalization revokes a stale marker before any failed status
+and atomically publishes JSON after validation. A trace with missing required fields cannot certify.
+
+The audit image is explicitly selected with `--profile docker --image riceflow:audit-20261027`.
+The launcher verifies image Python hashes before starting Nextflow; a stale default image must be
+rebuilt with make container. Task manifests separately record actual in-container tool versions.
+
+`scripts/record_command.py --ledger <jsonl> --name <unique-name> -- <command...>` records exact arguments,
+exit code, UTC times, total wall time and OS wait4 peak RSS. That host process-tree RSS is not the sum
+of concurrent task memory and does not include the Docker VM's resident memory. Nextflow trace adds
+sampled task RSS/realtime where available; native macOS task RSS remains unavailable.
+
+`scripts/compare_biology.py --first <run> --second <run> --out <json>` compares summaries, all Parquet
+metrics, native BED/BIM/FAM bytes and parsed indexed VCF records. It ignores only run metadata, logs,
+VCF header command timestamps and compression representation, never genotype/allele/filter differences.
+The real recovery demonstration can be rerun using scripts/recovery-demo.py --config config/real.yaml
+--root reports/<new-audit-path>. It uses an exact UUID, asserts two cached tasks on resume, changes DP
+and checks that affected results are recalculated with a distinct analysis fingerprint.
+
+Native task inputs now include execution_code_fingerprint, calculated from the actual Python/modules/
+workflow/config hashes. This prevents resumed native tasks from silently reusing results after an
+editable Python source change. The audit's --probe-code recovery test adds one harmless temporary
+comment, verifies zero cached tasks and unchanged biological outputs, then restores the original bytes.
+Do not edit source or share a controller launch directory while a scientific run is active.
+
+Replay using the original user configuration or the generated preflight run-config.yaml. The expanded
+resolved-config.json also carries runtime-only metadata and is not the declared input-schema document.
+Use scripts/audit_artifacts.py --run <certified-run> --out <new-audit-json> to revalidate success-marker
+bindings, every recorded output SHA256, table values/schemas and genotype-derived metrics. The utility
+also checks real-data attestations, code fingerprints and embedded report assets; it does not claim a
+visual browser inspection.

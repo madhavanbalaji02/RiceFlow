@@ -25,21 +25,54 @@ def timestamp():
     return datetime.now(timezone.utc).isoformat()
 
 
+def git_state(root):
+    try:
+        return dict(commit=command(['git', '-C', root, 'rev-parse', 'HEAD']).strip(),
+                    dirty=bool(command(['git', '-C', root, 'status', '--porcelain']).strip()))
+    except (RuntimeError, OSError):
+        return dict(commit=None, dirty=None, status='Git metadata unavailable')
+
+
 def finalize(out, manifest, code, error=None):
+    # A failed/refinalized invocation must never inherit a previous certification.
+    (out / 'SUCCESS.json').unlink(missing_ok=True)
+    (out / 'failure-manifest.json').unlink(missing_ok=True)
     manifest.update(ended=timestamp(), returncode=code, error=error)
     trace = out / 'trace.tsv'
+    trace_error = None
     if trace.exists():
         import csv
-        with trace.open() as f:
-            manifest['tasks'] = list(csv.DictReader(f, delimiter='\t'))
+        try:
+            with trace.open() as f:
+                reader = csv.DictReader(f, delimiter='\t')
+                if not {'name', 'status', 'exit', 'attempt'}.issubset(reader.fieldnames or []):
+                    raise ValueError('Trace lacks required process/status/exit/attempt fields')
+                manifest['tasks'] = list(reader)
+            manifest['attempts'] = [{k: row[k] for k in ['name', 'status', 'exit', 'attempt']}
+                                    for row in manifest['tasks']]
+        except Exception as e:
+            trace_error = str(e)
     manifest['task_tools'] = {track: (out / track / 'tool-versions.txt').read_text()
                               for track in ['cohort', 'vcf'] if (out / track / 'tool-versions.txt').exists()}
     ok = False
     try:
+        if trace_error:
+            raise ValueError(trace_error)
         execution = {k: manifest.get(k) for k in ['run_id', 'fingerprint', 'label', 'started', 'ended',
                     'elapsed_seconds', 'returncode', 'tools', 'task_tools', 'git', 'image', 'tasks', 'config']}
-        execution['resource_limitations'] = 'Native macOS lacks per-task CPU/RSS telemetry; elapsed is measured wall time.'
+        execution['resource_limitations'] = (
+            'Trace CPU/RSS telemetry depends on the executor; missing values are unmeasured. '
+            'Elapsed time is measured wall time; task RSS is not total host memory.')
         tracks = build(out, manifest['label'], execution)
+        manifest['track_statuses'] = {k: v['status'] for k, v in tracks.items()}
+        from .validation import validate_track
+        for kind, track in tracks.items():
+            if track.get('status') in ['PASS', 'EMPTY']:
+                try:
+                    validate_track(out / kind, kind)
+                except Exception:
+                    manifest['track_statuses'][kind] = 'FAILED_VALIDATION'
+                    raise
         ok = code == 0 and all(t.get('status') == 'PASS' for t in tracks.values())
         if ok:
             checks = json.loads((out / 'output-checksums.json').read_text())
@@ -61,6 +94,7 @@ def finalize(out, manifest, code, error=None):
     except Exception as e:
         ok = False
         manifest['error'] = str(e)
+        manifest['validation_status'] = 'FAILED'
     manifest['status'] = 'SUCCESS' if ok else 'FAILED' if code or manifest.get('error') else 'INCOMPLETE'
     dump(out / 'run-manifest.json', manifest)
     if ok:
@@ -85,21 +119,17 @@ def launch(args):
     if args.profile == 'docker':
         args.image = command(['docker', 'image', 'inspect', args.image or 'riceflow:0.1.0',
                               '--format', '{{.Id}}']).strip()
+        script = ('import hashlib,json,pathlib; root=pathlib.Path("/opt/riceflow/src"); '
+                  'print(json.dumps({str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() '
+                  'for p in root.rglob("*.py")},sort_keys=True))')
+        image_code = json.loads(command(['docker', 'run', '--rm', '--platform', 'linux/amd64',
+                                         args.image, 'python', '-c', script]))
+        local_code = {str(p.relative_to(ROOT / 'src')): sha(p) for p in (ROOT / 'src').rglob('*.py')}
+        if not image_code or image_code != local_code:
+            raise ValueError('Docker image Python source differs from workspace; rebuild it before this run')
     if cfg['track_label'].startswith('REAL'):
-        source = json.loads(Path(cfg['source_manifest']).read_text())
-        if source['tracks']['cohort']['status'] != 'VERIFIED':
-            raise ValueError('Real cohort has not passed preflight')
-        for entry in source['sources']:
-            if 'decompressed_sha256' in entry:
-                ext = entry['url'].split('.')[-2]
-                actual = ((cfg.get('input_sha256') or {}).get('cohort.' + ext)
-                          if cfg['cohort'].startswith('s3://') else sha(cfg['cohort'] + '.' + ext))
-                if actual != entry['decompressed_sha256']:
-                    raise ValueError('Cohort checksum no longer matches preflight')
-        if cfg.get('vcf') and (source.get('reference', {}).get('status') != 'VERIFIED_REGIONAL_BASES'
-                               or source['reference']['sha256'] != ((cfg.get('input_sha256') or {}).get('reference')
-                                   if cfg['reference'].startswith('s3://') else sha(cfg['reference']))):
-            raise ValueError('Real VCF requires the verified matching reference from preflight')
+        from .validation import verify_real_inputs
+        verify_real_inputs(cfg)
     # Paths are resolved at the launcher, then staged by Nextflow for local/container/cloud use.
     for key in ['cohort', 'vcf', 'reference']:
         if cfg.get(key) and not cfg[key].startswith('s3://'):
@@ -120,6 +150,7 @@ def launch(args):
     source_hashes = {str(p.relative_to(ROOT)): sha(p) for folder in ['src', 'modules', 'workflows', 'conf']
                      for p in sorted((ROOT / folder).rglob('*')) if p.is_file() and '__pycache__' not in str(p)}
     source_hashes['nextflow.config'] = sha(ROOT / 'nextflow.config')
+    cfg['execution_code_fingerprint'] = hashlib.sha256(json.dumps(source_hashes, sort_keys=True).encode()).hexdigest()
     environment = dict(profile=args.profile, image=args.image or 'native',
                        toolchain=sha(ROOT / 'config/toolchain.yaml'), requirements=sha(ROOT / 'requirements.lock'))
     fingerprint = hashlib.sha256(json.dumps(dict(config=cfg, inputs=inputs, code=source_hashes,
@@ -142,11 +173,7 @@ def launch(args):
             versions[tool] = (p.stdout + p.stderr).strip()
         except (OSError, subprocess.TimeoutExpired) as e:
             versions[tool] = 'UNAVAILABLE: ' + str(e)
-    try:
-        git = dict(commit=command(['git', '-C', ROOT, 'rev-parse', 'HEAD']).strip(),
-                   dirty=bool(command(['git', '-C', ROOT, 'status', '--porcelain']).strip()))
-    except RuntimeError:
-        git = dict(commit=None, dirty=None, status='not a Git repository')
+    git = git_state(ROOT)
     manifest = dict(run_id=run_id, fingerprint=fingerprint, started=timestamp(), status='RUNNING',
                     label=cfg['track_label'], git=git, tools=versions, inputs=inputs,
                     code=source_hashes, config=cfg, image=args.image or 'NATIVE_NO_IMAGE',
@@ -167,6 +194,8 @@ def launch(args):
         nf += ['--image', args.image]
     if args.resume:
         nf += ['-resume', args.resume]
+    manifest['nextflow_command'] = nf
+    dump(out / 'run-manifest.json', manifest)
     start = time.monotonic()
     child = None
     try:
@@ -229,7 +258,7 @@ def main():
     if a.cmd == 'cohort':
         cohort.run(cfg['cohort'], a.out, policy, cfg['chrom'], cfg['start'], cfg['end'], cfg['sample_count'])
     else:
-        vcf.run(cfg['vcf'], cfg['reference'], a.out, policy, cfg.get('expected_sample'))
+        vcf.run(cfg['vcf'], cfg['reference'], a.out, policy, cfg.get('expected_sample'), cfg.get('vcf_region'))
     return 0
 
 

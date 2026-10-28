@@ -1,0 +1,91 @@
+Oct-27 15:16:37.890 [main] DEBUG nextflow.cli.Launcher - $> nextflow -log /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/nextflow.log run /Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf -c /Users/madhavanbalaji/Documents/project/RiceFlow/nextflow.config -profile native --config_json /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/resolved-config.json --policy /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/policy.json --outdir /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed --inject_failure false -with-report /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/execution.html -with-timeline /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/timeline.html -with-trace /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/trace.tsv -resume 83576828-adc5-423a-b321-f6adb8fabb92
+Oct-27 15:16:37.960 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.2
+Oct-27 15:16:37.971 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/madhavanbalaji/Documents/project/RiceFlow/.tools/nxf-home/plugins; core-plugins: nf-amazon@3.4.2,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.3,nf-k8s@1.2.2,nf-tower@1.17.3,nf-wave@1.16.1
+Oct-27 15:16:37.989 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-27 15:16:37.990 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-27 15:16:37.992 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-27 15:16:38.000 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+Oct-27 15:16:38.080 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-27 15:16:38.095 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/madhavanbalaji/Documents/project/RiceFlow/nextflow.config
+Oct-27 15:16:38.097 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /Users/madhavanbalaji/Documents/project/RiceFlow/nextflow.config
+Oct-27 15:16:38.098 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/madhavanbalaji/Documents/project/RiceFlow/nextflow.config
+Oct-27 15:16:38.098 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/madhavanbalaji/Documents/project/RiceFlow/nextflow.config
+Oct-27 15:16:38.112 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `native`
+Oct-27 15:16:38.333 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `native`
+Oct-27 15:16:38.342 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [native, docker]
+Oct-27 15:16:38.358 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-27 15:16:38.358 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-27 15:16:38.366 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/madhavanbalaji/Documents/project/RiceFlow/.tools/nxf-home/secrets/store.json
+Oct-27 15:16:38.368 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3a790e40] - activable => nextflow.secret.LocalSecretsProvider@3a790e40
+Oct-27 15:16:38.368 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-27 15:16:38.375 [main] INFO  nextflow.cli.CmdRun - Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [angry_dalembert] DSL2 - revision: 61148d63b6
+Oct-27 15:16:38.397 [main] DEBUG nextflow.Session - Session UUID: 83576828-adc5-423a-b321-f6adb8fabb92
+Oct-27 15:16:38.398 [main] DEBUG nextflow.Session - Run name: angry_dalembert
+Oct-27 15:16:38.398 [main] DEBUG nextflow.Session - Executor pool size: 11
+Oct-27 15:16:38.402 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-27 15:16:38.405 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=33; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-27 15:16:38.420 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.2 build 10555
+  Created: 28-11-2025 19:24 UTC (14:24 EDT)
+  System: Mac OS X 26.6.2
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.20+0
+  Encoding: UTF-8 (UTF-8)
+  Process: 14966@Maddys-MacBook-Pro-4.local [127.0.0.1]
+  CPUs: 11 - Mem: 18 GB (118.6 MB) - Swap: 5 GB (1.3 GB)
+Oct-27 15:16:38.437 [main] DEBUG nextflow.Session - Work-dir: /Users/madhavanbalaji/Documents/project/RiceFlow/work [Mac OS X]
+Oct-27 15:16:38.437 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/madhavanbalaji/Documents/project/RiceFlow/workflows/bin
+Oct-27 15:16:38.443 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-27 15:16:38.447 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-27 15:16:38.448 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+Oct-27 15:16:38.474 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-27 15:16:38.479 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 12; maxThreads: 1000
+Oct-27 15:16:38.525 [main] DEBUG nextflow.Session - Session start
+Oct-27 15:16:38.533 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/recovery-479558bf/code-changed/trace.tsv
+Oct-27 15:16:38.725 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-27 15:16:38.878 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-27 15:16:38.878 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-27 15:16:38.882 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-27 15:16:38.885 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=8 GB; capacity=2; pollInterval=100ms; dumpInterval=5m
+Oct-27 15:16:38.886 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Oct-27 15:16:38.897 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'COHORT_QC': maxForks=1; fair=false; array=0
+Oct-27 15:16:38.923 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-27 15:16:38.924 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-27 15:16:38.924 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'VCF_QC': maxForks=1; fair=false; array=0
+Oct-27 15:16:38.928 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Oct-27 15:16:38.928 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-27 15:16:38.928 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'COLLECT': maxForks=1; fair=false; array=0
+Oct-27 15:16:38.930 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: VCF_BLOCKED, COLLECT, VCF_QC, COHORT_QC
+Oct-27 15:16:38.931 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
+Oct-27 15:16:38.932 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > COHORT_QC
+Oct-27 15:16:38.932 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > VCF_QC
+Oct-27 15:16:38.932 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > COLLECT
+Oct-27 15:16:38.932 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_0a1d8ad032741666: /Users/madhavanbalaji/Documents/project/RiceFlow/modules/vcf.nf
+  Script_ce8fea53a360e2cf: /Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf
+  Script_d35eebe0a742d27c: /Users/madhavanbalaji/Documents/project/RiceFlow/modules/cohort.nf
+Oct-27 15:16:38.932 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-27 15:16:38.932 [main] DEBUG nextflow.Session - Session await
+Oct-27 15:16:39.014 [Task submitter] WARN  n.executor.BashWrapperBuilder - Task runtime metrics are not reported when using macOS without a container engine
+Oct-27 15:16:39.027 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 15:16:39.030 [Task submitter] INFO  nextflow.Session - [dd/2198a7] Submitted process > COHORT_QC
+Oct-27 15:16:39.063 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 15:16:39.063 [Task submitter] INFO  nextflow.Session - [58/a45fcd] Submitted process > VCF_QC
+Oct-27 15:16:40.816 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: VCF_QC; status: COMPLETED; exit: 0; error: -; workDir: /Users/madhavanbalaji/Documents/project/RiceFlow/work/58/a45fcd487cce5651e3ca2e001b4f5b]
+Oct-27 15:16:40.816 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=33; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-27 15:16:41.062 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: COHORT_QC; status: COMPLETED; exit: 0; error: -; workDir: /Users/madhavanbalaji/Documents/project/RiceFlow/work/dd/2198a7696c64a8dc7e79e9683cf279]
+Oct-27 15:16:41.072 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 15:16:41.072 [Task submitter] INFO  nextflow.Session - [03/2fca2b] Submitted process > COLLECT
+Oct-27 15:16:41.112 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: COLLECT; status: COMPLETED; exit: 0; error: -; workDir: /Users/madhavanbalaji/Documents/project/RiceFlow/work/03/2fca2bf2cbbdb2259efa1ecb80aaf4]
+Oct-27 15:16:41.119 [TaskFinalizer-3] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=33; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-27 15:16:41.119 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-27 15:16:41.216 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Oct-27 15:16:41.217 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-27 15:16:41.218 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Oct-27 15:16:41.218 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Oct-27 15:16:41.227 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=3; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=3s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=2; peakMemory=4 GB; ]
+Oct-27 15:16:41.227 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Oct-27 15:16:41.823 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Oct-27 15:16:41.918 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Oct-27 15:16:41.927 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-27 15:16:41.942 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Oct-27 15:16:41.942 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

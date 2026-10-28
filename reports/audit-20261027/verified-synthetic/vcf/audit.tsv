@@ -1,0 +1,10 @@
+locus	kind	original_gt	source_filter	dp	gq	original_state	quality_status	reasons	retained	site_decision
+chr01:1:A:.	reference	0/0	PASS	20		complete	scope_exclusion	reference	False	scope_exclusion
+chr01:2:A:G	snp	0/1	PASS	10	30	complete	passed	none	True	retained
+chr01:3:A:C	snp	1/1	LowQual	2		complete	failed	low_dp	False	site_call_rate;no_complete_alleles
+chr01:4:A:G	snp	0/0	PASS			complete	not_assessed	missing_dp	False	site_call_rate;no_complete_alleles
+chr01:5:A:C	snp	./.	PASS	10		missing	passed	none	False	site_call_rate;no_complete_alleles
+chr01:6:A:T	snp	0/.	PASS	10		partial	passed	none	False	site_call_rate;no_complete_alleles
+chr01:7:A:AT	unsupported	0/1	PASS	10		complete	scope_exclusion	unsupported	False	scope_exclusion
+chr01:8:A:G	snp	0/0	PASS	10		complete	passed	none	True	retained
+chr01:9:A:G	snp	1/1	PASS	10		complete	passed	none	True	retained

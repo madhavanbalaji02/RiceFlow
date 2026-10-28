@@ -1,0 +1,29 @@
+PLINK v2.0.0-a.6.16LM 64-bit Intel (9 Jun 2025)
+Options in effect:
+  --bfile cohort/filtered
+  --chr-set 12 no-x no-y no-xy no-mt
+  --freq counts
+  --memory 1024
+  --missing
+  --nonfounders
+  --out cohort/final
+  --threads 1
+
+Hostname: a8a99aed897c
+Working directory: /Users/madhavanbalaji/Documents/project/RiceFlow/work/0e/b3334c365c266bfa1647f16f460024
+Start time: Tue Oct 27 19:18:54 2026
+
+Random number seed: 1793128734
+7837 MiB RAM detected, ~4758 available; reserving 1024 MiB for main workspace.
+Using 1 compute thread.
+24 samples (0 females, 0 males, 24 ambiguous; 24 founders) loaded from
+cohort/filtered.fam.
+824 variants loaded from cohort/filtered.bim.
+Note: No phenotype data present.
+Calculating sample missingness rates... done.
+Calculating allele frequencies... done.
+--freq counts: Allele counts (all samples) written to cohort/final.acount .
+--missing: Sample missing data report written to cohort/final.smiss .
+--missing: Variant missing data report written to cohort/final.vmiss .
+
+End time: Tue Oct 27 19:18:54 2026

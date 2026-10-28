@@ -1,0 +1,45 @@
+PATH="/Users/madhavanbalaji/Documents/project/RiceFlow/.venv/bin:/Users/madhavanbalaji/Documents/project/RiceFlow/.tools:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/homebrew/bin:/Users/madhavanbalaji/.codex/tmp/arg0-macos/codex-arg0mI7xKF:/Users/madhavanbalaji/.local/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Users/madhavanbalaji/.vscode/extensions/openai.chatgpt-26.1021.22027-darwin-arm64/bin/macos-aarch64" .venv/bin/python -m pytest -q
+.......................................                                  [100%]
+39 passed in 1.79s
+PATH="/Users/madhavanbalaji/Documents/project/RiceFlow/.venv/bin:/Users/madhavanbalaji/Documents/project/RiceFlow/.tools:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/homebrew/bin:/Users/madhavanbalaji/.codex/tmp/arg0-macos/codex-arg0mI7xKF:/Users/madhavanbalaji/.local/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Users/madhavanbalaji/.vscode/extensions/openai.chatgpt-26.1021.22027-darwin-arm64/bin/macos-aarch64" .venv/bin/python scripts/prepare-nf-test.py
+PATH="/Users/madhavanbalaji/Documents/project/RiceFlow/.venv/bin:/Users/madhavanbalaji/Documents/project/RiceFlow/.tools:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/opt/homebrew/bin:/Users/madhavanbalaji/.codex/tmp/arg0-macos/codex-arg0mI7xKF:/Users/madhavanbalaji/.local/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/Users/madhavanbalaji/.vscode/extensions/openai.chatgpt-26.1021.22027-darwin-arm64/bin/macos-aarch64" .tools/nf-test test --verbose
+
+🚀[1m nf-test 0.9.3[0m
+https://www.nf-test.com
+(c) 2021 - 2024 Lukas Forer and Sebastian Schoenherr
+
+
+[1mRiceFlow two separate tracks[0m
+
+  [1mTest[0m [8d472d49] 'Synthetic end-to-end' 
+    > Nextflow 26.10.4 is available - Please consider updating your version to it
+    > N E X T F L O W  ~  version 25.10.2
+    > Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [mad_jepsen] DSL2 - revision: 59ffeec999
+    > ERROR ~ A process input channel evaluates to null -- Invalid declaration `val region`
+    > 
+    >  -- Check script '/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf' at line: 44 or see '/Users/madhavanbalaji/Documents/project/RiceFlow/.nf-test/tests/8d472d4947175aff07066df0a873146b/meta/nextflow.log' file for more details
+    [31mFAILED[0m (1.895s)
+
+  [31mAssertion failed: 
+  
+  assert workflow.success
+         |        |
+         workflow false
+  [0m
+  [31mNextflow stdout:
+  
+  N E X T F L O W  ~  version 25.10.2
+  Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [mad_jepsen] DSL2 - revision: 59ffeec999
+  ERROR ~ A process input channel evaluates to null -- Invalid declaration `val region`
+  
+   -- Check script '/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf' at line: 44 or see '/Users/madhavanbalaji/Documents/project/RiceFlow/.nf-test/tests/8d472d4947175aff07066df0a873146b/meta/nextflow.log' file for more details
+  Nextflow stderr:
+  
+  Nextflow 26.10.4 is available - Please consider updating your version to it
+  [0m
+
+
+
+[1m[31mFAILURE: [0m[0mExecuted 1 tests in 1.914s (1 failed)
+
+make: *** [workflow-test] Error 1

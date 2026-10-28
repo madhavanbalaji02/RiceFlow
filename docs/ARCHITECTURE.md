@@ -34,3 +34,8 @@ one thread per scientific tool and 2 GB per task. These are limits/requests, not
 Nextflow 25.10.2 uses Java 17.0.20 on the controller. Docker jobs are linux/amd64 CPU-only.
 Apple Silicon supports native development (ARM PLINK plus pysam's compiled BCFtools/SAMtools
 adapters) or Docker amd64 emulation. Emulation speed cannot be extrapolated to AWS workers.
+
+Follow-up audit: native tasks now consume an explicit source-code fingerprint as well as biological
+policy and data identities. The same Python finalizer validates source attestations, Parquet/TSV/JSON
+agreement and recomputed BED/VCF metrics before atomic certification. Reference and unsupported VCF
+records have separate indexed outputs. The architecture and local/AWS execution boundary are unchanged.

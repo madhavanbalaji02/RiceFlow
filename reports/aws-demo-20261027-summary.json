@@ -1,0 +1,219 @@
+{
+  "status": "CLOUD_REAL_DATA_VALIDATED_AND_COMPUTE_STOPPED",
+  "checked_utc": "2026-10-27T23:55:12.565480+00:00",
+  "region": "us-east-2",
+  "approved_incremental_ceiling_usd": 5,
+  "project_monthly_target_usd": 15,
+  "prior_charges_classification": "User confirms unrelated to RiceFlow",
+  "budget": {
+    "thresholds_usd": [
+      5,
+      10,
+      15
+    ],
+    "cost_tag_active": true,
+    "exclude_tax_credit_refund": true,
+    "recipient_verified_against_user_input": true
+  },
+  "science": {
+    "status": "SUCCESS",
+    "tracks": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "cohort_retained_samples": 24,
+    "cohort_retained_loci": 824,
+    "vcf_observed_records": 10001,
+    "vcf_scope": {
+      "reference": 9994,
+      "snp": 7,
+      "unsupported": 0
+    },
+    "vcf_retained_snps": 7,
+    "verified_artifact_files": 80,
+    "semantic_equivalent": true,
+    "semantic_comparisons": 31,
+    "elapsed_seconds": 262.544302947,
+    "trace": [
+      {
+        "task_id": "2",
+        "hash": "35/c1c706",
+        "native_id": "73c7e0ab-9795-4c9e-9997-390944432368",
+        "name": "COHORT_QC",
+        "status": "COMPLETED",
+        "exit": "0",
+        "submit": "2026-10-27 20:38:57.429",
+        "duration": "3m 18s",
+        "realtime": "3s",
+        "%cpu": "100.3%",
+        "peak_rss": "284.8 MB",
+        "attempt": "1"
+      },
+      {
+        "task_id": "1",
+        "hash": "0b/33122f",
+        "native_id": "8a5384d8-07fb-453b-a3a9-67588ffc9c74",
+        "name": "VCF_QC",
+        "status": "COMPLETED",
+        "exit": "0",
+        "submit": "2026-10-27 20:42:15.325",
+        "duration": "19.7s",
+        "realtime": "5.4s",
+        "%cpu": "27.9%",
+        "peak_rss": "85.5 MB",
+        "attempt": "1"
+      },
+      {
+        "task_id": "3",
+        "hash": "8f/51b9b7",
+        "native_id": "387f2f42-e2d4-43e6-9c1f-439c2a75c3b9",
+        "name": "COLLECT",
+        "status": "COMPLETED",
+        "exit": "0",
+        "submit": "2026-10-27 20:42:35.345",
+        "duration": "19.7s",
+        "realtime": "4ms",
+        "%cpu": "100.0%",
+        "peak_rss": "0",
+        "attempt": "1"
+      }
+    ]
+  },
+  "image": {
+    "digest": "sha256:fdb81334112582ac83ea2151d3a414d9762d96d098ee979a3bfb5b1df2a0bb3c",
+    "local_image_id": "sha256:fdb81334112582ac83ea2151d3a414d9762d96d098ee979a3bfb5b1df2a0bb3c",
+    "compressed_bytes": 362324884,
+    "source_attested": true
+  },
+  "controller": {
+    "python": "3.11.17 (main, Oct  9 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)]",
+    "java": "openjdk version \"17.0.21\" 2026-10-20 LTS\nOpenJDK Runtime Environment Corretto-17.0.21.0.10 (build 17.0.21+10-LTS)\nOpenJDK 64-Bit Server VM Corretto-17.0.21.0.10 (build 17.0.21+10-LTS, mixed mode, sharing)",
+    "nextflow": "N E X T F L O W\n      version 25.10.2 build 10555\n      created 28-11-2025 19:24 UTC \n      cite doi:10.1038/nbt.3820\n      http://nextflow.io",
+    "note": "Distribution controller Python/Java patches differ from local pins; scientific tasks use the immutable pinned image."
+  },
+  "source_hashes": {
+    "conf/aws.config": "b62150d71cba5cef4fdc0b5a02efcf45813b1f737d734f4874fd194068571d6c",
+    "modules/cohort.nf": "bdcc63fef22356dbda59e933f1a58ab6f13f930ded06ad25c67366d5b5c31984",
+    "modules/vcf.nf": "5df0172c36404430e044053669188ac99c00fe51176bc6bc8217ec960ca0d10d",
+    "nextflow.config": "3a18950e62d92b0ae908e555bbf44b1386090f23b5285e59905c436b8651a146",
+    "src/riceflow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/riceflow/cli.py": "1245febf33cbb8e9a11db53041d2230fa70730eb3e7a9394f09e37ef51910c48",
+    "src/riceflow/cloud.py": "415b0d5e46ed7524d0c97b3fc0282e2a20b970fa3c54b75b182e3f91634cfb0b",
+    "src/riceflow/cohort.py": "f411c8bb68d9bd2ba8bd932528f0ae9301ed9d54e4b62ef9f67258758bf6ee6d",
+    "src/riceflow/common.py": "d00bdbb15993a35ed4717fa2fe898d5887ddb4b1fac5cd8866ff0d3628cc6bb0",
+    "src/riceflow/network.py": "0740f248a91bad16e99f31dfa5114d4862ae4e6e74c0c99b666c22653fe2685c",
+    "src/riceflow/preflight.py": "8582ab30302999eaaa911c8da10ef45bd70bb02a5e1ff63968b26da64a6fbbd8",
+    "src/riceflow/report.py": "7dae59bfe4a7506cf8ea836762ab6cea5b20b825f1833266ce5badd2093113fa",
+    "src/riceflow/validation.py": "e608a59ef99dfbb8583a59d5861f18e12921639ae3f60d57bb39d2576f9d3f8f",
+    "src/riceflow/vcf.py": "a1963240019349fca3ee582435093b1ee54715d14eb8d63a7574661a58d76854",
+    "workflows/main.nf": "fa4aab04575c3089db01680dbf691011d08fc4a9725afd58cb5b7f9c4a52132c"
+  },
+  "manifest_sha256": "ffc43a897a36e1b9af877da4c091be52b2a6364876335ac03d68d74b7cedd70e",
+  "output_checksums_sha256": "15c9d90c122f413b124a80212f502a1fcbf1b5a0e4bf24022620a6e68a829f7d",
+  "tests": {
+    "native": 47,
+    "container": 47,
+    "nf_test": 1,
+    "skipped": 0,
+    "ruff": "PASS"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "FAILED_BEFORE_SUBMISSION",
+      "reason": "Missing git executable",
+      "workers": 0
+    },
+    {
+      "attempt": 2,
+      "status": "FAILED_BEFORE_SUBMISSION",
+      "reason": "Missing scoped batch:TagResource permission",
+      "workers": 0
+    },
+    {
+      "attempt": 3,
+      "status": "SUCCESS",
+      "jobs": 3,
+      "attempts_per_job": 1
+    }
+  ],
+  "shutdown": {
+    "status": "PASS",
+    "controller": "stopped",
+    "workers": 0,
+    "batch_desired_vcpus": 0,
+    "cleanup": {
+      "returncode": 0,
+      "active_jobs": [],
+      "backup_errors": [],
+      "active_workers": [],
+      "worker_idle_verification": "PASS"
+    },
+    "cleanup_receipt_utc": "2026-10-27T20:44:24+00:00",
+    "independent_observation_utc": "2026-10-27T23:55:12.565480+00:00",
+    "ssm_command_status": "DeliveryTimedOut",
+    "ssm_limitation": "SSM delivery status did not certify workflow completion; validated artifacts, Batch exits and direct cleanup receipt establish execution and cleanup."
+  },
+  "local_evidence_root": "reports/aws-demo-20261027",
+  "cloud_science_artifacts": "reports/aws-demo-20261027/results/aws-real-v3",
+  "public_evidence": "reports/audit-20261027/cloud-follow-up-local",
+  "remaining_cloud_gates": [
+    "Controlled failure after completed cloud tasks and exact-UUID cloud resume/restore are not demonstrated.",
+    "Final billed cost remains delayed; rates and resource usage are estimates until billing posts.",
+    "SSM delivery receipt did not report command success; workflow and cleanup were independently verified."
+  ],
+  "estimate": {
+    "monthly_scenario_usd": 4.59,
+    "definition": "Earlier explicit 20 worker-hour/20 controller-hour monthly scenario plus up to three Cost Explorer query charges; not actual cost or a hard cap.",
+    "measured_usage_full_storage_month_scenario_usd": 1.84,
+    "retained_storage_usd_per_full_month": 1.3795,
+    "compute_ipv4_worker_disk_and_three_queries_usd_upper_bound": 0.0549,
+    "method": "Verified unit rates, observed runtime bounds, whole-month retained storage using conservative decimal GB, plus baseline request/log-ingestion/transfer reserves and 10% contingency. No taxes/credits/free-tier deductions.",
+    "billing_status": "Estimated and delayed; no claim that tag-filtered zero is final cost."
+  },
+  "usage": {
+    "hours_upper_bounds": {
+      "controller": 0.39360327166666664,
+      "worker": 0.15773330333333332
+    },
+    "sessions": [
+      {
+        "type": "t3.small",
+        "launch_utc": "2026-10-27T20:22:45+00:00",
+        "first_observed_terminal_utc": "2026-10-27T20:28:32.450624+00:00",
+        "hours_upper_bound": 0.09651406222222222
+      },
+      {
+        "type": "t3.small",
+        "launch_utc": "2026-10-27T20:30:32+00:00",
+        "first_observed_terminal_utc": "2026-10-27T20:34:52.681262+00:00",
+        "hours_upper_bound": 0.07241146166666666
+      },
+      {
+        "type": "t3.small",
+        "launch_utc": "2026-10-27T20:37:17+00:00",
+        "first_observed_terminal_utc": "2026-10-27T20:50:45.839892+00:00",
+        "hours_upper_bound": 0.22467774777777777
+      },
+      {
+        "type": "c6i.large",
+        "launch_utc": "2026-10-27T20:41:18+00:00",
+        "first_observed_terminal_utc": "2026-10-27T20:50:45.839892+00:00",
+        "hours_upper_bound": 0.15773330333333332
+      }
+    ],
+    "hours_definition": "LaunchTime to first observed stopped/terminated; conservative bounds, not exact invoice seconds.",
+    "retained_ebs_gb": 16,
+    "s3_objects": 297,
+    "s3_bytes": 1044514357,
+    "tagged_image_referenced_bytes": 724644346,
+    "image_size_limitation": "Sum of tagged image references conservatively counts shared layers more than once; not actual deduplicated storage billing.",
+    "log_retention_days": 7,
+    "tagged_reserved_ipv4_addresses": 0
+  },
+  "terraform_post_run": {
+    "checked_utc": "2026-10-27T23:58:38.654904+00:00",
+    "exit_code": 0,
+    "no_changes": true
+  }
+}

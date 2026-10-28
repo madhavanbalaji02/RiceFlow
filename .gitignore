@@ -1,4 +1,7 @@
 .venv/
+.env
+.env.*
+!.env.example
 .tools/
 __pycache__/
 .pytest_cache/
@@ -40,3 +43,6 @@ reports/*
 !reports/terraform-lock.log
 !reports/terraform-validate.log
 !reports/validation-summary.json
+!reports/aws-demo-20261027-summary.json
+# Follow-up audit artifacts; historical runs above remain immutable.
+!reports/audit-20261027/

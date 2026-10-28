@@ -1,0 +1,7 @@
+{
+  "failed": "reports/audit-20261027/recovery-a753ffcf/failed",
+  "resumed": "reports/audit-20261027/recovery-a753ffcf/resumed",
+  "changed": "reports/audit-20261027/recovery-a753ffcf/changed",
+  "cached_tasks": 2,
+  "policy_change_cached_tasks": 0
+}

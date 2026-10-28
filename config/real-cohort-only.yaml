@@ -1,0 +1,17 @@
+track_label: REAL_COHORT_VCF_BLOCKED
+cohort: data/real/core
+vcf: null
+reference: null
+expected_sample: B001
+source_manifest: data/real/source-manifest.json
+chrom: 1
+start: 1
+end: 1000000
+sample_count: 24
+policy:
+  sample_call_rate: 0.8
+  site_call_rate: 0.9
+  min_dp: 5
+  min_gq: null
+  missing_quality: not_assessed
+  min_maf: 0

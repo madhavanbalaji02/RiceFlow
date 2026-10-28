@@ -1,0 +1,21 @@
+
+🚀[1m nf-test 0.9.3[0m
+https://www.nf-test.com
+(c) 2021 - 2024 Lukas Forer and Sebastian Schoenherr
+
+
+[1mRiceFlow two separate tracks[0m
+
+  [1mTest[0m [8d472d49] 'Synthetic end-to-end' 
+    > Nextflow 26.10.4 is available - Please consider updating your version to it
+    > N E X T F L O W  ~  version 25.10.2
+    > Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [high_albattani] DSL2 - revision: 61148d63b6
+    > WARN: Task runtime metrics are not reported when using macOS without a container engine
+    > [a7/f12319] Submitted process > COHORT_QC
+    > [dc/93406e] Submitted process > VCF_QC
+    > [fa/afdb40] Submitted process > COLLECT
+    [32mPASSED[0m (2.668s)
+
+
+[1m[32mSUCCESS: [0m[0mExecuted 1 tests in 2.687s
+

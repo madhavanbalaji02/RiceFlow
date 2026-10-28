@@ -1,0 +1,96 @@
+{
+  "call_rate_after_mask": 1.0,
+  "cohort_plink_baseline_rows": 969,
+  "cohort_plink_final_rows": 824,
+  "complete_after_mask": 7,
+  "conventions": "BCFtools GT text counted independently; half-calls contribute no alleles. PLINK provisional ALT is BED A1, not validated reference orientation.",
+  "observed_records": 10001,
+  "observed_snp_denominator": 7,
+  "source_command": [
+    "bcftools",
+    "query",
+    "-f",
+    "%CHROM\t%POS\t%REF\t%ALT\t%FILTER[\t%GT\t%DP\t%GQ]\n",
+    "/repo/data/audit-20261027/B001.region.vcf"
+  ],
+  "supported_records": [
+    {
+      "alt": "A",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "39",
+      "filter": "LowQual",
+      "gq": "46",
+      "gt": "0/1",
+      "pos": "1000993",
+      "ref": "T"
+    },
+    {
+      "alt": "C",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "34",
+      "filter": ".",
+      "gq": "65",
+      "gt": "0/1",
+      "pos": "1001007",
+      "ref": "T"
+    },
+    {
+      "alt": "C",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "33",
+      "filter": ".",
+      "gq": "69",
+      "gt": "0/1",
+      "pos": "1001013",
+      "ref": "A"
+    },
+    {
+      "alt": "G",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "30",
+      "filter": "LowQual",
+      "gq": "34",
+      "gt": "0/1",
+      "pos": "1001391",
+      "ref": "C"
+    },
+    {
+      "alt": "C",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "25",
+      "filter": "LowQual",
+      "gq": "45",
+      "gt": "0/1",
+      "pos": "1003145",
+      "ref": "T"
+    },
+    {
+      "alt": "A",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "31",
+      "filter": ".",
+      "gq": "71",
+      "gt": "0/1",
+      "pos": "1003411",
+      "ref": "G"
+    },
+    {
+      "alt": "T",
+      "contig": "chr01",
+      "decision": "passed",
+      "dp": "32",
+      "filter": ".",
+      "gq": "99",
+      "gt": "0/1",
+      "pos": "1009490",
+      "ref": "A"
+    }
+  ],
+  "verified": true
+}

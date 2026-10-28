@@ -1,0 +1,8 @@
+{
+  "terraform_version": "1.13.4",
+  "platform": "darwin_arm64",
+  "provider_selections": {
+    "registry.terraform.io/hashicorp/aws": "6.19.0"
+  },
+  "terraform_outdated": true
+}

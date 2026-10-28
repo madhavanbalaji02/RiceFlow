@@ -1,0 +1,4 @@
+locus	samples	complete	call_rate	allele1_count	allele_number	allele1_frequency	maf
+chr01:2:A:G	1	1	1.0	1	2	0.5	0.5
+chr01:8:A:G	1	1	1.0	0	2	0.0	0.0
+chr01:9:A:G	1	1	1.0	2	2	1.0	0.0

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/madhavanbalaji/Documents/project/RiceFlow/.venv/bin/riceflow", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/madhavanbalaji/Documents/project/RiceFlow/src/riceflow/cli.py", line 238, in main
+    return launch(a)
+           ^^^^^^^^^
+  File "/Users/madhavanbalaji/Documents/project/RiceFlow/src/riceflow/cli.py", line 119, in launch
+    raise ValueError('Docker image Python source differs from workspace; rebuild it before this run')
+ValueError: Docker image Python source differs from workspace; rebuild it before this run

@@ -1,0 +1,49 @@
+{
+  "decoded_sha256": "89439e0821bc163e26fd43219c9f7770b3b26024fdc40fa468bd34c5fc1f723a",
+  "download_sha256": "72a8c00227a9f95954ad1c86be1cf0735e201fdefd01b1cac5e84ce70075a445",
+  "manifest": {
+    "ETLIngestionTriggerDate": "2026-10-23T22:13:55Z",
+    "accessType": "publish",
+    "currencyCode": "USD",
+    "hawkFilePublicationDate": "2026-10-23T22:13:55Z",
+    "serviceId": "ec2",
+    "source": "ec2-ondemand-without-sec-sel"
+  },
+  "retrieval_completed_utc": "2026-10-27T18:51:20.021883+00:00",
+  "rows": [
+    {
+      "Instance Family": "General purpose",
+      "Instance Type": "t3.small",
+      "License Model": "No License required",
+      "Location": "US East (N. Virginia)",
+      "Memory": "2 GiB",
+      "Network Performance": "Up to 5 Gigabit",
+      "Operating System": "Linux",
+      "Pre Installed S/W": "NA",
+      "Storage": "EBS only",
+      "plc:InstanceFamily": "General Purpose",
+      "plc:OperatingSystem": "Linux",
+      "price": "0.0208000000",
+      "rateCode": "QA3NBPZEQKZ2K9AR.JRTCKXETXF.6YS6EN2CT7",
+      "vCPU": "2"
+    },
+    {
+      "Instance Family": "Compute optimized",
+      "Instance Type": "c6i.large",
+      "License Model": "No License required",
+      "Location": "US East (N. Virginia)",
+      "Memory": "4 GiB",
+      "Network Performance": "Up to 12500 Megabit",
+      "Operating System": "Linux",
+      "Pre Installed S/W": "NA",
+      "Storage": "EBS only",
+      "plc:InstanceFamily": "Compute Optimized",
+      "plc:OperatingSystem": "Linux",
+      "price": "0.0850000000",
+      "rateCode": "G34GXEYC28NK97K3.JRTCKXETXF.6YS6EN2CT7",
+      "vCPU": "2"
+    }
+  ],
+  "timestamp_source": "Local file creation immediately after the bounded verified HTTPS download",
+  "url": "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/ec2/USD/current/ec2-ondemand-without-sec-sel/US%20East%20(N.%20Virginia)/Linux/index.json"
+}

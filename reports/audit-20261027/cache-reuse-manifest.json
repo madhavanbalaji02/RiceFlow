@@ -1,0 +1,377 @@
+{
+  "cohort_prefix": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core",
+  "metadata_checksums": {
+    "README-1st-3kRG-Permissive-License.txt": "c3d087c38da83405fbae348d1c97fd9a8d10cc1d4be322bcaf949912357b6d9c",
+    "README-3kRG-SNPs-Permissive-License.txt": "08d54afb3ecfed197c6bd5b6798421037f22a5fd33fd4ed01f9c484d0ca5a9f9",
+    "reference-readme.txt": "f6f32b6571037c9ce8634f58e5bb69b3683947b0b2fea76f7e1b2633e13020b0"
+  },
+  "reference": {
+    "assembly": "Os-Nipponbare-Reference-IRGSP-1.0",
+    "bytes": 379466370,
+    "cache_reused": true,
+    "compressed_bytes": 121184922,
+    "compressed_sha256": "fc71a8c1798841dbc6655bbacdb745a0caf248dcfd57b59a35bc249fecc4145b",
+    "contig_aliases": {},
+    "fai_sha256": "2ac01a052f263e92d45a2529df3b18f61f547e0a983ae2d5a94a468e510583be",
+    "identity_evidence": "3kRG README names RAP-DB IRGSP-1.0_genome.fasta.gz; current official publisher URL and MD5; exact contig names/lengths and all observed REF alleles validated. Soft masking case ignored for base comparison only.",
+    "observed_ref_bases_checked": 10001,
+    "path": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/audit-20261027/reference.fa",
+    "publisher_checksum_url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5",
+    "publisher_md5": "5c5750e0d06b54b7360b35be73aef3de",
+    "retrieved_utc": "2026-10-27T18:46:27.987839+00:00",
+    "sha256": "c60dd24591bc151eb2c9253a4c8ffbef3f9e50a69e7e3ddb905209087f16467b",
+    "source_metadata": {
+      "bytes": 0,
+      "final_url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz",
+      "last_modified": "Thu, 31 May 2018 05:00:41 GMT",
+      "method": "HEAD",
+      "retrieved_utc": "2026-10-27T18:58:40.693620+00:00",
+      "server_date": "Tue, 27 Oct 2026 18:58:40 GMT",
+      "source_bytes": 121184922,
+      "url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz"
+    },
+    "status": "VERIFIED_REGIONAL_BASES",
+    "url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz",
+    "validated_utc": "2026-10-27T18:58:41.927134+00:00"
+  },
+  "requests": [
+    {
+      "bytes": 1108,
+      "content_range": null,
+      "final_url": "https://3kricegenome.s3.amazonaws.com/README-rice-reference-genomes-used.txt",
+      "last_modified": "Tue, 10 Apr 2018 14:04:42 GMT",
+      "method": "GET",
+      "range": null,
+      "retrieved_utc": "2026-10-27T18:58:38.620251+00:00",
+      "url": "https://3kricegenome.s3.amazonaws.com/README-rice-reference-genomes-used.txt"
+    },
+    {
+      "bytes": 408,
+      "content_range": null,
+      "final_url": "https://3kricegenome.s3.amazonaws.com/README-3kRG-SNPs-Permissive-License.txt",
+      "last_modified": "Tue, 10 Apr 2018 14:04:20 GMT",
+      "method": "GET",
+      "range": null,
+      "retrieved_utc": "2026-10-27T18:58:38.732737+00:00",
+      "url": "https://3kricegenome.s3.amazonaws.com/README-3kRG-SNPs-Permissive-License.txt"
+    },
+    {
+      "bytes": 442,
+      "content_range": null,
+      "final_url": "https://3kricegenome.s3.amazonaws.com/README-1st-3kRG-Permissive-License.txt",
+      "last_modified": "Tue, 10 Apr 2018 14:03:34 GMT",
+      "method": "GET",
+      "range": null,
+      "retrieved_utc": "2026-10-27T18:58:38.896990+00:00",
+      "url": "https://3kricegenome.s3.amazonaws.com/README-1st-3kRG-Permissive-License.txt"
+    },
+    {
+      "bytes": 0,
+      "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "method": "HEAD",
+      "retrieved_utc": "2026-10-27T18:58:39.013176+00:00",
+      "server_date": "Tue, 27 Oct 2026 18:58:40 GMT",
+      "source_bytes": 2187654873,
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    },
+    {
+      "bytes": 0,
+      "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi",
+      "last_modified": "Tue, 10 Apr 2018 13:58:13 GMT",
+      "method": "HEAD",
+      "retrieved_utc": "2026-10-27T18:58:39.136321+00:00",
+      "server_date": "Tue, 27 Oct 2026 18:58:40 GMT",
+      "source_bytes": 339302,
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi"
+    },
+    {
+      "bytes": 339302,
+      "content_range": null,
+      "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi",
+      "last_modified": "Tue, 10 Apr 2018 13:58:13 GMT",
+      "method": "GET",
+      "range": null,
+      "retrieved_utc": "2026-10-27T18:58:39.416424+00:00",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi"
+    },
+    {
+      "bytes": 262144,
+      "content_range": "bytes 0-262143/2187654873",
+      "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "method": "GET",
+      "range": "bytes=0-262143",
+      "retrieved_utc": "2026-10-27T18:58:39.724789+00:00",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    },
+    {
+      "bytes": 161329,
+      "content_range": "bytes 5999473-6160801/2187654873",
+      "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz",
+      "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+      "method": "GET",
+      "range": "bytes=5999473-6160801",
+      "retrieved_utc": "2026-10-27T18:58:39.965585+00:00",
+      "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+    },
+    {
+      "bytes": 0,
+      "final_url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz",
+      "last_modified": "Thu, 31 May 2018 05:00:41 GMT",
+      "method": "HEAD",
+      "retrieved_utc": "2026-10-27T18:58:40.693620+00:00",
+      "server_date": "Tue, 27 Oct 2026 18:58:40 GMT",
+      "source_bytes": 121184922,
+      "url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz"
+    },
+    {
+      "bytes": 60,
+      "content_range": null,
+      "final_url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5",
+      "last_modified": "Thu, 31 May 2018 05:00:41 GMT",
+      "method": "GET",
+      "range": null,
+      "retrieved_utc": "2026-10-27T18:58:41.463833+00:00",
+      "url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5"
+    }
+  ],
+  "retrieved_utc": "2026-10-27T18:58:36.867641+00:00",
+  "source_processing": "CoreSNP already filtered and LD-pruned; downstream QC only",
+  "sources": [
+    {
+      "bytes": 16782,
+      "cache_reused": true,
+      "decompressed_sha256": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a",
+      "path": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core.fam",
+      "sha256": "ded6261e398e73e311ad8613dffbea8acc1b1a68f3066a9e072150577687ec00",
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.fam.gz"
+    },
+    {
+      "bytes": 3171530,
+      "cache_reused": true,
+      "decompressed_sha256": "c487fe53c9ad9445611a1f0fa601136ad389eafc28360eed694cec65adcaeec8",
+      "path": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core.bim",
+      "sha256": "ccdcc75790bcaba1bdb4b13c9b133bfa28a2966bbcde159ee62ff187e3526ee9",
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bim.gz"
+    },
+    {
+      "bytes": 117476185,
+      "cache_reused": true,
+      "decompressed_sha256": "5539f718639f2579a0f6cbe88f624ff754f24d13a78cc118124207739fdc7fc0",
+      "path": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core.bed",
+      "sha256": "bc0d092504d2b349c1714710501531b3434fb5c602f30ebf2f0c16c1f3754382",
+      "url": "https://s3.amazonaws.com/3kricegenome/snpseek-dl/3krg-base-filt-core-v0.7/core_v0.7.bed.gz"
+    }
+  ],
+  "status": "VERIFIED",
+  "subset": {
+    "cohort": "lexicographically first 24 FID/IID; chr1:1-1000000",
+    "vcf": "chr01:1000000-1010000"
+  },
+  "terms": {
+    "statement": "Toronto Statement",
+    "url": "https://registry.opendata.aws/3kricegenome/"
+  },
+  "tracks": {
+    "cohort": {
+      "bed_bytes": 305717331,
+      "chromosomes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "samples": 3024,
+      "selected_samples": [
+        [
+          "B001",
+          "B001"
+        ],
+        [
+          "B002",
+          "B002"
+        ],
+        [
+          "B003",
+          "B003"
+        ],
+        [
+          "B004",
+          "B004"
+        ],
+        [
+          "B005",
+          "B005"
+        ],
+        [
+          "B006",
+          "B006"
+        ],
+        [
+          "B007",
+          "B007"
+        ],
+        [
+          "B008",
+          "B008"
+        ],
+        [
+          "B009",
+          "B009"
+        ],
+        [
+          "B010",
+          "B010"
+        ],
+        [
+          "B011",
+          "B011"
+        ],
+        [
+          "B012",
+          "B012"
+        ],
+        [
+          "B013",
+          "B013"
+        ],
+        [
+          "B014",
+          "B014"
+        ],
+        [
+          "B015",
+          "B015"
+        ],
+        [
+          "B016",
+          "B016"
+        ],
+        [
+          "B017",
+          "B017"
+        ],
+        [
+          "B018",
+          "B018"
+        ],
+        [
+          "B019",
+          "B019"
+        ],
+        [
+          "B020",
+          "B020"
+        ],
+        [
+          "B021",
+          "B021"
+        ],
+        [
+          "B023",
+          "B023"
+        ],
+        [
+          "B024",
+          "B024"
+        ],
+        [
+          "B025",
+          "B025"
+        ]
+      ],
+      "status": "VERIFIED",
+      "variants": 404388
+    },
+    "vcf": {
+      "chunks": 1,
+      "contigs": {
+        "chr01": 43270923,
+        "chr02": 35937250,
+        "chr03": 36413819,
+        "chr04": 35502694,
+        "chr05": 29958434,
+        "chr06": 31248787,
+        "chr07": 29697621,
+        "chr08": 28443022,
+        "chr09": 23012720,
+        "chr10": 23207287,
+        "chr11": 29021106,
+        "chr12": 27531856
+      },
+      "declared_formats": [
+        "AD",
+        "DP",
+        "GQ",
+        "GT",
+        "PL"
+      ],
+      "genotype_ploidies": [
+        2
+      ],
+      "index_metadata": {
+        "bytes": 0,
+        "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi",
+        "last_modified": "Tue, 10 Apr 2018 13:58:13 GMT",
+        "method": "HEAD",
+        "retrieved_utc": "2026-10-27T18:58:39.136321+00:00",
+        "server_date": "Tue, 27 Oct 2026 18:58:40 GMT",
+        "source_bytes": 339302,
+        "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz.tbi"
+      },
+      "index_sha256": "2cf5cb79192c9e6c6b66554d54c8b3cd7334e411818096db36032a683041fbb2",
+      "index_uncompressed_bytes": 729892,
+      "observed_formats": [
+        "GT:AD:DP:GQ:PL",
+        "GT:DP"
+      ],
+      "path": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/audit-20261027-reuse/B001.region.vcf",
+      "records": 10001,
+      "reference_records": 9994,
+      "region": "chr01:1000000-1010000",
+      "samples": [
+        "B001"
+      ],
+      "sha256": "b6898184a106d1478da6b795302f3106b50305940d6ddd73a43d5a0aaec08a30",
+      "snp_dp_available": 7,
+      "snp_gq_available": 7,
+      "snp_records": 7,
+      "source_full_sha256": null,
+      "source_metadata": {
+        "bytes": 0,
+        "final_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz",
+        "last_modified": "Tue, 10 Apr 2018 13:58:04 GMT",
+        "method": "HEAD",
+        "retrieved_utc": "2026-10-27T18:58:39.013176+00:00",
+        "server_date": "Tue, 27 Oct 2026 18:58:40 GMT",
+        "source_bytes": 2187654873,
+        "url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz"
+      },
+      "source_url": "https://3kricegenome.s3.amazonaws.com/Nipponbare/B001.snp.vcf.gz",
+      "status": "VERIFIED",
+      "unsupported_records": 0
+    }
+  },
+  "transfer": {
+    "limits": {
+      "full": 1048576,
+      "regional": 16777216
+    },
+    "request_limit": 100,
+    "requests": 10,
+    "scope": "This preflight invocation; cache hits transfer zero data bytes",
+    "used_bytes": {
+      "full": 341320,
+      "regional": 423473
+    }
+  }
+}

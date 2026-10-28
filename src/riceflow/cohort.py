@@ -104,12 +104,18 @@ def run(prefix, out, policy, chrom=1, start=1, end=1000000, sample_count=24, pli
         write(filtered, [fam[j] for j in js], [bim[i] for i in ix], [[calls[i][j] for j in js] for i in ix])
         command([*common, '--bfile', filtered, '--nonfounders', '--missing', '--freq', 'counts',
                  '--out', out / 'final'], out / 'final.command.log')
-    result['sensitivity'] = [dict(sample_call_rate=s, site_call_rate=t,
-                                retained_samples=len(x['retained_sample_indices']),
-                                retained_sites=len(x['retained_site_indices']))
-                             for s, t in [(0.7, 0.8), (0.8, 0.9), (0.95, 0.98)]
-                             for x in [filter_matrix(samples, [r[1] for r in bim], calls,
-                                                     policy.model_copy(update={'sample_call_rate': s,
-                                                                               'site_call_rate': t}))]]
+    result['sensitivity'] = []
+    choices = [('baseline', policy.sample_call_rate, policy.site_call_rate)]
+    choices += [('sample_call_rate', s, policy.site_call_rate) for s in [0.7, 0.8, 0.95]
+                if s != policy.sample_call_rate]
+    choices += [('site_call_rate', policy.sample_call_rate, t) for t in [0.8, 0.9, 0.98]
+                if t != policy.site_call_rate]
+    for changed, s, t in choices:
+        candidate = policy.model_copy(update={'sample_call_rate': s, 'site_call_rate': t})
+        x = filter_matrix(samples, [r[1] for r in bim], calls, candidate)
+        result['sensitivity'].append(dict(changed_parameter=changed, sample_call_rate=s, site_call_rate=t,
+                                         min_maf=policy.min_maf, observed_sites=len(bim),
+                                         retained_samples=len(x['retained_sample_indices']),
+                                         retained_sites=len(x['retained_site_indices'])))
     save_metrics(out, result)
     return result

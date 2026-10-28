@@ -22,8 +22,10 @@ def build(out, label, execution=None):
         fig = go.Figure()
         for stage in ['baseline', 'final']:
             rows = result[stage + '_samples']
-            fig.add_bar(name=stage, x=[r['sample'] for r in rows], y=[r['call_rate'] for r in rows])
-        fig.update_layout(title=f'{name}: observed subset call rate', yaxis_range=[0, 1], barmode='group')
+            fig.add_bar(name=stage, x=[r['sample'] for r in rows], y=[r['call_rate'] for r in rows],
+                        customdata=[[r['complete'], r['sites']] for r in rows],
+                        hovertemplate='%{x}: %{customdata[0]}/%{customdata[1]} observed SNP sites = %{y}<extra>%{fullData.name}</extra>')
+        fig.update_layout(title=f'{name}: call rate with stage-specific site denominators (selection, not accuracy)', yaxis_range=[0, 1], barmode='group')
         charts.append(fig.to_html(full_html=False, include_plotlyjs=True if not charts else False))
     template = Environment(autoescape=select_autoescape(default=True)).from_string('''<!doctype html>
 <html lang="en"><meta charset="utf-8"><title>RiceFlow QC report</title>
@@ -34,7 +36,7 @@ these data do not constitute a jointly called cohort. Success requires the launc
 <p>Complete diploid genotypes alone contribute alleles. Partial calls count as uncalled. Call rate denominator:
 observed selected SNP sites per sample, retained samples per site. Empty denominators are null.
 Cohort allele1 frequency describes BIM A1, not verified ALT. Heterozygosity is descriptive;
-no HWE filter or default frequency filter is applied.</p>
+no HWE filter or default frequency filter is applied. Baseline and final bars may use different site sets; hover for their exact denominators. Increased completeness among retained records reflects masking and exclusion, not improved biological accuracy.</p>
 {% for chart in charts %}{{ chart|safe }}{% endfor %}
 {% for name,result in tracks.items() %}<h2>{{ name }}: {{ result.status }}</h2>
 <pre>{{ result|tojson(indent=2) }}</pre>{% endfor %}

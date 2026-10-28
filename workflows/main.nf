@@ -28,7 +28,7 @@ process VCF_BLOCKED {
     script:
     """
     mkdir vcf
-    echo '{"status":"BLOCKED","reason":"Compatible authoritative FASTA could not be retrieved with verified TLS. No real VCF quality validation claimed."}' > vcf/summary.json
+    echo '{"status":"BLOCKED","reason":"VCF/reference inputs are not configured; this mandatory track was not executed. Consult the source manifest for gate status."}' > vcf/summary.json
     """
 }
 
@@ -37,11 +37,12 @@ workflow {
     COHORT_QC(file(cfg.cohort + '.bed', checkIfExists:true), file(cfg.cohort + '.bim', checkIfExists:true),
               file(cfg.cohort + '.fam', checkIfExists:true), groovy.json.JsonOutput.toJson(cfg.policy),
               groovy.json.JsonOutput.toJson([chrom:cfg.chrom, start:cfg.start, end:cfg.end,
-                                            sample_count:cfg.sample_count, input_sha256:cfg.input_sha256]))
+                                            sample_count:cfg.sample_count, input_sha256:cfg.input_sha256,
+                                            execution_code_fingerprint:cfg.execution_code_fingerprint ?: 'DIRECT_UNVERSIONED']))
     if (cfg.vcf && cfg.reference) {
         VCF_QC(file(cfg.vcf, checkIfExists:true), file(cfg.reference, checkIfExists:true),
                file(cfg.reference + '.fai', checkIfExists:true), groovy.json.JsonOutput.toJson(cfg.policy), cfg.expected_sample,
-               groovy.json.JsonOutput.toJson(cfg.input_sha256))
+               groovy.json.JsonOutput.toJson(cfg.input_sha256), (cfg.vcf_region ?: ''), (cfg.execution_code_fingerprint ?: 'DIRECT_UNVERSIONED'))
         vcf_result = VCF_QC.out.result
     } else {
         VCF_BLOCKED()

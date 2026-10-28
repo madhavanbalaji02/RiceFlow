@@ -1,49 +1,75 @@
 # RiceFlow
 
-CPU-only, Nextflow DSL2 rice genomics QC with Python, PLINK 2, BCFtools/HTSlib, SAMtools and Docker.
-Built as a workflow-engineering portfolio project. Two scientifically distinct tracks share a report:
-filtered/pruned public CoreSNP cohort QC, and individual-accession regional VCF DP/GQ processing.
-They are never merged into a fabricated joint-called cohort.
+CPU-only Nextflow DSL2 rice QC with Python, PLINK 2, BCFtools/HTSlib, SAMtools and Docker. The existing
+architecture keeps the already filtered/pruned CoreSNP cohort separate from individual-accession VCF
+quality processing. The summaries share a report; the inputs never become an invented joint-called cohort.
+
+The 2026-10-27 follow-up audit resolved reference access through RAP-DB's current official NARO HTTPS
+hostname, verified the publisher checksum and all observed REF bases, and completed the real VCF track.
+The [dataset evidence](DATASET_VALIDATION.md) explains the TLS diagnosis and exact assembly identity.
 
 ```bash
-make setup                  # uv + Java 17.0.20 required; pins in config/toolchain.yaml
-make test                   # tiny synthetic, hand-calculated fixtures
-make workflow-test          # nf-test integration
-make recovery               # failure → resume → policy-change invalidation assertions
-make demo                   # new run-specific report directory
-make preflight              # bounded public retrieval; exits 2 when any gate is blocked
-make real-demo              # real CoreSNP; reference-dependent VCF track explicitly BLOCKED
-make container              # local linux/amd64 Docker build; no push
-make cloud-validate         # Terraform init/validate only; no AWS credentials
+make setup                         # project-local pinned tools; Java 17.0.20 and uv required
+make test workflow-test             # offline fixtures plus nf-test
+make recovery                       # synthetic failure → UUID resume → policy invalidation
+make preflight                      # new timestamped outputs; verify/reuse available attested caches
+make demo                           # new synthetic two-track report
+make real-demo                      # recorded local real config: both tracks now required
+make lint cloud-validate             # local checks; Terraform backend disabled, no deployment
 ```
 
-Start with [dataset evidence](DATASET_VALIDATION.md), the [runbook](docs/RUNBOOK.md),
-[scientific assumptions](docs/SCIENTIFIC_ASSUMPTIONS.md), [metric definitions](docs/DATA_DICTIONARY.md)
-and [architecture](docs/ARCHITECTURE.md). The [interview explanation](docs/INTERVIEW.md) describes the
-engineering decisions and scientific limits. [AWS preparation](docs/AWS_RUNBOOK.md) and
-[cost planning](docs/COST_ESTIMATE.md) are separate from local execution.
+For a fresh checkout, run preflight and use its generated configuration, rather than assuming this
+machine's cached paths exist:
 
-Verified real cohort: 3,024 samples, 404,388 loci, complete compressed/decompressed SHA256 and binary
-validation. Demonstration: first 24 lexical FID/IID pairs, chr1:1–1,000,000; 969 selected loci, 824 retained,
-24 retained samples under sample call rate 0.8/site call rate 0.9. This is downstream QC of already
-filtered and LD-pruned data, not reproduction of original variant discovery.
+```bash
+make preflight PREFLIGHT_OUT=data/my-preflight
+PATH="$PWD/.venv/bin:$PWD/.tools:$PATH" NXF_HOME="$PWD/.tools/nxf-home" \
+  riceflow run --config data/my-preflight/run-config.yaml
+```
 
-Indexed B001 retrieval confirms a 2,187,654,873-byte source, single sample, chr01-style contigs,
-reference and nonreference records, and mixed per-record FORMAT fields. Matching authoritative
-IRGSP-1.0 FASTA retrieval is blocked by TLS certificate-chain verification at RAP-DB. No real VCF
-reference-base or DP/GQ QC validation is claimed. Synthetic VCF/FASTA fixtures exercise those checks.
-See [recorded validation](docs/VALIDATION_RESULTS.md) for actual tests, commands and execution limits.
+When caches exist, preflight verifies compressed/decompressed SHA256 and gzip integrity before reuse.
+It discovers remote sizes, enforces 500 MiB full/16 MiB regional payload defaults, and refuses servers
+that ignore Range. No full multi-gigabyte VCF is downloaded. Preflight outputs and run paths must be new.
+A repeated preflight reused the full cohort and reference under a 1 MiB full-transfer budget.
 
-Outputs include self-contained HTML, TSV/Parquet, JSON metrics, unfiltered/filtered native PLINK,
-masked/filtered indexed VCF, exclusions, sensitivity comparisons, source/output checksums,
-run manifests and Nextflow trace/timeline/execution reports. Require `SUCCESS.json`; HTML alone is
-not success. Incomplete real-data reports remain clearly marked. Empty denominators stay null.
+The verified cohort has 3,024 samples and 404,388 loci. Its deterministic demo selects B001–B021,
+B023, B024 and B025, chr1:1–1,000,000 inclusive: 969 loci selected, 824 retained, all 24 samples retained
+at sample/site call-rate choices 0.8/0.9. B022 is absent; earlier prose describing B001–B024 was wrong.
+This is downstream QC of already filtered, LD-pruned data, not raw variant discovery.
 
-Default local budget: 4 CPUs/8 GB scheduler memory, concurrency two with one thread per tool.
-AWS is CPU Batch with no provisioned resources. USD 15/month is a planning target, not a hard cap;
-cloud deployment, upload and execution require explicit authorization and a fresh cost estimate.
-Imputation, haplotype expansion and pangenome construction are outside this release.
+B001 chr01:1000000–1010000 has 10,001 observed records: seven biallelic SNPs and 9,994 explicit reference
+records. All observed REF bases match publisher-verified IRGSP-1.0; no contig aliases or allele swaps
+were needed. Default DP≥5 with GQ disabled retains all seven SNPs. The separately named
+[REAL_GQ40 policy](config/real-gq40.yaml) masks one call, assesses the sample at 6/7 SNPs, then retains
+six sites. Increased completeness among retained sites is selection, not evidence of improved accuracy.
 
-Deliverable reports in this workspace: [synthetic](reports/deliverable-synthetic/report.html) (SUCCESS)
-and [real cohort](reports/deliverable-real-cohort/report.html) (INCOMPLETE: VCF reference gate blocked).
-The [machine-readable validation index](reports/validation-summary.json) links the executed evidence.
+Outputs include masked/filtered indexed SNP VCFs, separate indexed reference/unsupported record files,
+native PLINK subsets, TSV/Parquet/JSON metrics, scope/exclusion accounting, one-threshold sensitivity,
+self-contained HTML and Nextflow execution/trace/timeline reports. The launcher independently checks
+artifacts and source identity before atomic SUCCESS.json publication. Track status and overall status
+are separate. Failed or incomplete runs cannot inherit an old success marker. Empty denominators stay null.
+
+Docker builds remain linux/amd64 CPU-only; Apple Silicon uses emulation or native development adapters.
+Run `make container`, then `riceflow run --profile docker` with the PATH/NXF_HOME above. The launcher
+resolves the image ID and checks its Python source against the workspace to reject stale images.
+The audit also uses an explicit `riceflow:audit-20261027` image; its actual digest is recorded in the
+new run manifests and audit index. Historical image IDs and reports remain intact.
+
+See [validation results](docs/VALIDATION_RESULTS.md), [runbook](docs/RUNBOOK.md),
+[scientific assumptions](docs/SCIENTIFIC_ASSUMPTIONS.md), [metric dictionary](docs/DATA_DICTIONARY.md),
+[architecture](docs/ARCHITECTURE.md) and [interview explanation](docs/INTERVIEW.md).
+[Current evidence index](reports/validation-summary.json) links all new runs under reports/audit-20261027/;
+older deliverable reports remain archived with their original statuses and checksums.
+
+Local scheduling stays within 4 CPUs/8 GB, concurrency two and one thread per tool. The explicitly
+authorized Ohio AWS demonstration passed both real tracks in 262.5 seconds including queue/startup;
+all 80 artifact hashes validated and 31 biological comparisons matched the same-source local run.
+The [cloud summary](reports/aws-demo-20261027-summary.json) records current shutdown status and the
+two earlier failures before job submission. Current-source checks passed 47 native tests, 47 container
+tests and one nf-test integration test; the earlier 44-test audit remains preserved.
+
+See the [AWS runbook](docs/AWS_RUNBOOK.md) and [itemized estimate](docs/COST_ESTIMATE.md). The user
+approved up to $5 additional; the $15/month project target remains a planning target, not a hard cap.
+The Project cost tag is active and $5/$10/$15 alerts are configured. Subsequent runs still require
+fresh cost/hour evidence and specific authorization. Retained EBS, S3, ECR and logs remain billable.
+No imputation, haplotype expansion or pangenome construction is included.

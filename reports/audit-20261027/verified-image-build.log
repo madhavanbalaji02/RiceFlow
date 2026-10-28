@@ -1,0 +1,126 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.92kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 102B done
+#3 DONE 0.0s
+
+#4 [ 1/15] FROM docker.io/library/python@sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d
+#4 resolve docker.io/library/python@sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 62.23kB done
+#5 DONE 0.0s
+
+#6 [ 7/15] RUN curl --fail --location --retry 2 --max-time 120 https://s3.amazonaws.com/plink2-assets/alpha6/plink2_linux_x86_64_20250609.zip -o p.zip  && echo 'd316e13f09a95099b562df49618cd102f06c61a74a9d6416cfdca34566908065  p.zip' | sha256sum -c - && unzip p.zip plink2 -d /usr/local/bin && rm -rf /build/*
+#6 CACHED
+
+#7 [ 5/15] RUN curl --fail --location --retry 2 --max-time 120 https://github.com/samtools/bcftools/releases/download/1.21/bcftools-1.21.tar.bz2 -o b.tar.bz2  && echo '528a4cc1d3555368db75a700b22a3c95da893fd1827f6d304716dfd45ea4e282  b.tar.bz2' | sha256sum -c - && tar -xf b.tar.bz2 && cd bcftools-1.21 && make -j2 && make install
+#7 CACHED
+
+#8 [ 6/15] RUN curl --fail --location --retry 2 --max-time 120 https://github.com/samtools/samtools/releases/download/1.21/samtools-1.21.tar.bz2 -o s.tar.bz2  && echo '05724b083a6b6f0305fcae5243a056cc36cf826309c3cb9347a6b89ee3fc5ada  s.tar.bz2' | sha256sum -c - && tar -xf s.tar.bz2 && cd samtools-1.21 && ./configure --without-curses && make -j2 && make install
+#8 CACHED
+
+#9 [ 8/15] WORKDIR /opt/riceflow
+#9 CACHED
+
+#10 [ 4/15] WORKDIR /build
+#10 CACHED
+
+#11 [ 3/15] RUN apt-get update && apt-get install -y --no-install-recommends     ca-certificates curl unzip bzip2 make gcc libbz2-dev liblzma-dev libcurl4-openssl-dev     libssl-dev zlib1g-dev procps awscli && rm -rf /var/lib/apt/lists/*
+#11 CACHED
+
+#12 [ 9/15] COPY pyproject.toml requirements.lock ./
+#12 CACHED
+
+#13 [ 2/15] RUN test "amd64" = amd64
+#13 CACHED
+
+#14 [10/15] RUN pip install --no-cache-dir -r requirements.lock pytest==8.4.2
+#14 CACHED
+
+#15 [11/15] COPY src/ src/
+#15 DONE 0.0s
+
+#16 [12/15] COPY tests/ tests/
+#16 DONE 0.0s
+
+#17 [13/15] COPY scripts/fixtures.py scripts/fixtures.py
+#17 DONE 0.0s
+
+#18 [14/15] RUN pip install --no-deps . && python scripts/fixtures.py  && plink2 --version && bcftools --version && samtools --version
+#18 0.537 Processing /opt/riceflow
+#18 0.540   Installing build dependencies: started
+#18 2.549   Installing build dependencies: finished with status 'done'
+#18 2.550   Getting requirements to build wheel: started
+#18 2.783   Getting requirements to build wheel: finished with status 'done'
+#18 2.786   Preparing metadata (pyproject.toml): started
+#18 2.988   Preparing metadata (pyproject.toml): finished with status 'done'
+#18 2.992 Building wheels for collected packages: riceflow
+#18 2.993   Building wheel for riceflow (pyproject.toml): started
+#18 3.212   Building wheel for riceflow (pyproject.toml): finished with status 'done'
+#18 3.213   Created wheel for riceflow: filename=riceflow-0.1.0-py3-none-any.whl size=25848 sha256=a41ac870334ac61ae876d1f54aa503b1cca9aff637de2232286ffaf974231900
+#18 3.213   Stored in directory: /tmp/pip-ephem-wheel-cache-4u9roqh7/wheels/67/a7/b4/870f9d33d3bb212c2405bfd81221323c2f57c4d220644ff9a8
+#18 3.218 Successfully built riceflow
+#18 3.218 Installing collected packages: riceflow
+#18 3.244 Successfully installed riceflow-0.1.0
+#18 3.244 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#18 3.250 
+#18 3.250 [notice] A new release of pip is available: 24.0 -> 26.2.2
+#18 3.250 [notice] To update, run: pip install --upgrade pip
+#18 3.664 PLINK v2.0.0-a.6.16LM 64-bit Intel (9 Jun 2025)
+#18 3.687 bcftools 1.21
+#18 3.687 Using htslib 1.21
+#18 3.687 Copyright (C) 2024 Genome Research Ltd.
+#18 3.687 License Expat: The MIT/Expat license
+#18 3.687 This is free software: you are free to change and redistribute it.
+#18 3.687 There is NO WARRANTY, to the extent permitted by law.
+#18 3.708 samtools 1.21
+#18 3.708 Using htslib 1.21
+#18 3.708 Copyright (C) 2024 Genome Research Ltd.
+#18 3.708 
+#18 3.708 Samtools compilation details:
+#18 3.708     Features:       build=configure curses=no 
+#18 3.708     CC:             gcc
+#18 3.708     CPPFLAGS:       
+#18 3.708     CFLAGS:         -Wall -g -O2
+#18 3.708     LDFLAGS:        
+#18 3.708     HTSDIR:         htslib-1.21
+#18 3.708     LIBS:           
+#18 3.708     CURSES_LIB:     
+#18 3.708 
+#18 3.708 HTSlib compilation details:
+#18 3.708     Features:       build=configure libcurl=yes S3=yes GCS=yes libdeflate=no lzma=yes bzip2=yes plugins=no htscodecs=1.6.1
+#18 3.708     CC:             gcc
+#18 3.708     CPPFLAGS:       
+#18 3.708     CFLAGS:         -Wall -g -O2 -fvisibility=hidden
+#18 3.708     LDFLAGS:        -fvisibility=hidden 
+#18 3.708 
+#18 3.708 HTSlib URL scheme handlers present:
+#18 3.708     built-in:	 file, preload, data
+#18 3.708     S3 Multipart Upload:	 s3w+https, s3w+http, s3w
+#18 3.708     Amazon S3:	 s3+https, s3, s3+http
+#18 3.708     Google Cloud Storage:	 gs+http, gs+https, gs
+#18 3.708     libcurl:	 gophers, rtmpe, rtmpte, smtp, rtmpt, ldaps, smb, rtsp, tftp, pop3, smbs, imaps, pop3s, ftps, https, http, ftp, gopher, imap, sftp, ldap, smtps, rtmps, rtmpts, dict, scp, mqtt, telnet, rtmp
+#18 3.708     crypt4gh-needed:	 crypt4gh
+#18 3.708     mem:	 mem
+#18 DONE 3.7s
+
+#19 [15/15] WORKDIR /work
+#19 DONE 0.0s
+
+#20 exporting to image
+#20 exporting layers 0.1s done
+#20 exporting manifest sha256:a8aebf3435ca615f8a511faed77438157420fb6956ec514125327b0d4fd39aed 0.0s done
+#20 exporting config sha256:bb940dbccd9d81a5de3aaa96d0d3950ae711a500bd48e8348fe15f84895e5440 done
+#20 exporting attestation manifest sha256:8a19d3006b6af3d582ff8f2bf13024bc7e0de63217b263a0b03aedbd533d04bb 0.0s done
+#20 exporting manifest list sha256:6c41015bad0b818a8c27ed6acd6299de220352204efde571660d45a9c350a322 0.0s done
+#20 naming to docker.io/library/riceflow:audit-20261027 done
+#20 DONE 0.1s

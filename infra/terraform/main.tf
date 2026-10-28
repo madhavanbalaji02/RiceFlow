@@ -148,7 +148,8 @@ resource "aws_batch_compute_environment" "cpu" {
   state        = "ENABLED"
   service_role = aws_iam_role.batch.arn
   compute_resources {
-    type                = "EC2"
+    type = "EC2"
+    ec2_configuration { image_type = "ECS_AL2023" }
     allocation_strategy = "BEST_FIT_PROGRESSIVE"
     min_vcpus           = 0
     max_vcpus           = var.max_vcpus
@@ -190,11 +191,17 @@ resource "aws_iam_role_policy" "controller" {
   role = aws_iam_role.controller.id
   policy = jsonencode({ Version = "2012-10-17", Statement = [
     { Effect = "Allow", Action = ["batch:SubmitJob"], Resource = [aws_batch_job_queue.cpu.arn, "arn:aws:batch:${var.region}:*:job-definition/nf-*"] },
-    { Effect = "Allow", Action = ["batch:RegisterJobDefinition", "batch:DescribeJobDefinitions", "batch:DescribeJobs", "batch:DescribeJobQueues", "batch:ListJobs", "batch:TerminateJob", "batch:CancelJob"], Resource = "*" },
+    { Effect = "Allow", Action = ["batch:TagResource"], Resource = ["arn:aws:batch:${var.region}:*:job-definition/nf-*", "arn:aws:batch:${var.region}:*:job/*"] },
+    { Effect = "Allow", Action = ["batch:RegisterJobDefinition", "batch:DescribeJobDefinitions", "batch:DescribeJobs", "batch:DescribeJobQueues", "batch:DescribeComputeEnvironments", "batch:ListJobs", "batch:TerminateJob", "batch:CancelJob"], Resource = "*" },
+    { Effect = "Allow", Action = ["ec2:DescribeInstances"], Resource = "*" },
     { Effect = "Allow", Action = ["iam:PassRole"], Resource = aws_iam_role.task.arn, Condition = { StringEquals = { "iam:PassedToService" = "ecs-tasks.amazonaws.com" } } }
   ] })
 }
 resource "aws_instance" "controller" {
+  lifecycle {
+    # A stopped instance releases its ephemeral public IP; preserve its root disk/cache on refresh.
+    ignore_changes = [associate_public_ip_address]
+  }
   ami                                  = var.controller_ami
   instance_type                        = "t3.small"
   subnet_id                            = aws_subnet.public.id
@@ -216,7 +223,7 @@ resource "aws_instance" "controller" {
     set -eu
     mkdir -p /opt/riceflow-controller
     # Persistent root disk holds the launch directory, .nextflow cache/history and toolchain.
-    # Install the pinned toolchain and run scripts/cloud-controller.sh only after cost authorization.
+    # Install the reviewed toolchain and run scripts/cloud-controller.py only after cost authorization.
   SH
   tags      = { Name = "${var.name}-controller" }
 }
@@ -226,6 +233,11 @@ resource "aws_budgets_budget" "monthly" {
   limit_amount = "15"
   limit_unit   = "USD"
   time_unit    = "MONTHLY"
+  cost_types {
+    include_credit = false
+    include_refund = false
+    include_tax    = false
+  }
   cost_filter {
     name   = "TagKeyValue"
     values = ["user:Project$RiceFlow"]

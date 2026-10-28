@@ -2,6 +2,9 @@ SHELL := /bin/bash
 export PATH := $(CURDIR)/.venv/bin:$(CURDIR)/.tools:$(PATH)
 export NXF_HOME := $(CURDIR)/.tools/nxf-home
 export JAVA_CMD := $(shell command -v java)
+PREFLIGHT_OUT ?= data/preflight-$(shell date -u +%Y%m%dT%H%M%SZ)
+CACHE_MANIFEST ?= $(firstword $(wildcard data/audit-20261027/source-manifest.json data/real/source-manifest.json))
+CACHE_DIR ?= $(patsubst %/,%,$(dir $(CACHE_MANIFEST)))
 .PHONY: setup test lint demo preflight real-demo report resume recovery workflow-test container cloud-validate
 setup:
 	bash scripts/setup.sh
@@ -16,7 +19,7 @@ workflow-test:
 demo:
 	PATH="$(PATH)" .venv/bin/riceflow run --config config/demo.yaml
 preflight:
-	.venv/bin/python -m riceflow.preflight --out data/real
+	.venv/bin/python -m riceflow.preflight --out "$(PREFLIGHT_OUT)" $(if $(CACHE_MANIFEST),--cache-dir "$(CACHE_DIR)" --cache-manifest "$(CACHE_MANIFEST)")
 real-demo:
 	PATH="$(PATH)" .venv/bin/riceflow run --config config/real.yaml
 report:

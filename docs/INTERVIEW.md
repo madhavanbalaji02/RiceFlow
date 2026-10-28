@@ -16,9 +16,9 @@ that a biological-policy change invalidates results. Scientific success requires
 and a success marker, not an attractive HTML report.
 
 “I verified the complete public CoreSNP files and ran a deterministic local subset. I retrieved small
-B001 regions without downloading its multi-gigabyte VCF. Authoritative reference access failed TLS
-verification, so I reported that real-data gate as blocked and tested reference validation using
-clearly labeled synthetic fixtures. I prepared AWS infrastructure without provisioning it, and kept
+B001 regions without downloading its multi-gigabyte VCF. The legacy reference hostname failed TLS verification, so the original report was correctly blocked.
+In the follow-up audit I resolved the current official NARO hostname with normal verification,
+checked its publisher checksum and all observed REF bases, and ran both real-data tracks. I prepared AWS infrastructure without provisioning it, and kept
 cost authorization and untested cloud behavior explicit.”
 
 Tradeoffs to discuss: stable locus IDs versus source IDs; complete-call allele counting versus

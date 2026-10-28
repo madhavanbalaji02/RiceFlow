@@ -1,0 +1,29 @@
+$ plink2 --chr-set 12 no-x no-y no-xy no-mt --threads 1 --memory 1024 --bfile cohort/filtered --nonfounders --missing --freq counts --out cohort/final
+PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)                cog-genomics.org/plink/2.0/
+(C) 2005-2025 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to cohort/final.log.
+Options in effect:
+  --bfile cohort/filtered
+  --chr-set 12 no-x no-y no-xy no-mt
+  --freq counts
+  --memory 1024
+  --missing
+  --nonfounders
+  --out cohort/final
+  --threads 1
+
+Start time: Tue Oct 27 15:18:46 2026
+18432 MiB RAM detected; reserving 1024 MiB for main workspace.
+Using 1 compute thread.
+3 samples (0 females, 0 males, 3 ambiguous; 3 founders) loaded from
+cohort/filtered.fam.
+3 variants loaded from cohort/filtered.bim.
+Note: No phenotype data present.
+Calculating sample missingness rates... 0%0%done.
+Calculating allele frequencies... 0%0%done.
+--freq counts: 0%0%33%66%
+--freq counts: Allele counts (all samples) written to cohort/final.acount .
+--missing: Sample missing data report written to cohort/final.smiss .
+--missing variant report: 0%0%33%66%
+--missing: Variant missing data report written to cohort/final.vmiss .
+End time: Tue Oct 27 15:18:46 2026

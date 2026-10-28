@@ -1,0 +1,18 @@
+track_label: REAL_GQ40
+cohort: data/real/core
+vcf: data/audit-20261027/B001.region.vcf
+reference: data/audit-20261027/reference.fa
+expected_sample: B001
+source_manifest: data/audit-20261027/source-manifest.json
+chrom: 1
+start: 1
+end: 1000000
+sample_count: 24
+policy:
+  sample_call_rate: 0.8
+  site_call_rate: 0.9
+  min_dp: 5
+  min_gq: 40
+  missing_quality: not_assessed
+  min_maf: 0
+vcf_region: chr01:1000000-1010000

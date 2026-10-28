@@ -1,0 +1,182 @@
+{
+  "attempts": [
+    {
+      "attempt": "1",
+      "exit": "0",
+      "name": "VCF_QC",
+      "status": "COMPLETED"
+    },
+    {
+      "attempt": "1",
+      "exit": "0",
+      "name": "COHORT_QC",
+      "status": "COMPLETED"
+    },
+    {
+      "attempt": "1",
+      "exit": "0",
+      "name": "COLLECT",
+      "status": "COMPLETED"
+    }
+  ],
+  "code": {
+    "conf/aws.config": "fd2c0ac77801a8422e79fd98146a42d11e11e6d8b8622e6fc20dbb42e19b4bc0",
+    "modules/cohort.nf": "bdcc63fef22356dbda59e933f1a58ab6f13f930ded06ad25c67366d5b5c31984",
+    "modules/vcf.nf": "8c8e2159de2300b19a6fc0463ee040ff7ef3e2040702c45904c995eccd70f412",
+    "nextflow.config": "3a18950e62d92b0ae908e555bbf44b1386090f23b5285e59905c436b8651a146",
+    "src/riceflow/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/riceflow/cli.py": "cf419583aa5f867ce8e3c59eec3e0d7cd15f5f866f9f554372f2d7207d185a74",
+    "src/riceflow/cloud.py": "415b0d5e46ed7524d0c97b3fc0282e2a20b970fa3c54b75b182e3f91634cfb0b",
+    "src/riceflow/cohort.py": "f411c8bb68d9bd2ba8bd932528f0ae9301ed9d54e4b62ef9f67258758bf6ee6d",
+    "src/riceflow/common.py": "d00bdbb15993a35ed4717fa2fe898d5887ddb4b1fac5cd8866ff0d3628cc6bb0",
+    "src/riceflow/network.py": "0740f248a91bad16e99f31dfa5114d4862ae4e6e74c0c99b666c22653fe2685c",
+    "src/riceflow/preflight.py": "8582ab30302999eaaa911c8da10ef45bd70bb02a5e1ff63968b26da64a6fbbd8",
+    "src/riceflow/report.py": "7dae59bfe4a7506cf8ea836762ab6cea5b20b825f1833266ce5badd2093113fa",
+    "src/riceflow/validation.py": "e608a59ef99dfbb8583a59d5861f18e12921639ae3f60d57bb39d2576f9d3f8f",
+    "src/riceflow/vcf.py": "a1963240019349fca3ee582435093b1ee54715d14eb8d63a7574661a58d76854",
+    "workflows/main.nf": "a46856328aae70d6cf3084a4711784a00863d9f57006a959400af54e2ce4fa50"
+  },
+  "config": {
+    "chrom": 1,
+    "cohort": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/real/core",
+    "end": 1000000,
+    "expected_sample": "B001",
+    "input_sha256": {
+      "cohort.bed": "5539f718639f2579a0f6cbe88f624ff754f24d13a78cc118124207739fdc7fc0",
+      "cohort.bim": "c487fe53c9ad9445611a1f0fa601136ad389eafc28360eed694cec65adcaeec8",
+      "cohort.fam": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a",
+      "reference": "c60dd24591bc151eb2c9253a4c8ffbef3f9e50a69e7e3ddb905209087f16467b",
+      "vcf": "b6898184a106d1478da6b795302f3106b50305940d6ddd73a43d5a0aaec08a30"
+    },
+    "policy": {
+      "min_dp": 5,
+      "min_gq": null,
+      "min_maf": 0.0,
+      "missing_quality": "not_assessed",
+      "sample_call_rate": 0.8,
+      "site_call_rate": 0.9
+    },
+    "reference": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/audit-20261027/reference.fa",
+    "sample_count": 24,
+    "source_manifest": "data/audit-20261027/source-manifest.json",
+    "start": 1,
+    "track_label": "REAL",
+    "vcf": "/Users/madhavanbalaji/Documents/project/RiceFlow/data/audit-20261027/B001.region.vcf",
+    "vcf_region": "chr01:1000000-1010000"
+  },
+  "elapsed_seconds": 5.177734958007932,
+  "ended": "2026-10-27T19:12:57.444943+00:00",
+  "error": null,
+  "fingerprint": "0ccdc6e550b599ebfaa81753bf1fbc6af14778a99616811ca4dff94e7646c42f",
+  "git": {
+    "commit": "a1560f80f4e5d1c62cfab7879ad99dd4c02c014c",
+    "dirty": true
+  },
+  "image": "NATIVE_NO_IMAGE",
+  "inputs": {
+    "cohort.bed": "5539f718639f2579a0f6cbe88f624ff754f24d13a78cc118124207739fdc7fc0",
+    "cohort.bim": "c487fe53c9ad9445611a1f0fa601136ad389eafc28360eed694cec65adcaeec8",
+    "cohort.fam": "127dfda82891e07c34f067f06fda84859e3b04f54ffd1ecf018690761761157a",
+    "reference": "c60dd24591bc151eb2c9253a4c8ffbef3f9e50a69e7e3ddb905209087f16467b",
+    "vcf": "b6898184a106d1478da6b795302f3106b50305940d6ddd73a43d5a0aaec08a30"
+  },
+  "label": "REAL",
+  "metric_definitions": "docs/DATA_DICTIONARY.md",
+  "nextflow_command": [
+    "nextflow",
+    "-log",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real/nextflow.log",
+    "run",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf",
+    "-c",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/nextflow.config",
+    "-profile",
+    "native",
+    "--config_json",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real/resolved-config.json",
+    "--policy",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real/policy.json",
+    "--outdir",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real",
+    "--inject_failure",
+    "false",
+    "-with-report",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real/execution.html",
+    "-with-timeline",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real/timeline.html",
+    "-with-trace",
+    "/Users/madhavanbalaji/Documents/project/RiceFlow/reports/audit-20261027/acceptance-real/trace.tsv"
+  ],
+  "returncode": 0,
+  "run_id": "20261027T191251Z-8d17bcf9",
+  "source_manifest": "data/audit-20261027/source-manifest.json",
+  "started": "2026-10-27T19:12:52.263464+00:00",
+  "status": "SUCCESS",
+  "task_tools": {
+    "cohort": "PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)\n",
+    "vcf": "bcftools 1.21 (pysam bundled dispatcher; native development adapter)\nsamtools 1.21 (pysam bundled dispatcher)\n"
+  },
+  "tasks": [
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "1.8s",
+      "exit": "0",
+      "hash": "9f/c93867",
+      "name": "VCF_QC",
+      "native_id": "11274",
+      "peak_rss": "-",
+      "realtime": "1s",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 15:12:54.189",
+      "task_id": "2"
+    },
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "2s",
+      "exit": "0",
+      "hash": "e3/f5bc58",
+      "name": "COHORT_QC",
+      "native_id": "11272",
+      "peak_rss": "-",
+      "realtime": "2s",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 15:12:54.182",
+      "task_id": "1"
+    },
+    {
+      "%cpu": "-",
+      "attempt": "1",
+      "duration": "36ms",
+      "exit": "0",
+      "hash": "2f/ff0843",
+      "name": "COLLECT",
+      "native_id": "11430",
+      "peak_rss": "-",
+      "realtime": "0ms",
+      "status": "COMPLETED",
+      "submit": "2026-10-27 15:12:56.231",
+      "task_id": "3"
+    }
+  ],
+  "tools": {
+    "Jinja2": "3.1.6",
+    "PyYAML": "6.0.3",
+    "bcftools": "bcftools 1.21 (pysam bundled dispatcher; native development adapter)",
+    "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment Homebrew (build 17.0.20+0)\nOpenJDK 64-Bit Server VM Homebrew (build 17.0.20+0, mixed mode, sharing)",
+    "nextflow": "N E X T F L O W\n      version 25.10.2 build 10555\n      created 28-11-2025 19:24 UTC (14:24 EDT)\n      cite doi:10.1038/nbt.3820\n      http://nextflow.io",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "plink2": "PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)",
+    "plotly": "6.3.1",
+    "pyarrow": "22.0.0",
+    "pydantic": "2.12.3",
+    "pysam": "0.23.3",
+    "python": "3.11.14 (main, Dec  5 2025, 21:28:33) [Clang 21.1.4 ]",
+    "samtools": "samtools 1.21 (pysam bundled dispatcher)"
+  },
+  "track_statuses": {
+    "cohort": "PASS",
+    "vcf": "PASS"
+  }
+}

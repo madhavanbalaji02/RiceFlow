@@ -20,6 +20,7 @@ RUN pip install --no-cache-dir -r requirements.lock pytest==8.4.2
 COPY src/ src/
 COPY tests/ tests/
 COPY scripts/fixtures.py scripts/fixtures.py
+COPY scripts/cloud-controller.py scripts/cloud-controller.py
 RUN pip install --no-deps . && python scripts/fixtures.py \
  && plink2 --version && bcftools --version && samtools --version
 ENV PYTHONUNBUFFERED=1

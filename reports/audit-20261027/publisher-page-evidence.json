@@ -1,0 +1,13 @@
+{
+  "assembly": "Os-Nipponbare-Reference-IRGSP-1.0",
+  "assembly_download_excerpts": [
+    "\",{children:[\"Genome assemblies (12 chromosomes)\",e(\"span\",{style:{color:\"green\"},children:\"*\"}),e(\"br\",{}),\"[\",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz\",children:\"DOWNLOAD\"}),\"] (gz file, 116MB, \",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5\",children:\"MD5 checksum\"}),\") or [\",e(\"a\",{href:\"/download/arch",
+    "[\",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz\",children:\"DOWNLOAD\"}),\"] (gz file, 116MB, \",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5\",children:\"MD5 checksum\"}),\") or [\",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta\",download:\"IRGSP-1.0_genome.fasta\",children:\"DOWNLOAD\"}),\"] (fasta file, 36",
+    "16MB, \",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5\",children:\"MD5 checksum\"}),\") or [\",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta\",download:\"IRGSP-1.0_genome.fasta\",children:\"DOWNLOAD\"}),\"] (fasta file, 362MB, \",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.md5\",children:\"MD5 checksum\"}),\")\"]}",
+    "hive/irgsp1/IRGSP-1.0_genome.fasta.gz.md5\",children:\"MD5 checksum\"}),\") or [\",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta\",download:\"IRGSP-1.0_genome.fasta\",children:\"DOWNLOAD\"}),\"] (fasta file, 362MB, \",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.md5\",children:\"MD5 checksum\"}),\")\"]}),a(\"li\",{children:[\"Unanchored se",
+    "irgsp1/IRGSP-1.0_genome.fasta\",download:\"IRGSP-1.0_genome.fasta\",children:\"DOWNLOAD\"}),\"] (fasta file, 362MB, \",e(\"a\",{href:\"/download/archive/irgsp1/IRGSP-1.0_genome.fasta.md5\",children:\"MD5 checksum\"}),\")\"]}),a(\"li\",{children:[\"Unanchored sequences\",e(\"span\",{style:{color:\"green\"},children:\"*\"}),e(\"br\",{}),\"[\",e(\"a\",{href:\"/download/archive/irgsp1/"
+  ],
+  "asset_sha256": "3968517f12dac9ca705c812633391ef30a98a721df8da0c277a3c2586d248f2d",
+  "asset_url": "https://rapdb.dna.naro.go.jp/assets/download.acfcf1da.js",
+  "page_url": "https://rapdb.dna.naro.go.jp/download/irgsp1.html"
+}

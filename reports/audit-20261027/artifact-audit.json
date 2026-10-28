@@ -1,0 +1,56 @@
+{
+  "historical_reports_preserved": [
+    "deliverable-synthetic",
+    "deliverable-real-cohort"
+  ],
+  "incomplete_track_status_verified": {
+    "cohort": "PASS",
+    "vcf": "BLOCKED"
+  },
+  "repeat_fingerprints_equal": true,
+  "verified-gq40": {
+    "embedded_charts": true,
+    "external_assets": [],
+    "source_code_fingerprint_verified": true,
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "verified-real": {
+    "embedded_charts": true,
+    "external_assets": [],
+    "source_code_fingerprint_verified": true,
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "verified-real-repeat": {
+    "embedded_charts": true,
+    "external_assets": [],
+    "source_code_fingerprint_verified": true,
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "verified-synthetic": {
+    "embedded_charts": true,
+    "external_assets": [],
+    "source_code_fingerprint_verified": true,
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 79
+  },
+  "visual_rendering": "Not executed; automated HTML/assets validation only"
+}

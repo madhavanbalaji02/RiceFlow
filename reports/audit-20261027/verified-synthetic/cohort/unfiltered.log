@@ -1,0 +1,32 @@
+PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)
+Options in effect:
+  --bfile input
+  --chr 1
+  --chr-set 12 no-x no-y no-xy no-mt
+  --from-bp 1
+  --keep cohort/selected.samples
+  --make-bed
+  --memory 1024
+  --out cohort/unfiltered
+  --threads 1
+  --to-bp 100
+
+Hostname: Maddys-MacBook-Pro-4.local
+Working directory: /Users/madhavanbalaji/Documents/project/RiceFlow/work/14/fed3a18082900f1a903f0bbef56cf3
+Start time: Tue Oct 27 15:18:46 2026
+
+Random number seed: 1793128726
+18432 MiB RAM detected; reserving 1024 MiB for main workspace.
+Using 1 compute thread.
+4 samples (0 females, 0 males, 4 ambiguous; 4 founders) loaded from input.fam.
+3 out of 4 variants loaded from input.bim.
+Note: No phenotype data present.
+--keep: 4 samples remaining.
+4 samples (0 females, 0 males, 4 ambiguous; 4 founders) remaining after main
+filters.
+3 variants remaining after main filters.
+Writing cohort/unfiltered.fam ... done.
+Writing cohort/unfiltered.bim ... done.
+Writing cohort/unfiltered.bed ... done.
+
+End time: Tue Oct 27 15:18:46 2026

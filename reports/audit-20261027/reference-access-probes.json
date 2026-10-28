@@ -1,0 +1,17 @@
+{
+  "interpretation": "No usable upstream FASTA index at these URLs; full bounded publisher gzip was retrieved after HEAD size discovery",
+  "observed_utc_date": "2026-10-27",
+  "probes": [
+    {
+      "http_status": 404,
+      "method": "HEAD",
+      "url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.fai"
+    },
+    {
+      "http_status": 404,
+      "method": "HEAD",
+      "url": "https://rapdb.dna.naro.go.jp/download/archive/irgsp1/IRGSP-1.0_genome.fasta.gz.fai"
+    }
+  ],
+  "verified_tls": true
+}

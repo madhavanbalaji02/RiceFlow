@@ -1,0 +1,4 @@
+sample	sites	complete	partial	missing	call_rate	heterozygosity
+A/A	3	3	0	0	1.0	0.0
+B/B	3	3	0	0	1.0	0.6666666666666666
+C/C	3	3	0	0	1.0	0.3333333333333333

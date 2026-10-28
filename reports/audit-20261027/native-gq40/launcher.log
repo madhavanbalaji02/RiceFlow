@@ -1,0 +1,7 @@
+Nextflow 26.10.4 is available - Please consider updating your version to it
+N E X T F L O W  ~  version 25.10.2
+Launching `/Users/madhavanbalaji/Documents/project/RiceFlow/workflows/main.nf` [extravagant_laplace] DSL2 - revision: 375538717d
+WARN: Task runtime metrics are not reported when using macOS without a container engine
+[1e/434f89] Submitted process > VCF_QC
+[15/b3936c] Submitted process > COHORT_QC
+[80/9464f7] Submitted process > COLLECT

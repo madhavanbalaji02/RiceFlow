@@ -1,0 +1,5 @@
+locus	reason
+chr01:3:A:C	site_call_rate;no_complete_alleles
+chr01:4:A:G	site_call_rate;no_complete_alleles
+chr01:5:A:C	site_call_rate;no_complete_alleles
+chr01:6:A:T	site_call_rate;no_complete_alleles

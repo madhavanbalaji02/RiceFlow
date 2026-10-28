@@ -1,0 +1,46 @@
+{
+  "reports/audit-20261027/verified-gq40": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "reports/audit-20261027/verified-real": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "reports/audit-20261027/verified-real-repeat": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 80
+  },
+  "reports/audit-20261027/verified-synthetic": {
+    "code_fingerprint_verified": true,
+    "embedded_charts": true,
+    "external_assets": [],
+    "status": "SUCCESS",
+    "track_statuses": {
+      "cohort": "PASS",
+      "vcf": "PASS"
+    },
+    "validated_files": 79
+  }
+}

@@ -1,9 +1,9 @@
-track_label: REAL_COHORT_VCF_BLOCKED
+track_label: REAL
 cohort: data/real/core
-vcf: null
-reference: null
+vcf: data/audit-20261027/B001.region.vcf
+reference: data/audit-20261027/reference.fa
 expected_sample: B001
-source_manifest: data/real/source-manifest.json
+source_manifest: data/audit-20261027/source-manifest.json
 chrom: 1
 start: 1
 end: 1000000
@@ -15,3 +15,4 @@ policy:
   min_gq: null
   missing_quality: not_assessed
   min_maf: 0
+vcf_region: chr01:1000000-1010000

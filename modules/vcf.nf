@@ -8,10 +8,12 @@ process VCF_QC {
     val policy_json
     val sample
     val input_hashes
+    val region
+    val code_fingerprint
     output:
     path 'vcf', emit: result
     script:
-    def cfg = groovy.json.JsonOutput.toJson([vcf:vcf.toString(), reference:'indexed.reference.fa', expected_sample:sample, input_sha256:new groovy.json.JsonSlurper().parseText(input_hashes)])
+    def cfg = groovy.json.JsonOutput.toJson([vcf:vcf.toString(), reference:'indexed.reference.fa', expected_sample:sample, execution_code_fingerprint:code_fingerprint, vcf_region:region, input_sha256:new groovy.json.JsonSlurper().parseText(input_hashes)])
     """
     cat > policy.json <<'POLICY'
     ${policy_json}

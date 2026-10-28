@@ -1,0 +1,26 @@
+{
+  "actual_source_hashes_match_final_run": true,
+  "all_exit_zero": true,
+  "cloud_state_files": [],
+  "expected_stale_image_exit": 1,
+  "historical_scientific_reports_unchanged": true,
+  "incomplete_run_has_no_success": true,
+  "no_cloud_actions_performed": true,
+  "required_commands": [
+    "code-cache-tests",
+    "verified-container-tests",
+    "verified-synthetic",
+    "verified-real",
+    "verified-real-repeat",
+    "verified-gq40",
+    "code-cache-recovery",
+    "verified-independent",
+    "verified-independent-gq40",
+    "verified-reference-check",
+    "final-artifact-verification",
+    "terraform-validation",
+    "terraform-format",
+    "audit-script-lint"
+  ],
+  "status": "PASS"
+}

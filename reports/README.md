@@ -15,3 +15,16 @@ Generated run artifacts retain their original checksums and local paths. Downloa
 Nextflow work/cache files, installed tools and intermediate development runs remain local and are
 excluded from Git. Reproduce new runs using the repository's make targets. See
 `../docs/VALIDATION_RESULTS.md` for interpretation and limitations.
+
+The follow-up `audit-20261027/` contains newly executed two-track real-data validation after resolving
+the official reference hostname, plus independent checks, source-aware recovery, semantic comparisons,
+current public price evidence and a complete command/exit/resource ledger. Current entries are indexed
+by validation-summary.json; prior reports retain their historical statuses and checksums.
+
+
+The authorized Ohio follow-up is indexed by `aws-demo-20261027-summary.json`. Both cloud tracks passed,
+80 artifact hashes and 31 biological comparisons validated, and compute stopped with zero workers.
+Current-source local evidence (47 native/47 container tests, one nf-test, source-matched real Docker
+run and comparisons) is under `audit-20261027/cloud-follow-up-local/`. Full cloud reports/resource
+responses remain local and ignored under `aws-demo-20261027/`; the public summary omits credentials
+and account-wide billing. Earlier audit snapshots retain their original source identities.

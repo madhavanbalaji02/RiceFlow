@@ -1,0 +1,22 @@
+[
+  {
+    "bytes": 0,
+    "final_url": "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/s3/USD/current/s3-standard.json",
+    "last_modified": "Thu, 13 Mar 2025 18:28:32 GMT",
+    "method": "HEAD",
+    "retrieved_utc": "2026-10-27T18:54:32.511914+00:00",
+    "server_date": "Tue, 27 Oct 2026 18:54:08 GMT",
+    "source_bytes": 1008462,
+    "url": "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/s3/USD/current/s3-standard.json"
+  },
+  {
+    "bytes": 380211,
+    "content_range": null,
+    "final_url": "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/s3/USD/current/s3-standard.json",
+    "last_modified": null,
+    "method": "GET",
+    "range": null,
+    "retrieved_utc": "2026-10-27T18:54:33.191917+00:00",
+    "url": "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/s3/USD/current/s3-standard.json"
+  }
+]

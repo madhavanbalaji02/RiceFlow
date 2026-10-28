@@ -1,0 +1,5 @@
+changed_parameter	min_dp	min_gq	missing_quality	sample_call_rate	site_call_rate	observed_snp_sites	retained_sites	retained_samples
+baseline	5		not_assessed	0.8	0.9	7	7	1
+min_dp	0		not_assessed	0.8	0.9	7	7	1
+min_dp	10		not_assessed	0.8	0.9	7	7	1
+min_dp	30		not_assessed	0.8	0.9	7	6	1

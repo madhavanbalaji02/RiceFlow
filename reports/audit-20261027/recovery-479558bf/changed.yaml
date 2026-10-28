@@ -1,0 +1,18 @@
+chrom: 1
+cohort: data/real/core
+end: 1000000
+expected_sample: B001
+policy:
+  min_dp: 6
+  min_gq: null
+  min_maf: 0
+  missing_quality: not_assessed
+  sample_call_rate: 0.8
+  site_call_rate: 0.9
+reference: data/audit-20261027/reference.fa
+sample_count: 24
+source_manifest: data/audit-20261027/source-manifest.json
+start: 1
+track_label: REAL
+vcf: data/audit-20261027/B001.region.vcf
+vcf_region: chr01:1000000-1010000

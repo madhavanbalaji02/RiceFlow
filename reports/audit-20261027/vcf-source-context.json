@@ -1,0 +1,7 @@
+{
+  "caller": "UnifiedGenotyper",
+  "output_mode": "EMIT_ALL_SITES",
+  "provenance": "Observed public VCF header; upstream mapping/calling not reproduced",
+  "sample_ploidy": 2,
+  "version": "nightly-2014-06-17-gc231c21"
+}

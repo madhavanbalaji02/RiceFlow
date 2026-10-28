@@ -1,0 +1,13 @@
+{
+  "failed": "reports/audit-20261027/recovery-479558bf/failed",
+  "resumed": "reports/audit-20261027/recovery-479558bf/resumed",
+  "changed": "reports/audit-20261027/recovery-479558bf/changed",
+  "cached_tasks": 2,
+  "policy_change_cached_tasks": 0,
+  "code_probe": {
+    "run": "reports/audit-20261027/recovery-479558bf/code-changed",
+    "cached_tasks": 0,
+    "policy_unchanged": true,
+    "biological_outputs_equivalent": true
+  }
+}

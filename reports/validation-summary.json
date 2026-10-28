@@ -1,33 +1,305 @@
 {
-  "cloud_runs": 0,
-  "container_tests": 28,
-  "date": "2026-10-27",
-  "image": "sha256:fc6710d5b013cbec0e54454aa5855e1a72a0993af1d75facbacaa616ffeaabd9",
-  "image_source_matches_workspace": true,
-  "nf_test": 1,
-  "python_tests": 28,
-  "real_cohort": {
-    "path": "reports/deliverable-real-cohort",
+  "artifact_audit": "reports/audit-20261027/final-artifact-verification.json",
+  "audit_root": "reports/audit-20261027",
+  "aws": {
+    "deployed": true,
+    "region": "us-east-2",
+    "cloud_runs": 1,
+    "failed_pre_submission_attempts": 2,
+    "scientific_status": "SUCCESS",
+    "shutdown_status": "PASS_CONTROLLER_STOPPED_WORKERS_ZERO",
+    "public_summary": "reports/aws-demo-20261027-summary.json",
+    "local_artifacts": "reports/aws-demo-20261027",
+    "planning_estimate_usd": 4.59,
+    "incremental_approval_usd": 5,
+    "account_usage": "Prior charges confirmed unrelated by user; fresh project billing remains delayed",
+    "remaining_allowance": "Conservative usage scenario below approved USD 5; invoice reconciliation pending",
+    "retained_storage_estimate_usd_month": 1.3795,
+    "measured_usage_scenario_usd": 1.84,
+    "billing_status": "DELAYED_ESTIMATE_NOT_FINAL_INVOICE"
+  },
+  "cohort": {
+    "exact_selection": {
+      "chrom": 1,
+      "end": 1000000,
+      "samples": [
+        "B001/B001",
+        "B002/B002",
+        "B003/B003",
+        "B004/B004",
+        "B005/B005",
+        "B006/B006",
+        "B007/B007",
+        "B008/B008",
+        "B009/B009",
+        "B010/B010",
+        "B011/B011",
+        "B012/B012",
+        "B013/B013",
+        "B014/B014",
+        "B015/B015",
+        "B016/B016",
+        "B017/B017",
+        "B018/B018",
+        "B019/B019",
+        "B020/B020",
+        "B021/B021",
+        "B023/B023",
+        "B024/B024",
+        "B025/B025"
+      ],
+      "start": 1
+    },
     "retained_loci": 824,
-    "samples": 24,
-    "seconds": 7.440785083046649,
+    "retained_samples": 24,
+    "run": "reports/audit-20261027/verified-real",
     "selected_loci": 969,
-    "status": "INCOMPLETE"
+    "selected_samples": 24,
+    "source_loci": 404388,
+    "source_samples": 3024,
+    "status": "PASS"
   },
-  "real_vcf": "BLOCKED_AUTHORITATIVE_REFERENCE_TLS",
-  "recovery": {
-    "cached_tasks": 2,
-    "changed": "reports/recovery-09cab55b/changed",
-    "failed": "reports/recovery-09cab55b/failed",
-    "policy_change_cached_tasks": 0,
-    "resumed": "reports/recovery-09cab55b/resumed"
+  "commands": "reports/audit-20261027/commands.jsonl",
+  "controller_tools": {
+    "Jinja2": "3.1.6",
+    "PyYAML": "6.0.3",
+    "bcftools": "bcftools 1.21 (pysam bundled dispatcher; native development adapter)",
+    "java": "openjdk version \"17.0.20\" 2026-07-21\nOpenJDK Runtime Environment Homebrew (build 17.0.20+0)\nOpenJDK 64-Bit Server VM Homebrew (build 17.0.20+0, mixed mode, sharing)",
+    "nextflow": "N E X T F L O W\n      version 25.10.2 build 10555\n      created 28-11-2025 19:24 UTC (14:24 EDT)\n      cite doi:10.1038/nbt.3820\n      http://nextflow.io",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "plink2": "PLINK v2.0.0-a.6.16 M1 (9 Jun 2025)",
+    "plotly": "6.3.1",
+    "pyarrow": "22.0.0",
+    "pydantic": "2.12.3",
+    "pysam": "0.23.3",
+    "python": "3.11.14 (main, Dec  5 2025, 21:28:33) [Clang 21.1.4 ]",
+    "samtools": "samtools 1.21 (pysam bundled dispatcher)"
   },
-  "ruff": "PASS",
-  "synthetic": {
-    "path": "reports/deliverable-synthetic",
-    "seconds": 5.595537832996342,
+  "date": "2026-10-27",
+  "github_actions_observed": [
+    {
+      "conclusion": "success",
+      "databaseId": 40560762699,
+      "headSha": "a1560f80f4e5d1c62cfab7879ad99dd4c02c014c",
+      "status": "completed",
+      "url": "https://github.com/madhavanbalaji02/RiceFlow/actions/runs/40560762699"
+    }
+  ],
+  "github_actions_scope": "Historical CI is recorded below; current follow-up checks passed locally, hosted CI pending push.",
+  "image": {
+    "digest": "sha256:fdb81334112582ac83ea2151d3a414d9762d96d098ee979a3bfb5b1df2a0bb3c",
+    "local_image_id": "sha256:fdb81334112582ac83ea2151d3a414d9762d96d098ee979a3bfb5b1df2a0bb3c",
+    "compressed_bytes": 362324884,
+    "source_attested": true
+  },
+  "independent_checks": "reports/audit-20261027/verified-independent.json",
+  "measurements": [
+    {
+      "command": [
+        "riceflow",
+        "run",
+        "--out",
+        "reports/audit-20261027/verified-synthetic"
+      ],
+      "elapsed_seconds": 4.433997917047236,
+      "exit_code": 0,
+      "log": "reports/audit-20261027/verified-synthetic.log",
+      "max_rss_bytes": 355811328
+    },
+    {
+      "command": [
+        "riceflow",
+        "run",
+        "--profile",
+        "docker",
+        "--image",
+        "riceflow:audit-20261027",
+        "--config",
+        "config/real.yaml",
+        "--out",
+        "reports/audit-20261027/verified-real"
+      ],
+      "elapsed_seconds": 10.676351832982618,
+      "exit_code": 0,
+      "log": "reports/audit-20261027/verified-real.log",
+      "max_rss_bytes": 325402624
+    },
+    {
+      "command": [
+        "riceflow",
+        "run",
+        "--profile",
+        "docker",
+        "--image",
+        "riceflow:audit-20261027",
+        "--config",
+        "config/real.yaml",
+        "--out",
+        "reports/audit-20261027/verified-real-repeat"
+      ],
+      "elapsed_seconds": 10.803444208984729,
+      "exit_code": 0,
+      "log": "reports/audit-20261027/verified-real-repeat.log",
+      "max_rss_bytes": 333217792
+    },
+    {
+      "command": [
+        "riceflow",
+        "run",
+        "--config",
+        "config/real-gq40.yaml",
+        "--out",
+        "reports/audit-20261027/verified-gq40"
+      ],
+      "elapsed_seconds": 6.149005874991417,
+      "exit_code": 0,
+      "log": "reports/audit-20261027/verified-gq40.log",
+      "max_rss_bytes": 382812160
+    }
+  ],
+  "previous_index": "reports/audit-20261027/previous-validation-summary.json",
+  "real": {
+    "repeat": "reports/audit-20261027/verified-real-repeat",
+    "run": "reports/audit-20261027/verified-real",
     "status": "SUCCESS"
   },
-  "terraform": "VALIDATE_PASS_NOT_DEPLOYED",
-  "visual_qa": "BLOCKED_NO_BROWSER"
+  "recovery": {
+    "cached_tasks": 2,
+    "changed": "reports/audit-20261027/recovery-479558bf/changed",
+    "code_probe": {
+      "biological_outputs_equivalent": true,
+      "cached_tasks": 0,
+      "policy_unchanged": true,
+      "run": "reports/audit-20261027/recovery-479558bf/code-changed"
+    },
+    "failed": "reports/audit-20261027/recovery-479558bf/failed",
+    "policy_change_cached_tasks": 0,
+    "resumed": "reports/audit-20261027/recovery-479558bf/resumed"
+  },
+  "reproducibility": {
+    "artifact_comparisons": 31,
+    "equivalent": true,
+    "evidence": "reports/audit-20261027/verified-semantic.json",
+    "fingerprints_equal": true
+  },
+  "source_context": "reports/audit-20261027/vcf-source-context.json",
+  "status": "CLOUD_REAL_DATA_VALIDATED_AND_COMPUTE_STOPPED",
+  "synthetic": {
+    "run": "reports/audit-20261027/verified-synthetic",
+    "status": "SUCCESS"
+  },
+  "task_tools": {
+    "cohort": "PLINK v2.0.0-a.6.16LM 64-bit Intel (9 Jun 2025)\n",
+    "vcf": "bcftools 1.21\nUsing htslib 1.21\nCopyright (C) 2024 Genome Research Ltd.\nLicense Expat: The MIT/Expat license\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\nsamtools 1.21\nUsing htslib 1.21\nCopyright (C) 2024 Genome Research Ltd.\n\nSamtools compilation details:\n    Features:       build=configure curses=no \n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2\n    LDFLAGS:        \n    HTSDIR:         htslib-1.21\n    LIBS:           \n    CURSES_LIB:     \n\nHTSlib compilation details:\n    Features:       build=configure libcurl=yes S3=yes GCS=yes libdeflate=no lzma=yes bzip2=yes plugins=no htscodecs=1.6.1\n    CC:             gcc\n    CPPFLAGS:       \n    CFLAGS:         -Wall -g -O2 -fvisibility=hidden\n    LDFLAGS:        -fvisibility=hidden \n\nHTSlib URL scheme handlers present:\n    built-in:\t file, preload, data\n    S3 Multipart Upload:\t s3w+https, s3w+http, s3w\n    Amazon S3:\t s3+https, s3, s3+http\n    Google Cloud Storage:\t gs+http, gs+https, gs\n    libcurl:\t gophers, rtmpe, rtmpte, smtp, rtmpt, ldaps, smb, rtsp, tftp, pop3, smbs, imaps, pop3s, ftps, https, http, ftp, gopher, imap, sftp, ldap, smtps, rtmps, rtmpts, dict, scp, mqtt, telnet, rtmp\n    crypt4gh-needed:\t crypt4gh\n    mem:\t mem\n"
+  },
+  "tests": {
+    "native": 47,
+    "container": 47,
+    "nf_test": 1,
+    "skipped": 0,
+    "ruff": "PASS",
+    "terraform": "DEPLOYED_AND_POST_RUN_PLAN_NO_CHANGES",
+    "evidence": "reports/audit-20261027/cloud-follow-up-local"
+  },
+  "transfer": {
+    "cache_reuse": {
+      "limits": {
+        "full": 1048576,
+        "regional": 16777216
+      },
+      "request_limit": 100,
+      "requests": 10,
+      "scope": "This preflight invocation; cache hits transfer zero data bytes",
+      "used_bytes": {
+        "full": 341320,
+        "regional": 423473
+      }
+    },
+    "historical_accounted_full_payload_bytes": 121344475,
+    "historical_accounted_regional_payload_bytes": 839003,
+    "initial_preflight": {
+      "limits": {
+        "full": 398458880,
+        "regional": 16777216
+      },
+      "request_limit": 100,
+      "requests": 11,
+      "scope": "This preflight invocation; cache hits transfer zero data bytes",
+      "used_bytes": {
+        "full": 121526242,
+        "regional": 423473
+      }
+    }
+  },
+  "vcf": {
+    "gq40": {
+      "quality_counts": {
+        "failed": 1,
+        "not_assessed": 0,
+        "passed": 6,
+        "scope_exclusion": 9994
+      },
+      "run": "reports/audit-20261027/verified-gq40",
+      "stage_counts": {
+        "after_mask_complete_calls": 6,
+        "assessed_sites_after_samples": 7,
+        "eligible_snp_sites": 7,
+        "excluded_samples": 0,
+        "excluded_sites": 1,
+        "observed_records": 10001,
+        "original_complete_calls": 7,
+        "retained_sites": 6
+      }
+    },
+    "observed_records": 10001,
+    "quality_counts": {
+      "failed": 0,
+      "not_assessed": 0,
+      "passed": 7,
+      "scope_exclusion": 9994
+    },
+    "reference_status": "VERIFIED_REGIONAL_BASES",
+    "region": "chr01:1000000-1010000",
+    "scope_counts": {
+      "reference": 9994,
+      "snp": 7,
+      "unsupported": 0
+    },
+    "source_manifest": "reports/audit-20261027/source-manifest.json",
+    "stage_counts": {
+      "after_mask_complete_calls": 7,
+      "assessed_sites_after_samples": 7,
+      "eligible_snp_sites": 7,
+      "excluded_samples": 0,
+      "excluded_sites": 0,
+      "observed_records": 10001,
+      "original_complete_calls": 7,
+      "retained_sites": 7
+    },
+    "status": "PASS"
+  },
+  "visual_qa": "Automated HTML/assets validation; visual browser inspection unexecuted",
+  "historical_tests": {
+    "container": 44,
+    "container_log": "reports/audit-20261027/verified-container-tests.log",
+    "native": 44,
+    "native_log": "reports/audit-20261027/code-cache-tests.log",
+    "nf_test": 1,
+    "ruff": "PASS",
+    "skipped": 0,
+    "terraform": "VALIDATE_PASS_NOT_DEPLOYED"
+  },
+  "historical_image": {
+    "id": "sha256:6c41015bad0b818a8c27ed6acd6299de220352204efde571660d45a9c350a322",
+    "logical_bytes": 362324038,
+    "platform": "linux/amd64",
+    "repository_digest": null,
+    "source_matched_workspace": true
+  },
+  "current_source_validation": {
+    "run": "reports/aws-demo-20261027/local-v2-real",
+    "artifact_audit": "reports/audit-20261027/cloud-follow-up-local/local-v2-artifact-audit.json",
+    "semantic": "reports/audit-20261027/cloud-follow-up-local/local-v2-semantic.json",
+    "aws_summary": "reports/aws-demo-20261027-summary.json"
+  }
 }
